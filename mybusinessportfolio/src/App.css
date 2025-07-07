@@ -1,3 +1,22 @@
+.page-header {
+  background-color: #ffffff; /* white background */;
+  border-radius: 8px;
+  color: #000000;
+  font-weight: 700;
+  font-size: 2.4rem;
+  text-align: center;
+  margin: 2rem;
+  padding: 0.5rem;
+  box-shadow: 0 4px 6px #000000; /* black shadow */;
+}
+
+.section {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #000000; /* black text */
+  text-shadow: none;
+}
+
 .App {
   text-align: center;
 }
@@ -47,7 +66,7 @@ footer {
 }
 
 footer a {
-  color: #6a0dad; /* Eggplant purple accent */
+  color: #400669; /* Eggplant purple accent */
   text-decoration: none;
 }
 
@@ -121,13 +140,20 @@ textarea {
 }
 
 .privacy-inline-link {
-  color: #6a0dad;
-  text-decoration: underline;
+  color: #400669;
+  text-decoration: none;
+  font-weight: bold;
   white-space: nowrap; /* Prevent line breaks inside this link */
 }
 
+.privacy-inline-link:hover {
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: underline;
+}
+
 .custom-button {
-  background-color: #6a0dad;
+  background-color: #400669;
   color: #fff;
   border: none;
   padding: 0.75rem;
@@ -138,7 +164,7 @@ textarea {
 }
 
 .custom-button:hover {
-  background-color: #531a8a;
+  background-color: #400669;
 }
 
 .status-message {

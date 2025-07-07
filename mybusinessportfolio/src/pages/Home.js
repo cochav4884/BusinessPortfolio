@@ -5,7 +5,7 @@ function Home() {
   return (
     <div className="container mt-5">
       <div className="text-center">
-        <h1 className="display-4 mb-3">Welcome to Mom & Pop Web Design</h1>
+        <h1 className='page-header'>Welcome to Mom & Pop Web Design</h1>
         <p className="lead mb-4">
           Helping local businesses build simple, beautiful websites that grow their customer base.
         </p>

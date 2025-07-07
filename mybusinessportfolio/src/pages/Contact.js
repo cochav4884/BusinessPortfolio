@@ -90,7 +90,7 @@ function Contact() {
             <h1 className="page-header">Contact Me</h1>
           </header>
           <h2 className="section">
-            * We would love to hear from you! Please fill out the form below. *
+            * I would love to hear from you! Please fill out the form below. *
           </h2>
 
           <section className="container">
@@ -150,12 +150,15 @@ function Contact() {
                     onChange={handleChange}
                     required
                   />
-                  &nbsp;I consent to the processing of my personal data as
-                  described in the{" "}
+                  <span>
+                    I consent to the processing of my personal data as described
+                    in the{" "}
+                    <Link to="/PrivacyPolicy" className="privacy-inline-link">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </span>
                 </label>
-                <Link to="/PrivacyPolicy" className="privacy-inline-link">
-                  Privacy Policy
-                </Link>
 
                 <label className="radio-option">
                   <input
@@ -165,12 +168,15 @@ function Contact() {
                     checked={formData.consentChoice === "no_consent"}
                     onChange={handleChange}
                   />
-                  &nbsp;I do not consent to the processing of my personal data
-                  as described in the{" "}
+                  <span>
+                    I do not consent to the processing of my personal data as
+                    described in the{" "}
+                    <Link to="/PrivacyPolicy" className="privacy-inline-link">
+                      Privacy Policy
+                    </Link>
+                    .
+                  </span>
                 </label>
-                <Link to="/PrivacyPolicy" className="privacy-inline-link">
-                  Privacy Policy
-                </Link>
               </div>
 
               {/* Do Not Sell */}

@@ -8,17 +8,17 @@ function Footer() {
         <p>© {new Date().getFullYear()} Mom & Pop Web Design. All rights reserved.</p>
         <p>
           Created by Corinne Padilla |{" "}
-          <Link to="/contact">
+          <Link to="/contact" className='privacy-inline-link '>
             corinnepadilla@yahoo.com
           </Link>
           |
         </p>
         <p>
-          <Link to="/termsofuse">
+          <Link to="/termsofuse" className='privacy-inline-link '>
             Terms of Use
           </Link>{" "}
           |{" "}
-          <Link to="/privacypolicy">
+          <Link to="/privacypolicy" className='privacy-inline-link '>
             Privacy Policy
           </Link>
         </p>

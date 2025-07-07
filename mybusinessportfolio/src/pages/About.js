@@ -3,7 +3,7 @@ import React from 'react';
 function About() {
   return (
     <div className="container mt-4">
-      <h1>About Mom & Pop Web Design</h1>
+      <h1 className='page-header'>About Mom & Pop Web Design</h1>
       <p>
         Welcome! We specialize in creating simple, beautiful, and functional websites
         tailored specifically for local mom and pop shops. Our goal is to help small businesses
