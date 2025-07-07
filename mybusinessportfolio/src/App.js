@@ -5,8 +5,11 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Services from './pages/Services';
 import Contact from './pages/Contact';
+import TermsOfUse from './pages/TermsofUse';
+import PrivacyPolicy from './pages/PrivacyPolicy';
 import Footer from './components/Footer';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+
 
 function App() {
   return (
@@ -17,6 +20,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/termsofuse" element={<TermsOfUse />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicy />} />
       </Routes>
       <Footer />
     </div>

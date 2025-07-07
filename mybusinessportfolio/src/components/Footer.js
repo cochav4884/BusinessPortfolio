@@ -1,28 +1,31 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <footer style={footerStyle}>
+    <footer>
       <div className="container text-center">
         <p>© {new Date().getFullYear()} Mom & Pop Web Design. All rights reserved.</p>
         <p>
-          Created by Corinne Padilla | Contact: <a href="mailto:corinnepadilla@yahoo.com" style={linkStyle}>corinnepadilla@yahoo.com</a>
+          Created by Corinne Padilla |{" "}
+          <Link to="/contact">
+            corinnepadilla@yahoo.com
+          </Link>
+          |
+        </p>
+        <p>
+          <Link to="/termsofuse">
+            Terms of Use
+          </Link>{" "}
+          |{" "}
+          <Link to="/privacypolicy">
+            Privacy Policy
+          </Link>
         </p>
       </div>
     </footer>
   );
 }
 
-const footerStyle = {
-  backgroundColor: '#000000',
-  color: '#ffffff',
-  padding: '1.5rem 0',
-  marginTop: 'auto',
-};
-
-const linkStyle = {
-  color: '#6a0dad',  // Eggplant purple accent
-  textDecoration: 'none',
-};
 
 export default Footer;

@@ -155,7 +155,7 @@ const TermsOfUse = () => {
           </li>
         </ul>
 
-        <h3>* Last updated June 24, 2025 *</h3>
+        <h3>* Last updated July 7, 2025 *</h3>
 
         <div className="container">
           <ol>
