@@ -9,7 +9,7 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
       <Link className="navbar-brand" to="/">
-        Mom & Pop Web Design
+        Mom & Pop Shop Web Design
       </Link>
       <button
         className="navbar-toggler"
