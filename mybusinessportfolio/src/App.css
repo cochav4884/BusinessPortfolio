@@ -17,6 +17,18 @@
   text-shadow: none;
 }
 
+.subheader {
+  font-size: 1.8rem;
+  margin: 2rem 0 1rem 0;
+  color: #282c34;
+  text-align: center;
+  font-weight: 600;
+}
+
+.container {
+  padding-bottom: 4rem;
+}
+
 .App {
   text-align: center;
 }
@@ -154,7 +166,8 @@ textarea {
 
 .custom-button {
   background-color: #400669;
-  color: #fff;
+  color: #ffffff;
+  text-decoration: none;
   border: none;
   padding: 0.75rem;
   font-size: 1rem;
@@ -164,7 +177,9 @@ textarea {
 }
 
 .custom-button:hover {
-  background-color: #400669;
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: underline;
 }
 
 .status-message {

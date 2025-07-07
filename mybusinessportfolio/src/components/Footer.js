@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer>
       <div className="container text-center">
-        <p>© {new Date().getFullYear()} Mom & Pop Web Design. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Mom & Pop Shop Web Design. All rights reserved.</p>
         <p>
           Created by Corinne Padilla |{" "}
           <Link to="/contact" className='privacy-inline-link '>

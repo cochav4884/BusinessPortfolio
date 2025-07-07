@@ -3,17 +3,17 @@ import React from 'react';
 function About() {
   return (
     <div className="container mt-4">
-      <h1 className='page-header'>About Mom & Pop Web Design</h1>
-      <p>
-        Welcome! We specialize in creating simple, beautiful, and functional websites
-        tailored specifically for local mom and pop shops. Our goal is to help small businesses
+      <h1 className='page-header'>About Mom & Pop Shop Web Design</h1>
+      <p className='subheader'>
+        Welcome! I specialize in creating simple, beautiful, and functional websites
+        tailored specifically for local mom and pop shops. my goal is to help small businesses
         establish a professional online presence without the complexity or cost of larger agencies.
       </p>
-      <p>
+      <p className='subheader'>
         Using modern web technologies like React, HTML, CSS, and JavaScript,
-        we build responsive websites that work well on all devices and help your business grow.
+        I build responsive websites that work well on all devices and help your business grow.
       </p>
-      <p>
+      <p className='subheader'>
         If you’re looking for a reliable partner to create or improve your website,
         you’re in the right place!
       </p>
