@@ -72,7 +72,9 @@ function Contact() {
         });
       } else {
         const errorData = await response.json();
-        setStatus(errorData.message || "Failed to send message. Please try again.");
+        setStatus(
+          errorData.message || "Failed to send message. Please try again."
+        );
       }
     } catch (error) {
       console.error("Error:", error);
@@ -85,7 +87,7 @@ function Contact() {
       <div className="container-fluid">
         <div className="page">
           <header>
-            <h1 className="page-header">Contact Us</h1>
+            <h1 className="page-header">Contact Me</h1>
           </header>
           <h2 className="section">
             * We would love to hear from you! Please fill out the form below. *
@@ -119,11 +121,9 @@ function Contact() {
                   Select a Subject
                 </option>
                 <option value="general">General Question</option>
-                <option value="resident">Resident Feedback</option>
-                <option value="talent">Suggest Local Talent</option>
-                <option value="pastor">Pastor Message</option>
-                <option value="technical">Technical Issue</option>
+                <option value="talent">Suggestion</option>
                 <option value="comment">Comment</option>
+                <option value="technical">Technical Issue</option>
                 <option value="donotsell">Do Not Sell</option>
               </select>
 
@@ -152,11 +152,10 @@ function Contact() {
                   />
                   &nbsp;I consent to the processing of my personal data as
                   described in the{" "}
-                  <Link to="/PrivacyPolicy" className="privacy-inline-link">
-                    Privacy Policy
-                  </Link>
-                  .
                 </label>
+                <Link to="/PrivacyPolicy" className="privacy-inline-link">
+                  Privacy Policy
+                </Link>
 
                 <label className="radio-option">
                   <input
@@ -168,11 +167,10 @@ function Contact() {
                   />
                   &nbsp;I do not consent to the processing of my personal data
                   as described in the{" "}
-                  <Link to="/PrivacyPolicy" className="privacy-inline-link">
-                    Privacy Policy
-                  </Link>
-                  .
                 </label>
+                <Link to="/PrivacyPolicy" className="privacy-inline-link">
+                  Privacy Policy
+                </Link>
               </div>
 
               {/* Do Not Sell */}

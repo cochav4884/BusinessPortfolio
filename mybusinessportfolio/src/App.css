@@ -54,3 +54,103 @@ footer a {
 footer a:hover {
   text-decoration: underline;
 }
+
+/* === Contact Form Styles === */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.radio-container,
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+/* Make the label a flex container to align input and text horizontally */
+/* Also handle wrapped lines aligned properly */
+.radio-option,
+.checkbox-label {
+  display: flex;
+  align-items: flex-start; /* align inputs to top of text */
+  gap: 0.5rem;              /* space between input and label text */
+  font-weight: normal;      /* optional: reset bold if you want */
+  line-height: 1.4;
+}
+
+/* Fixed size inputs, prevent shrinking */
+.radio-option input,
+.checkbox-label input {
+  flex-shrink: 0;
+  margin-top: 0.3rem;  /* align vertically with first line of text */
+  width: 18px;         /* fixed width for inputs */
+  height: 18px;        /* fixed height */
+}
+
+/* Optional: Wrap label text inside span for better control if needed */
+/* Use this if you wrap your label text in <span> in JSX */
+.radio-option span,
+.checkbox-label span {
+  flex: 1;
+}
+
+.radio-label,
+.checkbox-label {
+  font-weight: bold;
+}
+
+.privacy-inline-link {
+  color: #6a0dad;
+  text-decoration: underline;
+  white-space: nowrap; /* Prevent line breaks inside this link */
+}
+
+.custom-button {
+  background-color: #6a0dad;
+  color: #fff;
+  border: none;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #531a8a;
+}
+
+.status-message {
+  margin-top: 1rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.status-success {
+  color: green;
+}
+
+.status-error {
+  color: red;
+}
