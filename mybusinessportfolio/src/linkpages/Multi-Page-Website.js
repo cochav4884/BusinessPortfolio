@@ -7,7 +7,11 @@ export default function MultiPageWebsite() {
   return (
     <div className={styles.container}>
       <nav className={styles.nav}>
-        <h1 className={styles.navTitle}>Retro Photo Shop</h1>
+        <h1 className={styles.title}>
+          <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
+          Retro Photo Shop
+          </a>
+          </h1>
         <ul className={styles.navList}>
           <li>
             <Link to="/multi-page-website">Home</Link>

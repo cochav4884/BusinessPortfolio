@@ -1,7 +1,11 @@
 // src/linkpages/GalleryPage.js
 import React, { useState } from "react";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
-import { retroPhotoImages, photographerImages, clientImages } from "../linkdata/Link-Data";
+import {
+  retroPhotoImages,
+  photographerImages,
+  clientImages,
+} from "../linkdata/Link-Data";
 import { Link } from "react-router-dom";
 
 export default function GalleryPage() {
@@ -11,74 +15,160 @@ export default function GalleryPage() {
   const handleClose = () => setModalImage(null);
 
   const handlePrint = () => {
+    const { src, alt, name, years, about, experience } = modalImage;
     const imgWindow = window.open("", "_blank");
-    imgWindow.document.write(
-      `<img src="${modalImage.src}" style="width:100%" />`
-    );
+
+    imgWindow.document.write(`
+    <html>
+      <head>
+        <title>Print Image</title>
+        <style>
+          body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+          }
+          img {
+            max-width: 100%;
+            height: auto;
+          }
+          .caption {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #333;
+            text-align: left;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+          }
+        </style>
+      </head>
+      <body>
+        <img src="${src}" alt="${alt}" />
+        <div class="caption">
+          <p><strong>${alt}</strong></p>
+          ${name ? `<p><strong>Name:</strong> ${name}</p>` : ""}
+          ${
+            years
+              ? `<p><strong>Time with Retro Photo Shop:</strong> ${years}</p>`
+              : ""
+          }
+          ${about ? `<p><strong>About:</strong> ${about}</p>` : ""}
+          ${
+            experience
+              ? `<p><strong>Experience:</strong> ${experience}</p>`
+              : ""
+          }
+        </div>
+      </body>
+    </html>
+  `);
+
     imgWindow.document.close();
-    imgWindow.focus();
-    imgWindow.print();
+
+    imgWindow.onload = () => {
+      imgWindow.focus();
+      imgWindow.print();
+    };
   };
 
   return (
     <div className={styles.container}>
       <nav className={styles.nav}>
-              <ul className={styles.navList}>
-                <li><Link to="/multi-page-website">Home</Link></li>
-                <li><Link to="/mpw-gallery-page">Gallery</Link></li>
-                <li><Link to="/mpw-booking-page">Booking</Link></li>
-                <li><Link to="/mpw-contact-page">Contact</Link></li>
-              </ul>
-            </nav>
+        <h1 className={styles.title}>
+          <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
+            Retro Photo Shop
+          </a>
+        </h1>
+        <ul className={styles.navList}>
+          <li>
+            <Link to="/multi-page-website">Home</Link>
+          </li>
+          <li>
+            <Link to="/mpw-gallery-page">Gallery</Link>
+          </li>
+          <li>
+            <Link to="/mpw-booking-page">Booking</Link>
+          </li>
+          <li>
+            <Link to="/mpw-contact-page">Contact</Link>
+          </li>
+        </ul>
+      </nav>
+      {/* ===== PAGE TITLE ===== */}
+      <h1 className={styles.pageTitle2}>Gallery</h1>
 
-      <h1 className={styles.header}>Gallery</h1>
-
-      <h2 className={styles.subheader}>Retro Collection</h2>
-      <div className={styles.grid}>
-        {retroPhotoImages.map((img) => (
-          <div
-            key={img.id}
-            className={styles.imageBox}
-            onClick={() => handleOpen(img)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
-          >
-            <img src={img.src} alt={img.alt} />
+      {/* Separate container for features section */}
+      <div className={styles.featuresContainer}>
+        <section className={styles.features}>
+          <div className={styles.featureBox}>
+            <h2 className={styles.subheader}>Retro Collection</h2>
+            <p className={styles.intro}>
+              Example of our business and cameras we have used in the past and
+              now!
+            </p>
+            <div className={styles.galleryGrid}>
+              {retroPhotoImages.map((img) => (
+                <div
+                  key={img.id}
+                  className={styles.imageBox}
+                  onClick={() => handleOpen(img)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
+                >
+                  <img src={img.src} alt={img.alt} />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </section>
       </div>
-
-      <h2 className={styles.subheader}>Photographers</h2>
-      <div className={styles.grid}>
-        {photographerImages.map((img) => (
-          <div
-            key={img.id}
-            className={styles.imageBox}
-            onClick={() => handleOpen(img)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
-          >
-            <img src={img.src} alt={img.alt} />
+      <div className={styles.featuresContainer}>
+        <section className={styles.features}>
+          <div className={styles.featureBox}>
+            <h2 className={styles.subheader}>Photographers</h2>
+            <p className={styles.intro}>
+              Meet our Photographers by clicking on a photo!
+            </p>
+            <div className={styles.galleryGrid}>
+              {photographerImages.map((img) => (
+                <div
+                  key={img.id}
+                  className={styles.imageBox}
+                  onClick={() => handleOpen(img)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
+                >
+                  <img src={img.src} alt={img.alt} />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </section>
       </div>
-
-      <h2 className={styles.subheader}>Clients</h2>
-      <div className={styles.grid}>
-        {clientImages.map((img) => (
-          <div
-            key={img.id}
-            className={styles.imageBox}
-            onClick={() => handleOpen(img)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
-          >
-            <img src={img.src} alt={img.alt} />
+      <div className={styles.featuresContainer}>
+        <section className={styles.features}>
+          <div className={styles.featureBox}>
+            <h2 className={styles.subheader}>Clients</h2>
+            <p className={styles.intro}>Here are some of our repeat clients!</p>
+            <div className={styles.galleryGrid}>
+              {clientImages.map((img) => (
+                <div
+                  key={img.id}
+                  className={styles.imageBox}
+                  onClick={() => handleOpen(img)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
+                >
+                  <img src={img.src} alt={img.alt} />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
+        </section>
       </div>
 
       {modalImage && (
@@ -92,7 +182,27 @@ export default function GalleryPage() {
               alt={modalImage.alt}
               className={styles.enlargedImage}
             />
-            <p className={styles.caption}>{modalImage.alt}</p>
+            <div className={styles.caption}>
+              <p>{modalImage.alt}</p>
+              {modalImage.name && (
+                <>
+                  <p>
+                    <strong>Name:</strong> {modalImage.name}
+                  </p>
+                  <p>
+                    <strong>Time with Retro Photo Shop:</strong>{" "}
+                    {modalImage.years}
+                  </p>
+                  <p>
+                    <strong>About:</strong> {modalImage.about}
+                  </p>
+                  <p>
+                    <strong>Experience:</strong> {modalImage.experience}
+                  </p>
+                </>
+              )}
+            </div>
+
             <div className={styles.buttonRow}>
               <a href={modalImage.src} download className={styles.button}>
                 Download
