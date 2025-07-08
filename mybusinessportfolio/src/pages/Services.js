@@ -49,7 +49,7 @@ const services = [
 function Services() {
   return (
     <div className="container my-5">
-      <h2 className="page-header">Our Services</h2>
+      <h2 className="page-header">My Services</h2>
       <div className="row">
         {services.map(({ title, description, price, link }, index) => (
           <div className="col-md-6 mb-4" key={index}>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 
-function WebsiteRedesign() {
+function WROldWebsiteDesign() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -49,36 +49,9 @@ function WebsiteRedesign() {
             This version was created using only HTML and CSS. It has a basic
             layout, fixed-width design, and limited mobile support.
           </p>
-          <img
-            src="/images/auto-repair-old.png"
-            alt="Old Auto Repair Website Screenshot"
-            className={styles.imgPreview}
-          />
-          <Link to="/wr-old-website-design" className={styles.customButton}>
-            View Original HTML Site
-          </Link>
         </div>
       </section>
 
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>
-          Redesigned Version | 2025 – React, JS, HTML, CSS
-        </h2>
-        <div className={styles.card}>
-          <p>
-            This updated version was built with React and modern CSS, including
-            responsive design, improved accessibility, and a cleaner layout.
-          </p>
-          <img
-            src="/images/auto-repair-new.png"
-            alt="New Auto Repair Website Screenshot"
-            className={styles.imgPreview}
-          />
-          <Link to="/wr-new-website-design" className={styles.customButton}>
-            View React Redesign Version
-          </Link>
-        </div>
-      </section>
       {/* Footer */}
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
@@ -88,4 +61,4 @@ function WebsiteRedesign() {
   );
 }
 
-export default WebsiteRedesign;
+export default WROldWebsiteDesign;
