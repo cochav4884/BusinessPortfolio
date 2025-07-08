@@ -7,8 +7,11 @@ import Services from './pages/Services';
 import Contact from './pages/Contact';
 import TermsOfUse from './pages/TermsofUse';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-import Footer from './components/Footer';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Footer from './components/Footer'; 
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js'; // must be bundle.js (includes Popper)
+
+
 
 
 function App() {

@@ -1,10 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../images/logo_small.jpeg';
 
 function Footer() {
   return (
     <footer>
-      <div className="container text-center">
+       <div className="container text-center">
+        <img
+          src={logo}
+          alt="Mom & Pop Logo"
+          style={{ height: '60px', marginBottom: '15px' }}
+        />
         <p>© {new Date().getFullYear()} Mom & Pop Shop Web Design. All rights reserved.</p>
         <p>
           Created by Corinne Padilla |{" "}
