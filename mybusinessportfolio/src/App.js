@@ -14,6 +14,14 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 // Demo example page (does NOT use global NavBar/Footer)
 import SinglePageWebsite from "./linkpages/Single-Page-Website";
+import MultiPageWebsite from "./linkpages/Multi-Page-Website";
+import MPWGalleryPage from "./mpwpages/MPW-Gallery-Page";
+import MPWBookingPage from "./mpwpages/MPW-Booking-Page";
+import MPWContactPage from "./mpwpages/MPW-Contact-Page";
+import WebsiteDesign from "./linkpages/Website-Redesign";
+import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
+import ContactAndBookingForms from "./linkpages/Contact-Booking-Forms";
+import DomainAndHostingSetup from "./linkpages/Domain-And-Hosting-Setup";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js"; // includes Popper
@@ -85,6 +93,23 @@ function App() {
 
       {/* ✅ Demo Page Route — without site-wide NavBar/Footer */}
       <Route path="/single-page-website" element={<SinglePageWebsite />} />
+      <Route path="/multi-page-website" element={<MultiPageWebsite />} />
+      <Route path="/mpw-gallery-page" element={<MPWGalleryPage />} />
+      <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
+      <Route path="/mpw-contact-page" element={<MPWContactPage />} />
+      <Route path="/website-redesign" element={<WebsiteDesign />} />
+      <Route
+        path="/maintenance-and-updates"
+        element={<MaintenanceAndUpdates />}
+      />
+      <Route
+        path="/contact-and-booking-forms"
+        element={<ContactAndBookingForms />}
+      />
+      <Route
+        path="/domain-and-hosting-setup"
+        element={<DomainAndHostingSetup />}
+      />
     </Routes>
   );
 }

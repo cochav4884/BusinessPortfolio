@@ -14,35 +14,35 @@ const services = [
     description:
       "Up to 5 pages including Home, About, Services, Gallery, and Contact with custom navigation.",
     price: "$500",
-    link: "../linkpages/MultiPageWebsite.js",
+    link: "/multi-page-website",
   },
   {
     title: "Website Redesign",
     description:
       "Modernize your existing website for better mobile support, speed, and user experience.",
     price: "Starting at $400",
-    link: "../linkpages/WebsiteRedesign.js",
+    link: "/website-redesign",
   },
   {
     title: "Maintenance & Updates",
     description:
       "Keep your website fresh and up-to-date with monthly or on-demand edits.",
     price: "Contact for pricing",
-    link: "../linkpages/MaintenanceAndUpdates.js",
+    link: "/maintenance-and-updates",
   },
   {
     title: "Contact & Booking Forms",
     description:
       "Add simple, easy-to-use contact or booking forms to engage your customers.",
     price: "$100",
-    link: "../linkpages/ContactAndBookingForms.js",
+    link: "/contact-and-booking-forms",
   },
   {
     title: "Domain & Hosting Setup",
     description:
       "Assistance with purchasing a domain and setting up free hosting on GitHub Pages or Netlify.",
     price: "$50",
-    link: "../linkpages/domainAndHostingSetup.js",
+    link: "/domain-and-hosting-setup",
   },
 ];
 
