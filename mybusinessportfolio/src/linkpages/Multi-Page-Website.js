@@ -1,29 +1,58 @@
-// src/linkpages/MultiPageWebsite.js
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
 
 export default function MultiPageWebsite() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
+
   return (
     <div className={styles.container}>
+      {/* Navigation Links */}
       <nav className={styles.nav}>
         <h1 className={styles.title}>
           <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
-          Retro Photo Shop
+            Retro Photo Shop
           </a>
-          </h1>
-        <ul className={styles.navList}>
+        </h1>
+
+        {/* Hamburger toggler button */}
+        <button
+          className={styles.hamburger}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+        </button>
+
+        {/* Navigation list */}
+        <ul
+          className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}
+        >
           <li>
-            <Link to="/multi-page-website">Home</Link>
+            <Link to="/multi-page-website" onClick={closeMenu}>
+              Home
+            </Link>
           </li>
           <li>
-            <Link to="/mpw-gallery-page">Gallery</Link>
+            <Link to="/mpw-gallery-page" onClick={closeMenu}>
+              Gallery
+            </Link>
           </li>
           <li>
-            <Link to="/mpw-booking-page">Booking</Link>
+            <Link to="/mpw-booking-page" onClick={closeMenu}>
+              Booking
+            </Link>
           </li>
           <li>
-            <Link to="/mpw-contact-page">Contact</Link>
+            <Link to="/mpw-contact-page" onClick={closeMenu}>
+              Contact
+            </Link>
           </li>
         </ul>
       </nav>
@@ -60,6 +89,7 @@ export default function MultiPageWebsite() {
         </section>
       </div>
 
+      {/* Footer */}
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
         reserved.

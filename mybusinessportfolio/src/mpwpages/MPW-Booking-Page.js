@@ -22,66 +22,86 @@ export default function MPWBookingPage() {
   };
 
   const handleSubmit = async (e) => {
-  e.preventDefault();
+    e.preventDefault();
 
-  try {
-    const response = await fetch("http://localhost:5000/booking", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch("http://localhost:5000/booking", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const data = await response.json();
+      const data = await response.json();
 
-    if (response.ok) {
-      setSubmitted(true);
-      // Optionally clear form or handle success further
-    } else {
-      alert(data.message || "Failed to submit booking. Please try again.");
+      if (response.ok) {
+        setSubmitted(true);
+        // Optionally clear form or handle success further
+      } else {
+        alert(data.message || "Failed to submit booking. Please try again.");
+      }
+    } catch (error) {
+      alert("Error submitting booking. Please check your connection.");
+      console.error("Booking submission error:", error);
     }
-  } catch (error) {
-    alert("Error submitting booking. Please check your connection.");
-    console.error("Booking submission error:", error);
-  }
-};
+  };
 
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const closeMenu = () => setMenuOpen(false);
 
   return (
     <main className={styles.container}>
-      {/* ===== NAVIGATION ===== */}
+      {/* Navigation Links */}
       <nav className={styles.nav}>
         <h1 className={styles.title}>
           <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
             Retro Photo Shop
           </a>
         </h1>
-        <ul className={styles.navList}>
+
+        {/* Hamburger toggler button */}
+        <button
+          className={styles.hamburger}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+          <span className={styles.bar}></span>
+        </button>
+
+        {/* Navigation list */}
+        <ul
+          className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}
+        >
           <li>
-            <Link className={styles.navLink} to="/multi-page-website">
+            <Link to="/multi-page-website" onClick={closeMenu}>
               Home
             </Link>
           </li>
           <li>
-            <Link className={styles.navLink} to="/mpw-gallery-page">
+            <Link to="/mpw-gallery-page" onClick={closeMenu}>
               Gallery
             </Link>
           </li>
           <li>
-            <Link className={styles.navLink} to="/mpw-booking-page">
+            <Link to="/mpw-booking-page" onClick={closeMenu}>
               Booking
             </Link>
           </li>
           <li>
-            <Link className={styles.navLink} to="/mpw-contact-page">
+            <Link to="/mpw-contact-page" onClick={closeMenu}>
               Contact
             </Link>
           </li>
         </ul>
       </nav>
 
-      {/* ===== PAGE TITLE ===== */}
+      {/* Page Title */}
       <h1 className={styles.pageTitle2}>Book Your Photo Session</h1>
       <p className={styles.intro}>
         Choose your preferred date, time, and package below.
@@ -90,7 +110,7 @@ export default function MPWBookingPage() {
         We look forward to capturing your memories!
       </p>
 
-      {/* ===== BOOKING FORM ===== */}
+      {/* Booking Form */}
       {submitted ? (
         <div
           style={{
@@ -222,7 +242,7 @@ export default function MPWBookingPage() {
         </form>
       )}
 
-      {/* ===== FOOTER ===== */}
+      {/* Footer */}
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
         reserved.

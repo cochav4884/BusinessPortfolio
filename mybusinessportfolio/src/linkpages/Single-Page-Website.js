@@ -5,6 +5,7 @@ import styles from "../linkstyles/Single-Page-Website.module.css";
 export default function SinglePageWebsite() {
   return (
     <div className={styles.container}>
+      {/* Navigation */}
       <nav className={styles.nav}>
         <h1 className={styles.navTitle}>Timeless Treasures Antiques</h1>
         <ul className={styles.navList}>
@@ -22,6 +23,7 @@ export default function SinglePageWebsite() {
         </p>
       </header>
 
+      {/* Section Container */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>About Us</h2>
         <p className={styles.paragraph}>
@@ -57,6 +59,7 @@ export default function SinglePageWebsite() {
         </p>
       </section>
 
+      {/* Footer */}
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()} Timeless Treasures Antiques — All
         rights reserved.
