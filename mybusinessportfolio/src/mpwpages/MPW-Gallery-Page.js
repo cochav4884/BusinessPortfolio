@@ -102,8 +102,8 @@ export default function GalleryPage() {
       <div className={styles.featuresContainer}>
         <section className={styles.features}>
           <div className={styles.featureBox}>
-            <h2 className={styles.subheader}>Retro Collection</h2>
-            <p className={styles.intro}>
+            <h2 className={styles.sectionTitle}>Retro Collection</h2>
+            <p className={styles.paragraph}>
               Example of our business and cameras we have used in the past and
               now!
             </p>
@@ -127,8 +127,8 @@ export default function GalleryPage() {
       <div className={styles.featuresContainer}>
         <section className={styles.features}>
           <div className={styles.featureBox}>
-            <h2 className={styles.subheader}>Photographers</h2>
-            <p className={styles.intro}>
+            <h2 className={styles.sectionTitle}>Photographers</h2>
+            <p className={styles.paragraph}>
               Meet our Photographers by clicking on a photo!
             </p>
             <div className={styles.galleryGrid}>
@@ -151,8 +151,8 @@ export default function GalleryPage() {
       <div className={styles.featuresContainer}>
         <section className={styles.features}>
           <div className={styles.featureBox}>
-            <h2 className={styles.subheader}>Clients</h2>
-            <p className={styles.intro}>Here are some of our repeat clients!</p>
+            <h2 className={styles.sectionTitle}>Returning Clients</h2>
+            <p className={styles.paragraph}>Here are some of our repeat clients!</p>
             <div className={styles.galleryGrid}>
               {clientImages.map((img) => (
                 <div

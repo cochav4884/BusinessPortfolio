@@ -21,11 +21,32 @@ export default function MPWBookingPage() {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add form validation or API submission here
-    setSubmitted(true);
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  try {
+    const response = await fetch("http://localhost:5000/booking", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      setSubmitted(true);
+      // Optionally clear form or handle success further
+    } else {
+      alert(data.message || "Failed to submit booking. Please try again.");
+    }
+  } catch (error) {
+    alert("Error submitting booking. Please check your connection.");
+    console.error("Booking submission error:", error);
+  }
+};
+
 
   return (
     <main className={styles.container}>
@@ -37,10 +58,26 @@ export default function MPWBookingPage() {
           </a>
         </h1>
         <ul className={styles.navList}>
-          <li><Link className={styles.navLink} to="/multi-page-website">Home</Link></li>
-          <li><Link className={styles.navLink} to="/mpw-gallery-page">Gallery</Link></li>
-          <li><Link className={styles.navLink} to="/mpw-booking-page">Booking</Link></li>
-          <li><Link className={styles.navLink} to="/mpw-contact-page">Contact</Link></li>
+          <li>
+            <Link className={styles.navLink} to="/multi-page-website">
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navLink} to="/mpw-gallery-page">
+              Gallery
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navLink} to="/mpw-booking-page">
+              Booking
+            </Link>
+          </li>
+          <li>
+            <Link className={styles.navLink} to="/mpw-contact-page">
+              Contact
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -49,7 +86,9 @@ export default function MPWBookingPage() {
       <p className={styles.intro}>
         Choose your preferred date, time, and package below.
       </p>
-      <p className={styles.intro}>We look forward to capturing your memories!</p>
+      <p className={styles.intro}>
+        We look forward to capturing your memories!
+      </p>
 
       {/* ===== BOOKING FORM ===== */}
       {submitted ? (
@@ -64,7 +103,8 @@ export default function MPWBookingPage() {
             fontSize: "1.2rem",
           }}
         >
-          Thank you for booking with us, {formData.name}! We will contact you soon.
+          Thank you for booking with us, {formData.name}! We will contact you
+          soon.
         </div>
       ) : (
         <form
@@ -151,7 +191,9 @@ export default function MPWBookingPage() {
             value={formData.package}
             onChange={handleChange}
           >
-            <option value="" disabled>-- Choose a Package --</option>
+            <option value="" disabled>
+              -- Choose a Package --
+            </option>
             <option value="basic">Basic - 30 min session</option>
             <option value="standard">Standard - 1 hour session</option>
             <option value="deluxe">Deluxe - 2 hour session with prints</option>
@@ -182,7 +224,8 @@ export default function MPWBookingPage() {
 
       {/* ===== FOOTER ===== */}
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Retro Photo Shop — All rights reserved.
+        &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
+        reserved.
       </footer>
     </main>
   );
