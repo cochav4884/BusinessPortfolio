@@ -14,11 +14,19 @@ function WRNewWebsiteDesign() {
       {/* Responsive Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
-          <a href="/">Tony's Auto Repair Shop</a>
+          <Link to="/" className={styles.brandLink}>
+            Tony's Auto Repair Shop
+          </Link>
         </div>
-        <button className={styles.menuToggle} onClick={toggleMenu}>
+        <button
+          className={styles.menuToggle}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
           ☰
         </button>
+
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
           <li>
             <Link to="/website-redesign" className={styles.navItem}>
@@ -46,9 +54,15 @@ function WRNewWebsiteDesign() {
         </h2>
         <div className={styles.card}>
           <p>
-            This updated version was built with React and modern CSS, including
-            responsive design, improved accessibility, and a cleaner layout.
+            This version uses React components, modular CSS for scoped styling,
+            and responsive design using Flexbox and media queries. It is
+            optimized for mobile devices and includes improved accessibility
+            features such as semantic HTML and ARIA support.
           </p>
+
+          <Link to="/website-redesign" className={styles.customButton}>
+            ← Back to Redesign Overview
+          </Link>
         </div>
       </section>
       {/* Footer */}

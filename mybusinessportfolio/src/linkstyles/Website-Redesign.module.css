@@ -22,6 +22,7 @@
   margin-bottom: 3rem;
   text-align: center;
   color: #333333; /* dark gray */
+  padding: 2rem 1rem;
 }
 
 .subheader {
@@ -32,6 +33,9 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: center;    /* center content horizontally */
   background-color: #ffffff;
   border-radius: 10px;
   padding: 2rem;
@@ -44,6 +48,7 @@
 .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
 }
 
 .imgPreview {
@@ -52,6 +57,11 @@
   margin-top: 1rem;
   margin-bottom: 1.5rem;
   border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+}
+
+.imgPreview:hover {
+  transform: scale(1.01);
 }
 
 .customButton {
@@ -127,6 +137,23 @@
   text-decoration: underline;
 }
 
+.customButton:focus,
+.navItem:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}
+
+.brandLink {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.brandLink:hover {
+  color: #ffd700;
+  text-decoration: underline;
+}
+
 /* Show menu toggle on small screens */
 @media (max-width: 768px) {
   .menuToggle {
@@ -154,6 +181,25 @@
   background-color: #1e3a5f;
   color: #ffffff;
   text-align: center;
-  padding: 1rem 2rem;
+  padding: 1.5rem 1rem;
   border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1e3a5f;
+    border-radius: 0 0 8px 8px;
+    padding: 1rem;
+  }
+
+  .showMenu {
+    display: flex;
+  }
+
+  .navItem {
+    padding: 0.5rem 0;
+  }
 }

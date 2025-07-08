@@ -14,11 +14,19 @@ function WROldWebsiteDesign() {
       {/* Responsive Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
-          <a href="/">Tony's Auto Repair Shop</a>
+          <Link to="/" className={styles.brandLink}>
+            Tony's Auto Repair Shop
+          </Link>
         </div>
-        <button className={styles.menuToggle} onClick={toggleMenu}>
+        <button
+          className={styles.menuToggle}
+          onClick={toggleMenu}
+          aria-label="Toggle navigation menu"
+          aria-expanded={menuOpen}
+        >
           ☰
         </button>
+
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
           <li>
             <Link to="/website-redesign" className={styles.navItem}>
@@ -49,6 +57,10 @@ function WROldWebsiteDesign() {
             This version was created using only HTML and CSS. It has a basic
             layout, fixed-width design, and limited mobile support.
           </p>
+
+          <Link to="/website-redesign" className={styles.customButton}>
+            ← Back to Redesign Overview
+          </Link>
         </div>
       </section>
 
