@@ -56,6 +56,12 @@ function WebsiteRedesign() {
         </ul>
       </nav>
 
+      <div className={styles.slogan}>
+        <p>
+          “Classic since 1978 — where old-school pride meets modern quality!”
+        </p>
+      </div>
+      
       <DesignCard
         title="Original Design | 1978 – HTML & CSS"
         description="This version was created using only HTML and CSS. It has a basic layout, fixed-width design, and limited mobile support."

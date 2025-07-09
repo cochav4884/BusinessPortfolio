@@ -75,6 +75,7 @@ function WRNewGallery() {
 
       <section className={styles.section}>
         <h2 className={styles.subheader}>Work in Progress</h2>
+        
         <div className={styles.screenshotContainer}>
           <img src={job1} alt="Car Engine Repair" />
           <img src={job2} alt="Brake Replacement" />

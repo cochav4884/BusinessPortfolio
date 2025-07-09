@@ -54,13 +54,15 @@ nav a:hover {
   text-decoration: underline;
 }
 
+main {
+  line-height: 1.6;
+}
+
 main h2 {
   font-size: 1.8rem;
   margin-bottom: 15px;
   border-bottom: 2px solid #003366;
   padding-bottom: 5px;
-  line-height: 1.6;
-  text-align: center;
 }
 
 main p {
@@ -111,28 +113,4 @@ footer {
   ul {
     margin-left: 10px;
   }
-}
-
-.image-row {
-  display: flex;
-  gap: 10px; /* space between images */
-  justify-content: center; /* center horizontally */
-  margin: 20px 0;
-}
-
-.image-row img {
-  width: 48%; /* adjust width to fit two side by side with some gap */
-  height: auto;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
-}
-
-.slogan {
-  font-weight: bold;
-  font-style: italic;
-  text-align: center;
-  margin-top: 30px;
-  font-size: 1.2rem;
-  color: #003366;
-  text-shadow: 1px 1px 1px #ccc;
 }

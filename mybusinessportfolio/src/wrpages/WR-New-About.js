@@ -68,8 +68,16 @@ function WRNewAbout() {
         </p>
 
         <div className={styles.screenshotContainer}>
-          <img src={shopImg} alt="Tony working on a car" />
-          <img src={workerImg} alt="Another worker in the shop" />
+          <div className={styles.imageWrapper}>
+            <img src={shopImg} alt="Tony working on a car" />
+            <span className={styles.caption}>
+              Tony's Auto Repair Shop | Established 1978
+            </span>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img src={workerImg} alt="Tony Auto, Founder and Owner" />
+            <span className={styles.caption}>Tony Auto | Founder and Owner</span>
+          </div>
         </div>
 
         <p>
@@ -80,6 +88,39 @@ function WRNewAbout() {
           “Driven by trust, powered by experience!”
         </p>
       </section>
+
+      <div className={styles.slogan2}>
+        <h4>We offer a variety of auto repair services:</h4>
+
+        <div className={styles.serviceLists}>
+          <ul>
+            <li>Car Engine Repair</li>
+            <li>Brake Replacement</li>
+            <li>Oil Change</li>
+            <li>Tire Servie</li>
+          </ul>
+          <ul>
+            <li>Minor Body Repair</li>
+            <li>Fluid Topping with Fluid Check</li>
+            <li>Undercarage Sealant</li>
+            <li>Protective Top Paint Coating</li>
+          </ul>
+          <ul>
+            <li>Payment Plans</li>
+            <li>Income-Based Loans</li>
+            <li>Contracted Personal Loans</li>
+            <li>One-Time Payment Deferment</li>
+          </ul>
+        </div>
+
+        <h5>Check out our Gallery page located in the navbar!</h5>
+        <button
+          className={styles.backToTop}
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          ↑ Back to Top
+        </button>
+      </div>
 
       <footer className={styles.footer}>
         &copy; 1978 Tony's Auto Repair Shop — All rights reserved.

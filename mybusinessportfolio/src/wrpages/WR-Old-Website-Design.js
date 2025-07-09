@@ -52,7 +52,7 @@ function WROldWebsiteDesign() {
         </ul>
       </nav>
 
-      <h1 className={styles.pageHeader}>Tony's Auto Repair Shop</h1>
+      
 
       <section className={styles.section}>
         <h2 className={styles.subheader}>
