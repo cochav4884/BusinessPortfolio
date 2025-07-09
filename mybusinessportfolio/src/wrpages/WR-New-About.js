@@ -76,7 +76,9 @@ function WRNewAbout() {
           </div>
           <div className={styles.imageWrapper}>
             <img src={workerImg} alt="Tony Auto, Founder and Owner" />
-            <span className={styles.caption}>Tony Auto | Founder and Owner</span>
+            <span className={styles.caption}>
+              Tony Auto | Founder and Owner
+            </span>
           </div>
         </div>
 

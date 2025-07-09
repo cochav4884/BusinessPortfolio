@@ -18,40 +18,44 @@ function WROldWebsiteDesign() {
   return (
     <div className={styles.container}>
       {/* Responsive Navbar */}
-      <nav className={styles.navbar}>
-        <div className={styles.navbarBrand}>
-          <Link to="/" className={styles.brandLink}>
-            Tony's Auto Repair Shop
-          </Link>
-        </div>
-        <button
-          className={styles.menuToggle}
-          onClick={toggleMenu}
-          aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
-        >
-          ☰
-        </button>
-
-        <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
-          <li>
-            <Link to="/website-redesign" className={styles.navItem}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/wr-old-website-design" className={styles.navItem}>
-              Old
-            </Link>
-          </li>
-          <li>
-            <Link to="/wr-new-website-design" className={styles.navItem}>
-              New
-            </Link>
-          </li>
-        </ul>
-      </nav>
-
+           <nav className={styles.navbar}>
+             <div className={styles.navbarBrand}>
+               <Link to="/" className={styles.brandLink}>
+                 Tony's Auto Repair Shop
+               </Link>
+             </div>
+             <button
+               className={styles.menuToggle}
+               onClick={toggleMenu}
+               aria-label="Toggle navigation menu"
+               aria-expanded={menuOpen}
+             >
+               ☰
+             </button>
+     
+             <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
+               <li>
+                 <Link to="/website-redesign" className={styles.navItem}>
+                   Home
+                 </Link>
+               </li>
+               <li>
+                 <Link to="/wr-new-about" className={styles.navItem}>
+                   About
+                 </Link>
+               </li>
+               <li>
+                 <Link to="/wr-new-gallery" className={styles.navItem}>
+                   Gallery
+                 </Link>
+               </li>
+               <li>
+                 <Link to="/wr-new-contact" className={styles.navItem}>
+                   Contact
+                 </Link>
+               </li>
+             </ul>
+           </nav>
       
 
       <section className={styles.section}>

@@ -5,7 +5,7 @@ import DesignCard from "../components/DesignCard";
 
 /* Images from WR-Link-Images */
 import oldauto from "../wrlinkimages/old-shop2.jpg";
-import newauto7 from "../wrlinkimages/new-auto7.jpg";
+import newauto4 from "../wrlinkimages/new-auto4.jpg";
 
 function WebsiteRedesign() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -68,15 +68,15 @@ function WebsiteRedesign() {
         image={oldauto}
         altText="Screenshot of Tony's original 1978 auto repair website design"
         linkTo="/wr-old-website-design"
-        buttonText="View Original HTML Site"
+        buttonText="View HTML Website Design"
       />
 
       <DesignCard
         title="Redesigned Version | 2025 – React, JS, HTML, CSS"
         description=" This version uses React components, modular CSS for scoped styling, and responsive design using Flexbox and media queries. It is optimized for mobile devices and includes improved accessibility features such as semantic HTML and ARIA support."
-        image={newauto7}
+        image={newauto4}
         altText="Screenshot of Tony's 2025 auto repair website redesign"
-        linkTo="/wr-new-website-design"
+        linkTo="/wr-new-about"
         buttonText="View React Redesign Version"
       />
 

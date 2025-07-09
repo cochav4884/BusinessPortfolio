@@ -1,10 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
-
-import worker1 from "../wrlinkimages/old-worker4.jpg";
-import worker2 from "../wrlinkimages/auto-contract3.jpg";
-import worker3 from "../wrlinkimages/auto-discuss.jpg";
+import employeeData from "../linkdata/WRData";
 
 import job1 from "../wrlinkimages/new-worker6.jpg";
 import job2 from "../wrlinkimages/new-worker2.jpg";
@@ -66,16 +63,26 @@ function WRNewGallery() {
           “Serving Trust, One Car at a Time — Since '78!”
         </p>
 
-        <div className={styles.screenshotContainer}>
-          <img src={worker1} alt="Tony Auto - Senior Mechanic" />
-          <img src={worker2} alt="Mary Smith - Service Advisor" />
-          <img src={worker3} alt="David Lee - Brake Specialist" />
+        <div className={styles.flipCardContainer}>
+          {employeeData.map((member, index) => (
+            <div className={styles.flipCard} key={index}>
+              <div className={styles.flipCardInner}>
+                <div className={styles.flipCardFront}>
+                  <img src={member.image} alt={member.name} />
+                </div>
+                <div className={styles.flipCardBack}>
+                  <h3>{member.name}</h3>
+                  <h4>{member.title}</h4>
+                  <p>{member.description}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
       <section className={styles.section}>
         <h2 className={styles.subheader}>Work in Progress</h2>
-        
         <div className={styles.screenshotContainer}>
           <img src={job1} alt="Car Engine Repair" />
           <img src={job2} alt="Brake Replacement" />
