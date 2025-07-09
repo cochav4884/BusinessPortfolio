@@ -23,7 +23,9 @@ import MPWContactPage from "./mpwpages/MPW-Contact-Page";
 /* Website Redesign */
 import WebsiteRedesign from "./linkpages/Website-Redesign";
 import WROldWebsiteDesign from "./wrpages/WR-Old-Website-Design";
-import WRNewWebsiteDesign from "./wrpages/WR-New-Website-Design";
+import WRNewAbout from "./wrpages/WR-New-About";
+import WRNewGallery from "./wrpages/WR-New-Gallery";
+import WRNewContact from "./wrpages/WR-New-Contact";
 /* Maintenance & Updates */
 import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
 /* Contact & Booking Forms */
@@ -110,7 +112,9 @@ function App() {
       {/* Website Redesign */}
       <Route path="/website-redesign" element={<WebsiteRedesign />} />
       <Route path="/wr-old-website-design" element={<WROldWebsiteDesign />} />
-      <Route path="/wr-new-website-design" element={<WRNewWebsiteDesign />} />
+      <Route path="/wr-new-about" element={<WRNewAbout />} />
+      <Route path="/wr-new-gallery" element={<WRNewGallery />} />
+      <Route path="/wr-new-contact" element={<WRNewContact />} />
       {/* Maintenance & Updates */}
       <Route
         path="/maintenance-and-updates"

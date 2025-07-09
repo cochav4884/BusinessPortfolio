@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 
-function WRNewWebsiteDesign() {
+function WRNewContact() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -34,44 +34,55 @@ function WRNewWebsiteDesign() {
             </Link>
           </li>
           <li>
-            <Link to="/wr-old-website-design" className={styles.navItem}>
-              Old
+            <Link to="/wr-new-about" className={styles.navItem}>
+              About
             </Link>
           </li>
           <li>
-            <Link to="/wr-new-website-design" className={styles.navItem}>
-              New
+            <Link to="/wr-new-gallery" className={styles.navItem}>
+              Gallery
+            </Link>
+          </li>
+          <li>
+            <Link to="/wr-new-contact" className={styles.navItem}>
+              Contact
             </Link>
           </li>
         </ul>
       </nav>
 
-      <h1 className={styles.pageHeader}>Tony's Auto Repair Shop</h1>
-
       <section className={styles.section}>
-        <h2 className={styles.subheader}>
-          Redesigned Version | 2025 – React, JS, HTML, CSS
-        </h2>
-        <div className={styles.card}>
-          <p>
-            This version uses React components, modular CSS for scoped styling,
-            and responsive design using Flexbox and media queries. It is
-            optimized for mobile devices and includes improved accessibility
-            features such as semantic HTML and ARIA support.
-          </p>
+        <h2 className={styles.subheader}>Contact Information</h2>
 
-          <Link to="/website-redesign" className={styles.customButton}>
-            ← Back to Redesign Overview
-          </Link>
-        </div>
+        <p>
+          <strong>Contact Person:</strong> Tony Auto
+        </p>
+        <p>
+          <strong>Contact Number:</strong> (023) 456-7890
+        </p>
+        <p>
+          <strong>Business Hours:</strong>
+        </p>
+        <ul>
+          <li>Monday - Friday: 8:00am to 5:00pm</li>
+          <li>Saturday: 12:00pm to 4:00pm</li>
+          <li>Closed Sunday and Holidays</li>
+        </ul>
+        <p>
+          <strong>Email Address:</strong>{" "}
+          <a href="mailto:TonyAuto@Example.com">TonyAuto@Example.com</a>
+        </p>
+
+        <p className={styles.slogan}>
+          “We don't just fix cars—we keep your wheels rollin'!”
+        </p>
       </section>
-      {/* Footer */}
+
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
-        reserved.
+        &copy; 1978 Tony's Auto Repair Shop — All rights reserved.
       </footer>
     </div>
   );
 }
 
-export default WRNewWebsiteDesign;
+export default WRNewContact;

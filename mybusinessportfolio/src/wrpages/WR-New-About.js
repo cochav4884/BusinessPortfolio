@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
-import DesignCard from "../components/DesignCard";
+import shopImg from "../wrlinkimages/old-shop2.jpg";
+import workerImg from "../wrlinkimages/old-worker3.jpg";
 
-/* Images from WR-Link-Images */
-import oldauto from "../wrlinkimages/old-shop2.jpg";
-import newauto7 from "../wrlinkimages/new-auto7.jpg";
+import { useState } from "react";
 
-function WebsiteRedesign() {
+function WRNewAbout() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -56,31 +55,37 @@ function WebsiteRedesign() {
         </ul>
       </nav>
 
-      <DesignCard
-        title="Original Design | 1978 – HTML & CSS"
-        description="This version was created using only HTML and CSS. It has a basic layout, fixed-width design, and limited mobile support."
-        image={oldauto}
-        altText="Screenshot of Tony's original 1978 auto repair website design"
-        linkTo="/wr-old-website-design"
-        buttonText="View Original HTML Site"
-      />
+      <section className={styles.section}>
+        <h2 className={styles.subheader}>Established | 1978</h2>
+        <p>Welcome to Tony's Auto Repair Shop — where quality meets honesty!</p>
+        <p>
+          Many of our customers keep coming back because they know good work
+          means a safe ride.
+        </p>
+        <p>
+          Come on down and meet our friendly staff — experience service that
+          goes the extra mile, at prices that won’t break the bank!
+        </p>
 
-      <DesignCard
-        title="Redesigned Version | 2025 – React, JS, HTML, CSS"
-        description=" This version uses React components, modular CSS for scoped styling, and responsive design using Flexbox and media queries. It is optimized for mobile devices and includes improved accessibility features such as semantic HTML and ARIA support."
-        image={newauto7}
-        altText="Screenshot of Tony's 2025 auto repair website redesign"
-        linkTo="/wr-new-website-design"
-        buttonText="View React Redesign Version"
-      />
+        <div className={styles.screenshotContainer}>
+          <img src={shopImg} alt="Tony working on a car" />
+          <img src={workerImg} alt="Another worker in the shop" />
+        </div>
 
-      {/* Footer */}
+        <p>
+          I’m not just one of the mechanics... I’m Tony, founder and proud owner
+          of Tony's Auto Repair Shop.
+        </p>
+        <p className={styles.slogan}>
+          “Driven by trust, powered by experience!”
+        </p>
+      </section>
+
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
-        reserved.
+        &copy; 1978 Tony's Auto Repair Shop — All rights reserved.
       </footer>
     </div>
   );
 }
 
-export default WebsiteRedesign;
+export default WRNewAbout;

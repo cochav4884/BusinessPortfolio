@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
-import DesignCard from "../components/DesignCard";
 
-/* Images from WR-Link-Images */
-import oldauto from "../wrlinkimages/old-shop2.jpg";
-import newauto7 from "../wrlinkimages/new-auto7.jpg";
+import worker1 from "../wrlinkimages/old-worker4.jpg";
+import worker2 from "../wrlinkimages/auto-contract3.jpg";
+import worker3 from "../wrlinkimages/auto-discuss.jpg";
 
-function WebsiteRedesign() {
+import job1 from "../wrlinkimages/new-worker6.jpg";
+import job2 from "../wrlinkimages/new-worker2.jpg";
+import job3 from "../wrlinkimages/old-worker2.jpg";
+import job4 from "../wrlinkimages/old-worker.jpg";
+
+function WRNewGallery() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
@@ -56,31 +60,34 @@ function WebsiteRedesign() {
         </ul>
       </nav>
 
-      <DesignCard
-        title="Original Design | 1978 – HTML & CSS"
-        description="This version was created using only HTML and CSS. It has a basic layout, fixed-width design, and limited mobile support."
-        image={oldauto}
-        altText="Screenshot of Tony's original 1978 auto repair website design"
-        linkTo="/wr-old-website-design"
-        buttonText="View Original HTML Site"
-      />
+      <section className={styles.section}>
+        <h2 className={styles.subheader}>Meet Our Team</h2>
+        <p className={styles.slogan}>
+          “Serving Trust, One Car at a Time — Since '78!”
+        </p>
 
-      <DesignCard
-        title="Redesigned Version | 2025 – React, JS, HTML, CSS"
-        description=" This version uses React components, modular CSS for scoped styling, and responsive design using Flexbox and media queries. It is optimized for mobile devices and includes improved accessibility features such as semantic HTML and ARIA support."
-        image={newauto7}
-        altText="Screenshot of Tony's 2025 auto repair website redesign"
-        linkTo="/wr-new-website-design"
-        buttonText="View React Redesign Version"
-      />
+        <div className={styles.screenshotContainer}>
+          <img src={worker1} alt="Tony Auto - Senior Mechanic" />
+          <img src={worker2} alt="Mary Smith - Service Advisor" />
+          <img src={worker3} alt="David Lee - Brake Specialist" />
+        </div>
+      </section>
 
-      {/* Footer */}
+      <section className={styles.section}>
+        <h2 className={styles.subheader}>Work in Progress</h2>
+        <div className={styles.screenshotContainer}>
+          <img src={job1} alt="Car Engine Repair" />
+          <img src={job2} alt="Brake Replacement" />
+          <img src={job3} alt="Oil Change" />
+          <img src={job4} alt="Tire Service" />
+        </div>
+      </section>
+
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
-        reserved.
+        &copy; 2025 Tony's Auto Repair Shop — All rights reserved.
       </footer>
     </div>
   );
 }
 
-export default WebsiteRedesign;
+export default WRNewGallery;
