@@ -4,7 +4,7 @@ import styles from "../linkstyles/Website-Redesign.module.css";
 import DesignCard from "../components/DesignCard";
 
 /* Images from WR-Link-Images */
-import oldauto from "../wrlinkimages/old-auto.jpg";
+import oldauto from "../wrlinkimages/old-shop2.jpg";
 import newauto7 from "../wrlinkimages/new-auto7.jpg";
 
 function WebsiteRedesign() {
