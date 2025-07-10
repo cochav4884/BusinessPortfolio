@@ -42,6 +42,7 @@
   padding: 80px 20px; /* give room for hero */
   border-radius: 8px;
   box-shadow: 0 0 20px var(--accent-taupe);
+  opacity: .90;
 }
 
 .header h1,
@@ -76,6 +77,7 @@
   box-shadow: 0 0 15px var(--accent-taupe);
   color: var(--text-secondary);
   border: 1px solid var(--accent-taupe);
+  opacity: .70;
 }
 
 .sectionTitle {
@@ -132,6 +134,7 @@ a:hover {
   color: var(--text-primary);
   padding: 20px 15px;
   border-bottom: 2px solid var(--accent-taupe);
+  opacity: .70;
 }
 
 .navTitle {
@@ -170,6 +173,7 @@ a:hover {
   color: var(--text-primary);
   padding: 20px 15px;
   border-bottom: 2px solid var(--accent-taupe);
+  opacity: .70;
 }
 
 /* Call to Action Button */
@@ -264,3 +268,66 @@ a:hover {
     gap: 20px;
   }
 }
+
+/* Clickable image */
+.clickableImage {
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+.clickableImage:hover {
+  transform: scale(1.05);
+}
+
+/* Modal Styles */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  background-color: #fff8e7;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 0 20px var(--accent-taupe);
+  text-align: center;
+}
+
+.modalImage {
+  width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.modalCaption {
+  margin-top: 10px;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+.closeButton {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+.closeButton:hover {
+  color: var(--link-color);
+}
+
