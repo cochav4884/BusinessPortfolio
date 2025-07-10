@@ -2,7 +2,7 @@ import React from 'react';
 
 function About() {
   return (
-    <div className="container mt-4">
+    <div className="container-fluid">
       <h1 className='page-header'>About Mom & Pop Shop Web Design</h1>
       <p className='subheader'>
         Welcome! I specialize in creating simple, beautiful, and functional websites

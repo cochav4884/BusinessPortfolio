@@ -48,7 +48,7 @@ const services = [
 
 function Services() {
   return (
-    <div className="container my-5">
+    <div className="container-fluid">
       <h2 className="page-header">My Services</h2>
       <div className="row">
         {services.map(({ title, description, price, link }, index) => (
