@@ -84,10 +84,22 @@ function WRNewGallery() {
       <section className={styles.section}>
         <h2 className={styles.subheader}>Work in Progress</h2>
         <div className={styles.screenshotContainer}>
-          <img src={job1} alt="Car Engine Repair" />
-          <img src={job2} alt="Brake Replacement" />
-          <img src={job3} alt="Oil Change" />
-          <img src={job4} alt="Tire Service" />
+          <div className={styles.imageWrapper}>
+            <img src={job1} alt="Car Engine Repair" />
+            <div className={styles.caption}>Car Engine Repair</div>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img src={job2} alt="Brake Replacement" />
+            <div className={styles.caption}>Brake Replacement</div>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img src={job3} alt="Oil Change" />
+            <div className={styles.caption}>Oil Change</div>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img src={job4} alt="Tire Service" />
+            <div className={styles.caption}>Tire Service</div>
+          </div>
         </div>
       </section>
 
