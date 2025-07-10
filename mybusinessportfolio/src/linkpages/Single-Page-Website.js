@@ -1,6 +1,71 @@
-// src/linkpages/SinglePageWebsite.js
 import React from "react";
 import styles from "../linkstyles/Single-Page-Website.module.css";
+import CollectionPreview from "../components/CollectionPreview";
+
+// === Imported images ===
+import furniture from "../spimages/furniture.jpg";
+import furniture2 from "../spimages/furniture2.jpg";
+import furniture3 from "../spimages/furniture3.jpg";
+
+import jewlery from "../spimages/jewlery.jpg";
+import jewlery2 from "../spimages/jewlery2.jpg";
+import jewlery3 from "../spimages/jewlery3.jpg";
+
+import porcelain from "../spimages/porcelain.jpg";
+import porcelain2 from "../spimages/porcelain2.jpg";
+import porcelain3 from "../spimages/porcelain3.jpg";
+
+import decor from "../spimages/decor.jpg";
+import decor2 from "../spimages/decor2.jpg";
+import decor3 from "../spimages/decor3.jpg";
+
+import books from "../spimages/books.jpg";
+import books2 from "../spimages/books2.jpg";
+import books3 from "../spimages/books3.jpg";
+
+// === Collection Data ===
+const collections = [
+  {
+    name: "Victorian Era Furniture",
+    images: [
+      { src: furniture, caption: "Victorian Settee" },
+      { src: furniture2, caption: "Victorian Drawing Room Set" },
+      { src: furniture3, caption: "Victorian Parlor Table" },
+    ],
+  },
+  {
+    name: "Art Deco Jewelry",
+    images: [
+      { src: jewlery, caption: "Art Deco Pendant" },
+      { src: jewlery2, caption: "Art Deco Jewlery Set" },
+      { src: jewlery3, caption: "Art Deco Silver Lace Earrings" },
+    ],
+  },
+  {
+    name: "Classic Porcelain & Ceramics",
+    images: [
+      { src: porcelain, caption: "Blue Porcelain Vase Set" },
+      { src: porcelain2, caption: "Antique Vase Set" },
+      { src: porcelain3, caption: "Painted Ceramic Tea Set" },
+    ],
+  },
+  {
+    name: "Retro Home Decor",
+    images: [
+      { src: decor, caption: "Retro Lamp" },
+      { src: decor2, caption: "Retro Table Clock" },
+      { src: decor3, caption: "Retro Vanity Mirror" },
+    ],
+  },
+  {
+    name: "Rare Vintage Books",
+    images: [
+      { src: books, caption: "Leather-Bound Novels" },
+      { src: books2, caption: "Classic Poetry" },
+      { src: books3, caption: "Collector’s Set" },
+    ],
+  },
+];
 
 export default function SinglePageWebsite() {
   return (
@@ -16,6 +81,8 @@ export default function SinglePageWebsite() {
           </li>
         </ul>
       </nav>
+
+      {/* Header */}
       <header className={styles.header}>
         <h1 className={styles.title}>Timeless Treasures Antiques</h1>
         <p className={styles.tagline}>
@@ -23,7 +90,7 @@ export default function SinglePageWebsite() {
         </p>
       </header>
 
-      {/* Section Container */}
+      {/* About Us */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>About Us</h2>
         <p className={styles.paragraph}>
@@ -32,17 +99,17 @@ export default function SinglePageWebsite() {
         </p>
       </section>
 
+      {/* Featured Collections */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Featured Collections</h2>
         <ul className={styles.list}>
-          <li>Victorian Era Furniture</li>
-          <li>Art Deco Jewelry</li>
-          <li>Classic Porcelain & Ceramics</li>
-          <li>Retro Home Decor</li>
-          <li>Rare Vintage Books</li>
+          {collections.map((collection, i) => (
+            <CollectionPreview key={i} collection={collection} />
+          ))}
         </ul>
       </section>
 
+      {/* Visit Us */}
       <section className={styles.section}>
         <h2 className={styles.sectionTitle}>Visit Us</h2>
         <p className={styles.paragraph}>
@@ -50,7 +117,8 @@ export default function SinglePageWebsite() {
           <br />
           <strong>Address:</strong> 123 Heritage Lane, Oldtown
           <br />
-          <strong>Hours:</strong> Mon-Fri: 10am - 6pm | Sat: 11am - 4pm
+        
+          <strong>Hours:</strong> Mon–Fri: 10am – 6pm | Sat: 11am – 4pm
           <br />
           <strong>Contact:</strong> (555) 123-4567 |{" "}
           <a className={styles.link} href="mailto:info@timelesstreasures.com">
