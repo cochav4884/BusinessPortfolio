@@ -25,6 +25,7 @@ import WebsiteRedesign from "./linkpages/Website-Redesign";
 import WROldWebsiteDesign from "./wrpages/WR-Old-Website-Design";
 import WRNewAbout from "./wrpages/WR-New-About";
 import WRNewGallery from "./wrpages/WR-New-Gallery";
+import WRNewService from "./wrpages/WR-New-Service";
 import WRNewContact from "./wrpages/WR-New-Contact";
 /* Maintenance & Updates */
 import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
@@ -114,6 +115,7 @@ function App() {
       <Route path="/wr-old-website-design" element={<WROldWebsiteDesign />} />
       <Route path="/wr-new-about" element={<WRNewAbout />} />
       <Route path="/wr-new-gallery" element={<WRNewGallery />} />
+      <Route path="/wr-new-service" element={<WRNewService />} />
       <Route path="/wr-new-contact" element={<WRNewContact />} />
       {/* Maintenance & Updates */}
       <Route

@@ -48,6 +48,11 @@ function WRNewAbout() {
             </Link>
           </li>
           <li>
+            <Link to="/wr-new-service" className={styles.navItem}>
+              Service
+            </Link>
+          </li>
+          <li>
             <Link to="/wr-new-contact" className={styles.navItem}>
               Contact
             </Link>
@@ -131,8 +136,44 @@ function WRNewAbout() {
         </button>
       </div>
 
+      {/* Footer */}
       <footer className={styles.footer}>
-        &copy; 1978 Tony's Auto Repair Shop — All rights reserved.
+        <div>
+          &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
+          reserved.
+        </div>
+
+        <div
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+        >
+          <h2>Contact Information</h2>
+          <p>
+            <strong>Contact Person:</strong> Tony Auto
+          </p>
+          <p>
+            <strong>Contact Number:</strong> (023) 456-7890
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
+            <li>Monday - Friday: 8:00am to 5:00pm</li>
+            <li>Saturday: 12:00pm to 4:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email Address:</strong>{" "}
+            <a href="mailto:TonyAuto@Example.com" style={{ color: "#ffd700" }}>
+              TonyAuto@Example.com
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   );

@@ -6,9 +6,13 @@ export default function Contact() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phone: "",
     subject: "",
     message: "",
   });
+
+  const [status, setStatus] = useState(null); // null, "success", "error"
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -17,10 +21,41 @@ export default function Contact() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert("Thank you for your message!");
-    setFormData({ name: "", email: "", subject: "", message: "" });
+    setStatus(null);
+    setErrorMsg("");
+
+    // Basic validation before sending
+    if (!formData.name || !formData.email || !formData.message) {
+      setErrorMsg("Please fill in all required fields.");
+      setStatus("error");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:5000/send-message", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          message: formData.message,
+        }),
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.message || "Failed to send message.");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+    } catch (error) {
+      setStatus("error");
+      setErrorMsg(error.message);
+    }
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -110,6 +145,19 @@ export default function Contact() {
           required
         />
 
+        <label htmlFor="phone" className={styles.formLabel}>
+          Phone:
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          className={styles.formInput}
+          placeholder="(optional) Your Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+        />
+
         <label htmlFor="subject" className={styles.formLabel}>
           Subject:
         </label>
@@ -118,7 +166,7 @@ export default function Contact() {
           id="subject"
           name="subject"
           className={styles.formInput}
-          placeholder="Subject"
+          placeholder="Subject (optional)"
           value={formData.subject}
           onChange={handleChange}
         />
@@ -139,7 +187,17 @@ export default function Contact() {
         <button type="submit" className={styles.button}>
           Send Message
         </button>
+
+        {status === "success" && (
+          <p style={{ color: "green", marginTop: "1rem" }}>
+            Thank you for your message! We'll get back to you shortly.
+          </p>
+        )}
+        {status === "error" && (
+          <p style={{ color: "red", marginTop: "1rem" }}>{errorMsg}</p>
+        )}
       </form>
+
       {/* Footer*/}
       <footer className={styles.footer}>
         &copy; {new Date().getFullYear()} Retro Photo Shop — All rights

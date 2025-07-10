@@ -52,6 +52,11 @@ function WRNewGallery() {
             </Link>
           </li>
           <li>
+            <Link to="/wr-new-service" className={styles.navItem}>
+              Service
+            </Link>
+          </li>
+          <li>
             <Link to="/wr-new-contact" className={styles.navItem}>
               Contact
             </Link>
@@ -59,12 +64,12 @@ function WRNewGallery() {
         </ul>
       </nav>
 
+      <p className={styles.slogan}>
+        "The Skilled Team Behind Every Smooth Ride”
+      </p>
+
       <section className={styles.section}>
         <h2 className={styles.subheader}>Meet Our Team</h2>
-        <p className={styles.slogan}>
-          "The Skilled Team Behind Every Smooth Ride”
-        </p>
-
         <div className={styles.flipCardContainer}>
           {employeeData.map((member, index) => (
             <div className={styles.flipCard} key={index}>
@@ -83,11 +88,10 @@ function WRNewGallery() {
         </div>
       </section>
 
+      <p className={styles.slogan}>“Serving Trust, One Car at a Time!”</p>
+
       <section className={styles.section}>
         <h2 className={styles.subheader}>Work in Progress</h2>
-        <p className={styles.slogan}>
-          “Serving Trust, One Car at a Time!”
-        </p>
         <div className={styles.screenshotContainer}>
           <div className={styles.imageWrapper}>
             <img src={job1} alt="Car Transmission Repair" />
@@ -116,8 +120,44 @@ function WRNewGallery() {
         </div>
       </section>
 
+      {/* Footer */}
       <footer className={styles.footer}>
-        &copy; 2025 Tony's Auto Repair Shop — All rights reserved.
+        <div>
+          &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
+          reserved.
+        </div>
+
+        <div
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+        >
+          <h2>Contact Information</h2>
+          <p>
+            <strong>Contact Person:</strong> Tony Auto
+          </p>
+          <p>
+            <strong>Contact Number:</strong> (023) 456-7890
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
+            <li>Monday - Friday: 8:00am to 5:00pm</li>
+            <li>Saturday: 12:00pm to 4:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email Address:</strong>{" "}
+            <a href="mailto:TonyAuto@Example.com" style={{ color: "#ffd700" }}>
+              TonyAuto@Example.com
+            </a>
+          </p>
+        </div>
       </footer>
     </div>
   );
