@@ -52,6 +52,11 @@ function WRNewAbout() {
               Contact
             </Link>
           </li>
+          <li>
+            <Link to="/wr-old-website-design" className={styles.navItem}>
+              Old
+            </Link>
+          </li>
         </ul>
       </nav>
 
@@ -96,22 +101,24 @@ function WRNewAbout() {
 
         <div className={styles.serviceLists}>
           <ul>
-            <li>Car Engine Repair</li>
-            <li>Brake Replacement</li>
-            <li>Oil Change</li>
-            <li>Tire Servie</li>
+            <li>Senior Mechanic</li>
+            <li>Brake Specialist</li>
+            <li>Transmission Expert</li>
+            <li>Tire Specialist</li>
           </ul>
+
           <ul>
-            <li>Minor Body Repair</li>
-            <li>Fluid Topping with Fluid Check</li>
-            <li>Undercarage Sealant</li>
-            <li>Protective Top Paint Coating</li>
+            <li>Paint & Body Specialist</li>
+            <li>Diagnostics Pro</li>
+            <li>Electrical Tech</li>
+            <li>Detail Specialist</li>
           </ul>
+
           <ul>
-            <li>Payment Plans</li>
-            <li>Income-Based Loans</li>
-            <li>Contracted Personal Loans</li>
-            <li>One-Time Payment Deferment</li>
+            <li>Service Advisor</li>
+            <li>Customer Relations</li>
+            <li>Parts Manager</li>
+            <li>Product Receiver</li>
           </ul>
         </div>
 

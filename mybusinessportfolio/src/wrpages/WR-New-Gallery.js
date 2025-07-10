@@ -4,9 +4,11 @@ import styles from "../linkstyles/Website-Redesign.module.css";
 import employeeData from "../linkdata/WRData";
 
 import job1 from "../wrlinkimages/new-worker6.jpg";
-import job2 from "../wrlinkimages/new-worker2.jpg";
-import job3 from "../wrlinkimages/old-worker2.jpg";
+import job2 from "../wrlinkimages/auto-brake.jpg";
+import job3 from "../wrlinkimages/auto-oil.jpg";
 import job4 from "../wrlinkimages/old-worker.jpg";
+import job5 from "../wrlinkimages/auto-paint.jpg";
+import job6 from "../wrlinkimages/new-worker16.jpg";
 
 function WRNewGallery() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -60,7 +62,7 @@ function WRNewGallery() {
       <section className={styles.section}>
         <h2 className={styles.subheader}>Meet Our Team</h2>
         <p className={styles.slogan}>
-          “Serving Trust, One Car at a Time — Since '78!”
+          "The Skilled Team Behind Every Smooth Ride”
         </p>
 
         <div className={styles.flipCardContainer}>
@@ -83,10 +85,13 @@ function WRNewGallery() {
 
       <section className={styles.section}>
         <h2 className={styles.subheader}>Work in Progress</h2>
+        <p className={styles.slogan}>
+          “Serving Trust, One Car at a Time!”
+        </p>
         <div className={styles.screenshotContainer}>
           <div className={styles.imageWrapper}>
-            <img src={job1} alt="Car Engine Repair" />
-            <div className={styles.caption}>Car Engine Repair</div>
+            <img src={job1} alt="Car Transmission Repair" />
+            <div className={styles.caption}>Car Transmission Repair</div>
           </div>
           <div className={styles.imageWrapper}>
             <img src={job2} alt="Brake Replacement" />
@@ -99,6 +104,14 @@ function WRNewGallery() {
           <div className={styles.imageWrapper}>
             <img src={job4} alt="Tire Service" />
             <div className={styles.caption}>Tire Service</div>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img src={job5} alt="Paint & Body Work" />
+            <div className={styles.caption}>Paint & Body Work</div>
+          </div>
+          <div className={styles.imageWrapper}>
+            <img src={job6} alt="Diagnostics" />
+            <div className={styles.caption}>Diagnostics</div>
           </div>
         </div>
       </section>

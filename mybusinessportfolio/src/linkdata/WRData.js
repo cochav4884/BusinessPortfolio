@@ -20,7 +20,7 @@ const employeeData = [
     name: "David Lee",
     title: "Brake Specialist",
     description: "Precision brake work for your safety.",
-    image: require("../wrlinkimages/new-worker8.jpg"),
+    image: require("../wrlinkimages/new-worker17.jpg"),
   },
   {
     id: 4,
@@ -34,7 +34,7 @@ const employeeData = [
     name: "Angela Brown",
     title: "Parts Manager",
     description: "Keeps our inventory stocked and organized.",
-    image: require("../wrlinkimages/new-worker9.jpg"),
+    image: require("../wrlinkimages/new-worker12.jpg"),
   },
   {
     id: 6,
@@ -62,7 +62,7 @@ const employeeData = [
     name: "Natalie Rogers",
     title: "Diagnostics Pro",
     description: "Knows how to read any scan tool.",
-    image: require("../wrlinkimages/new-worker16.jpg"),
+    image: require("../wrlinkimages/new-worker9.jpg"),
   },
   {
     id: 10,
@@ -76,7 +76,7 @@ const employeeData = [
     name: "Robert Evans",
     title: "Tire Specialist",
     description: "Expert in rotations, alignments, and installations.",
-    image: require("../wrlinkimages/old-worker.jpg"), // Make sure this image exists
+    image: require("../wrlinkimages/new-worker18.jpg"), // Make sure this image exists
   },
   {
     id: 12,
