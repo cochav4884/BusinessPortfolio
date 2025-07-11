@@ -122,7 +122,7 @@ app.post("/booking", async (req, res) => {
 app.post("/api/service-booking", async (req, res) => {
   const { name, email, date, serviceType, paymentPlan } = req.body;
 
-  if (!name || !email || !date || !serviceType || !paymentPlan) {
+  if (!name || !email || !date || !serviceType) {
     return res.status(400).json({ message: "Please fill in all required fields." });
   }
 
@@ -136,7 +136,7 @@ app.post("/api/service-booking", async (req, res) => {
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Date:</strong> ${date}</p>
       <p><strong>Service Type:</strong> ${serviceType}</p>
-      <p><strong>Payment Plan:</strong> ${paymentPlan}</p>
+      <p><strong>Payment Plan:</strong> ${paymentPlan} || "None Selected"</p>
     `,
   };
 
