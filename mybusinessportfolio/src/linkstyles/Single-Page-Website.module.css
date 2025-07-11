@@ -42,7 +42,6 @@
   padding: 80px 20px; /* give room for hero */
   border-radius: 8px;
   box-shadow: 0 0 20px var(--accent-taupe);
-  opacity: .90;
 }
 
 .header h1,
@@ -77,7 +76,7 @@
   box-shadow: 0 0 15px var(--accent-taupe);
   color: var(--text-secondary);
   border: 1px solid var(--accent-taupe);
-  opacity: .70;
+  opacity: .90;
 }
 
 .sectionTitle {
@@ -134,7 +133,7 @@ a:hover {
   color: var(--text-primary);
   padding: 20px 15px;
   border-bottom: 2px solid var(--accent-taupe);
-  opacity: .70;
+  opacity: .90;
 }
 
 .navTitle {
@@ -173,7 +172,7 @@ a:hover {
   color: var(--text-primary);
   padding: 20px 15px;
   border-bottom: 2px solid var(--accent-taupe);
-  opacity: .70;
+  opacity: .90;
 }
 
 /* Call to Action Button */
