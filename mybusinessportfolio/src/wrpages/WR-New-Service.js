@@ -14,9 +14,7 @@ function WRNewService() {
   const [errors, setErrors] = useState({});
   const [submitSuccess, setSubmitSuccess] = useState(null);
 
-  const toggleMenu = () => {
-    setMenuOpen((prev) => !prev);
-  };
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -32,7 +30,8 @@ function WRNewService() {
       newErrors.email = "Invalid email address.";
     if (!formData.date) newErrors.date = "Please select a date.";
     if (!formData.serviceType) newErrors.serviceType = "Please select a service type.";
-    if (!formData.paymentPlan) newErrors.paymentPlan = "Please select a payment plan.";
+
+    // Note: No validation for paymentPlan (it's optional now)
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -71,7 +70,7 @@ function WRNewService() {
 
   return (
     <div className={styles.container}>
-      {/* Responsive Navbar */}
+      {/* Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
           <Link to="/" className={styles.brandLink}>
@@ -82,36 +81,15 @@ function WRNewService() {
           className={styles.menuToggle}
           onClick={toggleMenu}
           aria-label="Toggle navigation menu"
-          aria-expanded={menuOpen}
         >
           ☰
         </button>
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
-          <li>
-            <Link to="/website-redesign" className={styles.navItem}>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link to="/wr-new-about" className={styles.navItem}>
-              About
-            </Link>
-          </li>
-          <li>
-            <Link to="/wr-new-gallery" className={styles.navItem}>
-              Gallery
-            </Link>
-          </li>
-          <li>
-            <Link to="/wr-new-service" className={styles.navItem}>
-              Service
-            </Link>
-          </li>
-          <li>
-            <Link to="/wr-new-contact" className={styles.navItem}>
-              Contact
-            </Link>
-          </li>
+          <li><Link to="/website-redesign" className={styles.navItem}>Home</Link></li>
+          <li><Link to="/wr-new-about" className={styles.navItem}>About</Link></li>
+          <li><Link to="/wr-new-gallery" className={styles.navItem}>Gallery</Link></li>
+          <li><Link to="/wr-new-service" className={styles.navItem}>Service</Link></li>
+          <li><Link to="/wr-new-contact" className={styles.navItem}>Contact</Link></li>
         </ul>
       </nav>
 
@@ -120,87 +98,46 @@ function WRNewService() {
         <p>"Where decades of experience meet today’s top-quality service."</p>
       </div>
 
-      {/* Service Booking Form */}
+      {/* Service Form */}
       <section className={styles.section}>
         <h2 className={styles.subheader}>Book Your Service Appointment</h2>
-        <p>
-          Choose your preferred date, the type of service you need, and your payment
-          option below.
-        </p>
-
-        <form onSubmit={handleSubmit} noValidate className={styles.contactForm}>
-          <label htmlFor="name" className={styles.contactForm__label}>
-            Name:
-          </label>
+        <form onSubmit={handleSubmit} className={styles.contactForm} noValidate>
+          <label className={styles.contactForm__label}>Name:</label>
           <input
-            id="name"
             type="text"
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${
-              errors.name ? styles.contactForm__errorInput : ""
-            }`}
-            aria-describedby="nameError"
+            className={`${styles.contactForm__input} ${errors.name ? styles.contactForm__errorInput : ""}`}
           />
-          {errors.name && (
-            <div id="nameError" style={{ color: "red" }}>
-              {errors.name}
-            </div>
-          )}
+          {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
 
-          <label htmlFor="email" className={styles.contactForm__label}>
-            Email:
-          </label>
+          <label className={styles.contactForm__label}>Email:</label>
           <input
-            id="email"
             type="email"
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${
-              errors.email ? styles.contactForm__errorInput : ""
-            }`}
-            aria-describedby="emailError"
+            className={`${styles.contactForm__input} ${errors.email ? styles.contactForm__errorInput : ""}`}
           />
-          {errors.email && (
-            <div id="emailError" style={{ color: "red" }}>
-              {errors.email}
-            </div>
-          )}
+          {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
 
-          <label htmlFor="date" className={styles.contactForm__label}>
-            Select Date:
-          </label>
+          <label className={styles.contactForm__label}>Select Date:</label>
           <input
-            id="date"
             type="date"
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${
-              errors.date ? styles.contactForm__errorInput : ""
-            }`}
-            aria-describedby="dateError"
+            className={`${styles.contactForm__input} ${errors.date ? styles.contactForm__errorInput : ""}`}
           />
-          {errors.date && (
-            <div id="dateError" style={{ color: "red" }}>
-              {errors.date}
-            </div>
-          )}
+          {errors.date && <div style={{ color: "red" }}>{errors.date}</div>}
 
-          <label htmlFor="serviceType" className={styles.contactForm__label}>
-            Type of Service:
-          </label>
+          <label className={styles.contactForm__label}>Type of Service:</label>
           <select
-            id="serviceType"
             name="serviceType"
             value={formData.serviceType}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${
-              errors.serviceType ? styles.contactForm__errorInput : ""
-            }`}
-            aria-describedby="serviceTypeError"
+            className={`${styles.contactForm__input} ${errors.serviceType ? styles.contactForm__errorInput : ""}`}
           >
             <option value="">-- Select Service --</option>
             <option value="Car Engine & Transmission Repair">Car Engine Repair</option>
@@ -210,16 +147,24 @@ function WRNewService() {
             <option value="Paint & Body Repair">Body Repair</option>
             <option value="Electrical Work">Electrical Work</option>
           </select>
-          {errors.serviceType && (
-            <div id="serviceTypeError" style={{ color: "red" }}>
-              {errors.serviceType}
-            </div>
-          )}
+          {errors.serviceType && <div style={{ color: "red" }}>{errors.serviceType}</div>}
 
           <fieldset style={{ marginTop: "1rem" }}>
-            <legend className={styles.contactForm__label}>
-              Payment Options:
-            </legend>
+            <legend className={styles.contactForm__label}>Payment Options (Optional):</legend>
+
+            <div>
+              <label className={styles["radio-label"]}>
+                <input
+                  type="radio"
+                  name="paymentPlan"
+                  value=""
+                  checked={formData.paymentPlan === ""}
+                  onChange={handleChange}
+                />
+                No payment plan selected (optional)
+              </label>
+            </div>
+
             <div>
               <label className={styles["radio-label"]}>
                 <input
@@ -229,9 +174,10 @@ function WRNewService() {
                   checked={formData.paymentPlan === "Payment plan under $250"}
                   onChange={handleChange}
                 />
-                Payment plan through Tony's Auto Repair Shop under $250
+                Payment plan under $250
               </label>
             </div>
+
             <div>
               <label className={styles["radio-label"]}>
                 <input
@@ -244,6 +190,7 @@ function WRNewService() {
                 Income-based payment plan $250 - $500
               </label>
             </div>
+
             <div>
               <label className={styles["radio-label"]}>
                 <input
@@ -256,18 +203,9 @@ function WRNewService() {
                 Personal car repair loan above $500
               </label>
             </div>
-            {errors.paymentPlan && (
-              <div id="paymentPlanError" style={{ color: "red" }}>
-                {errors.paymentPlan}
-              </div>
-            )}
           </fieldset>
 
-          <button
-            type="submit"
-            className={styles.contactForm__button}
-            style={{ marginTop: "1rem" }}
-          >
+          <button type="submit" className={styles.contactForm__button}>
             Book Appointment
           </button>
 
@@ -285,44 +223,28 @@ function WRNewService() {
       </section>
 
       {/* Footer */}
-       <footer className={styles.footer}>
-              <div>
-                &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
-                reserved.
-              </div>
-      
-              <div
-                style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
-              >
-                <h2>Contact Information</h2>
-                <p>
-                  <strong>Contact Person:</strong> Tony Auto
-                </p>
-                <p>
-                  <strong>Contact Number:</strong> (023) 456-7890
-                </p>
-                <p>
-                  <strong>Business Hours:</strong>
-                </p>
-                <ul
-                  style={{
-                    listStyleType: "none",
-                    paddingLeft: 0,
-                    marginBottom: "1rem",
-                  }}
-                >
-                  <li>Monday - Friday: 8:00am to 5:00pm</li>
-                  <li>Saturday: 12:00pm to 4:00pm</li>
-                  <li>Closed Sunday and Holidays</li>
-                </ul>
-                <p>
-                  <strong>Email Address:</strong>{" "}
-                  <a href="mailto:TonyAuto@Example.com" style={{ color: "#ffd700" }}>
-                    TonyAuto@Example.com
-                  </a>
-                </p>
-              </div>
-            </footer>
+      <footer className={styles.footer}>
+        <div>
+          &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights reserved.
+        </div>
+        <div style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}>
+          <h2>Contact Information</h2>
+          <p><strong>Contact Person:</strong> Tony Auto</p>
+          <p><strong>Contact Number:</strong> (023) 456-7890</p>
+          <p><strong>Business Hours:</strong></p>
+          <ul style={{ listStyleType: "none", paddingLeft: 0, marginBottom: "1rem" }}>
+            <li>Monday - Friday: 8:00am to 5:00pm</li>
+            <li>Saturday: 12:00pm to 4:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email Address:</strong>{" "}
+            <a href="mailto:TonyAuto@Example.com" style={{ color: "#ffd700" }}>
+              TonyAuto@Example.com
+            </a>
+          </p>
+        </div>
+      </footer>
     </div>
   );
 }
