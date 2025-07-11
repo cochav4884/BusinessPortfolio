@@ -1,0 +1,207 @@
+/* Contact-And-Booking-Forms.module.css */
+
+/* Use Poppins font for entire page */
+:global(body) {
+  font-family: "Poppins", sans-serif;
+  background-color: #f0f4f8;
+  color: #1e293b;
+  margin: 0;
+  padding: 0;
+}
+
+/* General Page Header */
+.page-header {
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  background-color: #f0f4f8;
+  border-radius: 8px;
+  color: #003845;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 6px rgba(0, 95, 115, 0.3);
+  width: 100%;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  text-align: center;
+}
+
+/* Section Container */
+.section {
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #1e293b;
+}
+
+/* Subheaders */
+.subheader {
+  font-size: 1.8rem;
+  margin: 2rem;
+  color: #003845;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Buttons */
+.custom-button {
+  background-color: #005f73; /* Deep teal */
+  color: #ffffff;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.custom-button:hover {
+  background-color: #0a9396; /* Lighter teal */
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #003845; /* Dark teal */
+  color: #ffffff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  border-bottom: 4px solid #94a1b2; /* Muted gray-blue */
+  font-family: "Poppins", sans-serif;
+  flex-wrap: wrap;
+}
+
+.navbarBrand {
+  font-size: 1.5rem;
+}
+
+.brandLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.menuToggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.8rem;
+  cursor: pointer;
+  display: none;
+}
+
+.navLinks {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  padding-left: 0;
+}
+
+.navItem {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-weight: 600;
+}
+
+.navItem:hover {
+  color: #94a1b2; /* Muted gray-blue hover */
+}
+
+/* Dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown toggle button */
+.dropdownToggle {
+  background: none;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  padding: 0;
+}
+
+/* Dropdown menu - hidden by default */
+.dropdownMenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #003845; /* match navbar background */
+  padding: 0.5rem 0;
+  border-radius: 0 0 6px 6px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  min-width: 220px;
+  z-index: 1000;
+  list-style: none;
+  margin: 0;
+}
+
+/* Show dropdown menu */
+.showDropdown {
+  display: block;
+}
+
+/* Dropdown items */
+.dropdownItem {
+  display: block;
+  color: #ffffff;
+  padding: 0.5rem 1.5rem;
+  text-decoration: none;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect for dropdown items */
+.dropdownItem:hover {
+  background-color: #0a9396; /* teal highlight */
+  color: #f0f4f8;
+}
+
+/* Mobile Menu */
+.showMenu {
+  display: flex !important;
+  flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .menuToggle {
+    display: block;
+  }
+
+  .navLinks {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* Footer */
+.footer {
+  width: 100%;
+  background-color: #001219; /* Very dark teal */
+  color: #94a1b2;
+  padding: 2rem 1rem;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  border-top: 3px solid #94a1b2;
+  margin-top: 3rem;
+}
+
+.footer h2,
+.footer p,
+.footer ul {
+  margin: 0.5rem 0;
+}

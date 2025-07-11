@@ -30,7 +30,13 @@ import WRNewContact from "./wrpages/WR-New-Contact";
 /* Maintenance & Updates */
 import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
 /* Contact & Booking Forms */
-import ContactAndBookingForms from "./linkpages/Contact-Booking-Forms";
+import ContactAndBookingForms from "./linkpages/Contact-And-Booking-Forms";
+import SimpleContactForm from "./mufpages/Simple-Contact-Form";
+import StudentInquiryForm from "./mufpages/Student-Inquiry-Form";
+import HRContactForm from "./mufpages/HR-Contact-Form";
+import SimpleBookingForm from "./mufpages/Simple-Booking-Form";
+import SkiResortCabinBookingForm from "./mufpages/Ski-Resort-Cabin-Booking-Form";
+import DanceLessonsBookingForm from "./mufpages/Dance-Lessons-Booking-Form";
 /* Domain & Hosting Setup */
 import DomainAndHostingSetup from "./linkpages/Domain-And-Hosting-Setup";
 
@@ -101,13 +107,15 @@ function App() {
           </>
         }
       />
-      <Route path="/maintenance-and-updates" element={
-        <>
-          <NavBar />
-          <MaintenanceAndUpdates />
-          <Footer />
-        </>
-      }
+      <Route
+        path="/maintenance-and-updates"
+        element={
+          <>
+            <NavBar />
+            <MaintenanceAndUpdates />
+            <Footer />
+          </>
+        }
       />
 
       {/* ✅ Demo Page Route — without site-wide NavBar/Footer */}
@@ -125,15 +133,24 @@ function App() {
       <Route path="/wr-new-gallery" element={<WRNewGallery />} />
       <Route path="/wr-new-service" element={<WRNewService />} />
       <Route path="/wr-new-contact" element={<WRNewContact />} />
-      <Route
-        path="/maintenance-and-updates"
-        element={<MaintenanceAndUpdates />}
-      />
       {/* Contact & Booking Forms */}
       <Route
         path="/contact-and-booking-forms"
         element={<ContactAndBookingForms />}
       />
+      <Route path="/simple-contact-form" element={<SimpleContactForm />} />
+      <Route path="/student-inquiry-form" element={<StudentInquiryForm />} />
+      <Route path="/hr-contact-form" element={<HRContactForm />} />
+      <Route path="/simple-booking-form" element={<SimpleBookingForm />} />
+      <Route
+        path="/ski-resort-cabin-booking-form"
+        element={<SkiResortCabinBookingForm />}
+      />
+      <Route
+        path="/dance-lessons-booking-form"
+        element={<DanceLessonsBookingForm />}
+      />
+
       {/* Domain & Hosting Setup */}
       <Route
         path="/domain-and-hosting-setup"
