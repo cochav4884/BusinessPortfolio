@@ -37,7 +37,6 @@ export default function MPWBookingPage() {
 
       if (response.ok) {
         setSubmitted(true);
-        // Optionally clear form or handle success further
       } else {
         alert(data.message || "Failed to submit booking. Please try again.");
       }
@@ -53,7 +52,7 @@ export default function MPWBookingPage() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <main className={styles.container}>
+    <>
       {/* Navigation Links */}
       <nav className={styles.nav}>
         <h1 className={styles.title}>
@@ -102,13 +101,15 @@ export default function MPWBookingPage() {
       </nav>
 
       {/* Page Title */}
-      <h1 className={styles.pageTitle2}>Book Your Photo Session</h1>
-      <p className={styles.intro}>
-        Choose your preferred date, time, and package below.
-      </p>
-      <p className={styles.intro}>
-        We look forward to capturing your memories!
-      </p>
+      <header className={styles.header} style={{ marginBottom: "2rem" }}>
+        <h1 className={styles.pageTitle2}>Book Your Photo Session</h1>
+        <p className={styles.intro}>
+          Choose your preferred date, time, and package below.
+        </p>
+        <p className={styles.intro}>
+          We look forward to capturing your memories!
+        </p>
+      </header>
 
       {/* Booking Form */}
       {submitted ? (
@@ -121,7 +122,10 @@ export default function MPWBookingPage() {
             textAlign: "center",
             fontWeight: "bold",
             fontSize: "1.2rem",
+            maxWidth: "600px",
+            margin: "20px auto",
           }}
+          role="alert"
         >
           Thank you for booking with us, {formData.name}! We will contact you
           soon.
@@ -244,9 +248,46 @@ export default function MPWBookingPage() {
 
       {/* Footer */}
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
-        reserved.
+        <div>
+          &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
+          reserved.
+        </div>
+
+        <div
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+        >
+          <h2 style={{ marginBottom: "0.5rem" }}>Contact Information</h2>
+          <p>
+            <strong>Owners:</strong> Steve and Gary
+          </p>
+          <p>
+            <strong>Phone Number:</strong> (555) 123-4567
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
+            <li>Monday - Friday: 10:00am to 6:00pm</li>
+            <li>Saturday: 11:00am to 3:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:contact@retrophotoshop.com"
+              style={{ color: "#ffd700" }}
+            >
+              contact@retrophotoshop.com
+            </a>
+          </p>
+        </div>
       </footer>
-    </main>
+    </>
   );
 }

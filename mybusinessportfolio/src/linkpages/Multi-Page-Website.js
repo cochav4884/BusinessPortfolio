@@ -2,6 +2,30 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
 
+// Import restoration images
+import restore from "../linkimages/restore.jpg";
+import restore2 from "../linkimages/restore2.jpg";
+import restore3 from "../linkimages/restore3.jpg";
+import restore4 from "../linkimages/restore4.jpg";
+import restore5 from "../linkimages/restore5.jpg";
+import restore6 from "../linkimages/restore6.jpg";
+
+// Import classic images
+import classic from "../linkimages/classic.jpg";
+import classic2 from "../linkimages/classic2.jpg";
+import classic3 from "../linkimages/classic3.jpg";
+import classic4 from "../linkimages/classic4.jpg";
+import classic5 from "../linkimages/classic5.jpg";
+import classic6 from "../linkimages/classic6.jpg";
+
+// Import event images
+import event from "../linkimages/event.jpg";
+import event2 from "../linkimages/event2.jpg";
+import event3 from "../linkimages/event3.jpg";
+import event4 from "../linkimages/event4.jpg";
+import event5 from "../linkimages/event5.jpg";
+import event6 from "../linkimages/event6.jpg";
+
 export default function MultiPageWebsite() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -9,8 +33,8 @@ export default function MultiPageWebsite() {
   const closeMenu = () => setMenuOpen(false);
 
   return (
-    <div className={styles.container}>
-      {/* Navigation Links */}
+    <>
+      {/* Navigation */}
       <nav className={styles.nav}>
         <h1 className={styles.title}>
           <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
@@ -18,7 +42,6 @@ export default function MultiPageWebsite() {
           </a>
         </h1>
 
-        {/* Hamburger toggler button */}
         <button
           className={styles.hamburger}
           onClick={toggleMenu}
@@ -30,7 +53,6 @@ export default function MultiPageWebsite() {
           <span className={styles.bar}></span>
         </button>
 
-        {/* Navigation list */}
         <ul
           className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}
         >
@@ -57,43 +79,127 @@ export default function MultiPageWebsite() {
         </ul>
       </nav>
 
-      <header className={styles.header}>
-        <h1>Retro Photo Shop</h1>
-        <p className={styles.tagline}>
-          Welcome to our vintage-inspired photo studio. We capture timeless
-          moments with a nostalgic twist.
-        </p>
-      </header>
+      {/* Main Content */}
+      <main>
+        <header className={styles.header} style={{ marginBottom: "2rem" }}>
+          <h1>Retro Photo Shop</h1>
+          <p className={styles.tagline}>
+            Welcome to our vintage-inspired photo studio. We capture timeless
+            moments with a nostalgic twist.
+          </p>
+        </header>
 
-      {/* Separate container for features section */}
-      <div className={styles.featuresContainer}>
-        <section className={styles.features}>
-          <div className={styles.featureBox}>
-            <h2 className={styles.sectionTitle}>Classic Portraits</h2>
-            <p className={styles.paragraph}>
-              Beautifully crafted portraits that take you back in time.
-            </p>
+        {/* Classic Portraits */}
+        <section className={styles.featuresContainer}>
+          <div className={styles.features}>
+            <article className={styles.featureBox}>
+              <h2 className={styles.sectionTitle}>Classic Portraits</h2>
+              <p className={styles.paragraph}>
+                Beautifully crafted portraits that take you back in time.
+              </p>
+              <div className={styles.imageGrid}>
+                {[
+                  classic,
+                  classic2,
+                  classic3,
+                  classic4,
+                  classic5,
+                  classic6,
+                ].map((img, index) => (
+                  <div key={index} className={styles.imageCard2}>
+                    <img
+                      src={img}
+                      alt={`Classic Portrait ${index + 1}`}
+                      className={styles.classicImage}
+                    />
+                  </div>
+                ))}
+              </div>
+            </article>
           </div>
-          <div className={styles.featureBox}>
+        </section>
+
+        {/* Photo Restoration */}
+        <section className={styles.featuresContainer}>
+          <article className={styles.featureBox}>
             <h2 className={styles.sectionTitle}>Photo Restoration</h2>
             <p className={styles.paragraph}>
               We restore and preserve your precious old photographs.
             </p>
-          </div>
-          <div className={styles.featureBox}>
+            <div className={styles.imageGrid}>
+              {[restore, restore2, restore3, restore4, restore5, restore6].map(
+                (img, index) => (
+                  <div key={index} className={styles.imageCard}>
+                    <img src={img} alt={`Restoration Example ${index + 1}`} />
+                  </div>
+                )
+              )}
+            </div>
+          </article>
+        </section>
+
+        {/* Event Photography */}
+        <section className={styles.featuresContainer}>
+          <article className={styles.featureBox}>
             <h2 className={styles.sectionTitle}>Event Photography</h2>
             <p className={styles.paragraph}>
               Capture your special moments with our vintage style.
             </p>
-          </div>
+            <div className={styles.imageGrid}>
+              {[event, event2, event3, event4, event5, event6].map(
+                (img, index) => (
+                  <div key={index} className={styles.imageCard}>
+                    <img src={img} alt={`Restoration Example ${index + 1}`} />
+                  </div>
+                )
+              )}
+            </div>
+          </article>
         </section>
-      </div>
+      </main>
 
       {/* Footer */}
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
-        reserved.
+        <div>
+          &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
+          reserved.
+        </div>
+
+        <div
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+        >
+          <h2 style={{ marginBottom: "0.5rem" }}>Contact Information</h2>
+          <p>
+            <strong>Owners:</strong> Steve and Gary
+          </p>
+          <p>
+            <strong>Phone Number:</strong> (555) 123-4567
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
+            <li>Monday - Friday: 10:00am to 6:00pm</li>
+            <li>Saturday: 11:00am to 3:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:contact@retrophotoshop.com"
+              style={{ color: "#ffd700" }}
+            >
+              contact@retrophotoshop.com
+            </a>
+          </p>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }

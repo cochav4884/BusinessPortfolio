@@ -1,93 +1,41 @@
-// src/linkpages/GalleryPage.js
+// src/pages/MpwGalleryPage.js
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
+
 import {
   retroPhotoImages,
   photographerImages,
   clientImages,
 } from "../linkdata/Link-Data";
-import { Link } from "react-router-dom";
 
-export default function GalleryPage() {
-  const [modalImage, setModalImage] = useState(null);
-
-  const handleOpen = (image) => setModalImage(image);
-  const handleClose = () => setModalImage(null);
-
-  const handlePrint = () => {
-    const { src, alt, name, years, about, experience } = modalImage;
-    const imgWindow = window.open("", "_blank");
-
-    imgWindow.document.write(`
-    <html>
-      <head>
-        <title>Print Image</title>
-        <style>
-          body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-            text-align: center;
-          }
-          img {
-            max-width: 100%;
-            height: auto;
-          }
-          .caption {
-            margin-top: 20px;
-            font-size: 16px;
-            color: #333;
-            text-align: left;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-          }
-        </style>
-      </head>
-      <body>
-        <img src="${src}" alt="${alt}" />
-        <div class="caption">
-          <p><strong>${alt}</strong></p>
-          ${name ? `<p><strong>Name:</strong> ${name}</p>` : ""}
-          ${
-            years
-              ? `<p><strong>Time with Retro Photo Shop:</strong> ${years}</p>`
-              : ""
-          }
-          ${about ? `<p><strong>About:</strong> ${about}</p>` : ""}
-          ${
-            experience
-              ? `<p><strong>Experience:</strong> ${experience}</p>`
-              : ""
-          }
-        </div>
-      </body>
-    </html>
-  `);
-
-    imgWindow.document.close();
-
-    imgWindow.onload = () => {
-      imgWindow.focus();
-      imgWindow.print();
-    };
-  };
-
+export default function MpwGalleryPage() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [currentImage, setCurrentImage] = useState(null);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
 
+  const openModal = (image) => {
+    setCurrentImage(image);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
+    setCurrentImage(null);
+  };
+
   return (
-    <div className={styles.container}>
-      {/* Navigation Links */}
+    <>
+      {/* Navigation */}
       <nav className={styles.nav}>
         <h1 className={styles.title}>
           <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
             Retro Photo Shop
           </a>
         </h1>
-
-        {/* Hamburger toggler button */}
         <button
           className={styles.hamburger}
           onClick={toggleMenu}
@@ -98,8 +46,6 @@ export default function GalleryPage() {
           <span className={styles.bar}></span>
           <span className={styles.bar}></span>
         </button>
-
-        {/* Navigation list */}
         <ul
           className={`${styles.navList} ${menuOpen ? styles.navListOpen : ""}`}
         >
@@ -125,136 +71,185 @@ export default function GalleryPage() {
           </li>
         </ul>
       </nav>
-      {/* Page Title */}
-      <h1 className={styles.pageTitle2}>Gallery</h1>
 
-      {/* Separate container for features section */}
-      <div className={styles.featuresContainer}>
-        <section className={styles.features}>
-          <div className={styles.featureBox}>
-            <h2 className={styles.sectionTitle}>Retro Collection</h2>
-            <p className={styles.paragraph}>
-              Example of our business and cameras we have used in the past and
-              now!
-            </p>
-            <div className={styles.galleryGrid}>
-              {retroPhotoImages.map((img) => (
-                <div
-                  key={img.id}
-                  className={styles.imageBox}
-                  onClick={() => handleOpen(img)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
-                >
-                  <img src={img.src} alt={img.alt} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-      <div className={styles.featuresContainer}>
-        <section className={styles.features}>
-          <div className={styles.featureBox}>
-            <h2 className={styles.sectionTitle}>Photographers</h2>
-            <p className={styles.paragraph}>
-              Meet our Photographers by clicking on a photo!
-            </p>
-            <div className={styles.galleryGrid}>
-              {photographerImages.map((img) => (
-                <div
-                  key={img.id}
-                  className={styles.imageBox}
-                  onClick={() => handleOpen(img)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
-                >
-                  <img src={img.src} alt={img.alt} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
-      <div className={styles.featuresContainer}>
-        <section className={styles.features}>
-          <div className={styles.featureBox}>
-            <h2 className={styles.sectionTitle}>Returning Clients</h2>
-            <p className={styles.paragraph}>
-              Here are some of our repeat clients!
-            </p>
-            <div className={styles.galleryGrid}>
-              {clientImages.map((img) => (
-                <div
-                  key={img.id}
-                  className={styles.imageBox}
-                  onClick={() => handleOpen(img)}
-                  role="button"
-                  tabIndex={0}
-                  onKeyDown={(e) => e.key === "Enter" && handleOpen(img)}
-                >
-                  <img src={img.src} alt={img.alt} />
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-      </div>
+      <main>
+        <header className={styles.header} style={{ marginBottom: "2rem" }}>
+          <h1 className={styles.pageTitle2}>Gallery</h1>
+          <p className={styles.intro}>
+            Explore our collection of vintage-inspired photos and portraits.
+          </p>
+        </header>
 
-      {modalImage && (
-        <div className={styles.modalOverlay} onClick={handleClose}>
+        {/* Photographers Section */}
+        <section className={styles.gallerySection}>
+          <h3 className={styles.sectionTitle}>Photographers</h3>
+          <div className={styles.galleryGrid}>
+            {photographerImages.map((photo) => (
+              <div
+                key={photo.id}
+                className={styles.imageBox}
+                onClick={() => openModal(photo)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") openModal(photo);
+                }}
+                aria-label={`View larger portrait: ${photo.alt}`}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.alt}
+                  className={styles.galleryImage}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Retro Color Image Section */}
+        <section className={styles.gallerySection}>
+          <h3 className={styles.sectionTitle}>Colored Photos</h3>
+          <div className={styles.galleryGrid}>
+            {retroPhotoImages.map((img) => (
+              <div
+                key={img.id}
+                className={styles.imageBox}
+                onClick={() => openModal(img)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") openModal(img);
+                }}
+                aria-label={`View larger image: ${img.alt}`}
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className={styles.galleryImage}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Retro Black/White & Specialty Image Section */}
+        <section className={styles.gallerySection}>
+          <h3 className={styles.sectionTitle}>
+            Black/White & Specialty Photos
+          </h3>
+          <div className={styles.galleryGrid}>
+            {clientImages.map((client) => (
+              <div
+                key={client.id}
+                className={styles.imageBox}
+                onClick={() => openModal(client)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") openModal(client);
+                }}
+                aria-label={`View larger client portrait: ${client.alt}`}
+              >
+                <img
+                  src={client.src}
+                  alt={client.alt}
+                  className={styles.galleryImage}
+                />
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Modal */}
+        {modalOpen && currentImage && (
           <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
+            className={styles.modalOverlay}
+            onClick={closeModal}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="modalTitle"
+            tabIndex={-1}
           >
-            <img
-              src={modalImage.src}
-              alt={modalImage.alt}
-              className={styles.enlargedImage}
-            />
-            <div className={styles.caption}>
-              <p>{modalImage.alt}</p>
-              {modalImage.name && (
-                <>
-                  <p>
-                    <strong>Name:</strong> {modalImage.name}
-                  </p>
-                  <p>
-                    <strong>Time with Retro Photo Shop:</strong>{" "}
-                    {modalImage.years}
-                  </p>
-                  <p>
-                    <strong>About:</strong> {modalImage.about}
-                  </p>
-                  <p>
-                    <strong>Experience:</strong> {modalImage.experience}
-                  </p>
-                </>
-              )}
-            </div>
-
-            <div className={styles.buttonRow}>
-              <a href={modalImage.src} download className={styles.button}>
-                Download
-              </a>
-              <button onClick={handlePrint} className={styles.button}>
-                Print
-              </button>
-              <button onClick={handleClose} className={styles.button}>
+            <div
+              className={styles.modalContent}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={currentImage.src}
+                alt={currentImage.alt}
+                className={styles.enlargedImage}
+              />
+              <div className={styles.caption}>
+                <p id="modalTitle">{currentImage.alt}</p>
+                {/* If photographer, show extra info */}
+                {"name" in currentImage && (
+                  <>
+                    <p>
+                      <strong>Name:</strong> {currentImage.name}
+                    </p>
+                    <p>
+                      <strong>Years Experience:</strong> {currentImage.years}
+                    </p>
+                    <p>
+                      <strong>About:</strong> {currentImage.about}
+                    </p>
+                    <p>
+                      <strong>Experience:</strong> {currentImage.experience}{" "}
+                      years
+                    </p>
+                  </>
+                )}
+              </div>
+              <button className={styles.button} onClick={closeModal}>
                 Close
               </button>
             </div>
           </div>
-        </div>
-      )}
+        )}
+      </main>
 
       {/* Footer */}
       <footer className={styles.footer}>
-        &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
-        reserved.
+        <div>
+          &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
+          reserved.
+        </div>
+
+        <div
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+        >
+          <h2 style={{ marginBottom: "0.5rem" }}>Contact Information</h2>
+          <p>
+            <strong>Owners:</strong> Steve and Gary
+          </p>
+          <p>
+            <strong>Phone Number:</strong> (555) 123-4567
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
+            <li>Monday - Friday: 10:00am to 6:00pm</li>
+            <li>Saturday: 11:00am to 3:00pm</li>
+            <li>Closed Sunday and Holidays</li>
+          </ul>
+          <p>
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:contact@retrophotoshop.com"
+              style={{ color: "#ffd700" }}
+            >
+              contact@retrophotoshop.com
+            </a>
+          </p>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
