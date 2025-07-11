@@ -11,25 +11,20 @@ import Services from "./pages/Services";
 import Contact from "./pages/Contact";
 import TermsOfUse from "./pages/TermsofUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
-
+import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
+import DomainAndHostingSetup from "./linkpages/Domain-And-Hosting-Setup";
 // Demo example page (does NOT use global NavBar/Footer)
-/* Single Page Website */
 import SinglePageWebsite from "./linkpages/Single-Page-Website";
-/* Multi Page Website */
 import MultiPageWebsite from "./linkpages/Multi-Page-Website";
 import MPWGalleryPage from "./mpwpages/MPW-Gallery-Page";
 import MPWBookingPage from "./mpwpages/MPW-Booking-Page";
 import MPWContactPage from "./mpwpages/MPW-Contact-Page";
-/* Website Redesign */
 import WebsiteRedesign from "./linkpages/Website-Redesign";
 import WROldWebsiteDesign from "./wrpages/WR-Old-Website-Design";
 import WRNewAbout from "./wrpages/WR-New-About";
 import WRNewGallery from "./wrpages/WR-New-Gallery";
 import WRNewService from "./wrpages/WR-New-Service";
 import WRNewContact from "./wrpages/WR-New-Contact";
-/* Maintenance & Updates */
-import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
-/* Contact & Booking Forms */
 import ContactAndBookingForms from "./linkpages/Contact-And-Booking-Forms";
 import SimpleContactForm from "./mufpages/Simple-Contact-Form";
 import StudentInquiryForm from "./mufpages/Student-Inquiry-Form";
@@ -37,16 +32,15 @@ import HRContactForm from "./mufpages/HR-Contact-Form";
 import SimpleBookingForm from "./mufpages/Simple-Booking-Form";
 import SkiResortCabinBookingForm from "./mufpages/Ski-Resort-Cabin-Booking-Form";
 import DanceLessonsBookingForm from "./mufpages/Dance-Lessons-Booking-Form";
-/* Domain & Hosting Setup */
-import DomainAndHostingSetup from "./linkpages/Domain-And-Hosting-Setup";
+
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js"; // includes Popper
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
     <Routes>
-      {/* ✅ Main Website Pages (with NavBar + Footer) */}
+      {/* ✅ Main Pages */}
       <Route
         path="/"
         element={
@@ -117,23 +111,29 @@ function App() {
           </>
         }
       />
+      <Route
+        path="/domain-and-hosting-setup"
+        element={
+          <>
+            <NavBar />
+            <DomainAndHostingSetup />
+            <Footer />
+          </>
+        }
+      />
 
-      {/* ✅ Demo Page Route — without site-wide NavBar/Footer */}
-      {/* Single Page Website */}
+      {/* ✅ Demo Pages (no global NavBar/Footer) */}
       <Route path="/single-page-website" element={<SinglePageWebsite />} />
-      {/* Multi Page Website */}
       <Route path="/multi-page-website" element={<MultiPageWebsite />} />
       <Route path="/mpw-gallery-page" element={<MPWGalleryPage />} />
       <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
       <Route path="/mpw-contact-page" element={<MPWContactPage />} />
-      {/* Website Redesign */}
       <Route path="/website-redesign" element={<WebsiteRedesign />} />
       <Route path="/wr-old-website-design" element={<WROldWebsiteDesign />} />
       <Route path="/wr-new-about" element={<WRNewAbout />} />
       <Route path="/wr-new-gallery" element={<WRNewGallery />} />
       <Route path="/wr-new-service" element={<WRNewService />} />
       <Route path="/wr-new-contact" element={<WRNewContact />} />
-      {/* Contact & Booking Forms */}
       <Route
         path="/contact-and-booking-forms"
         element={<ContactAndBookingForms />}
@@ -149,12 +149,6 @@ function App() {
       <Route
         path="/dance-lessons-booking-form"
         element={<DanceLessonsBookingForm />}
-      />
-
-      {/* Domain & Hosting Setup */}
-      <Route
-        path="/domain-and-hosting-setup"
-        element={<DomainAndHostingSetup />}
       />
     </Routes>
   );
