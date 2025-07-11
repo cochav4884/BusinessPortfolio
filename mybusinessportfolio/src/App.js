@@ -101,6 +101,14 @@ function App() {
           </>
         }
       />
+      <Route path="/maintenance-and-updates" element={
+        <>
+          <NavBar />
+          <MaintenanceAndUpdates />
+          <Footer />
+        </>
+      }
+      />
 
       {/* ✅ Demo Page Route — without site-wide NavBar/Footer */}
       {/* Single Page Website */}
@@ -117,7 +125,6 @@ function App() {
       <Route path="/wr-new-gallery" element={<WRNewGallery />} />
       <Route path="/wr-new-service" element={<WRNewService />} />
       <Route path="/wr-new-contact" element={<WRNewContact />} />
-      {/* Maintenance & Updates */}
       <Route
         path="/maintenance-and-updates"
         element={<MaintenanceAndUpdates />}
