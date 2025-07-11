@@ -21,7 +21,7 @@ export default function Contact() {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus(null);
     setErrorMsg("");
@@ -32,16 +32,11 @@ export default function Contact() {
       return;
     }
 
-    try {
-      // Simulate form submission delay
-      await new Promise((resolve) => setTimeout(resolve, 500));
+    console.log("Contact form submitted:", formData);
+    alert("Message submitted! Check the console for details.");
 
-      setStatus("success");
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-    } catch (error) {
-      setStatus("error");
-      setErrorMsg("Something went wrong. Please try again later.");
-    }
+    setStatus("success");
+    setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
   };
 
   return (
@@ -92,6 +87,15 @@ export default function Contact() {
       <main>
         <header className={styles.header} style={{ marginBottom: "2rem" }}>
           <h1>Contact Us</h1>
+          <p>
+            {" "}
+            Please be advised: The forms presented herein serve solely as
+            examples, and the contact information displayed in the footers is
+            for illustrative purposes only. Accurate contact details are
+            available exclusively on the Home page. You may also navigate back
+            to the original website at any time by clicking the website title in
+            the navigation bar, where you can access the official Contact page.
+          </p>
           <p className={styles.intro}>
             Got a question or comment? Reach out and we'll get back to you soon!
           </p>

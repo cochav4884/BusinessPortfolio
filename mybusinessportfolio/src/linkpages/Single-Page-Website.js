@@ -85,6 +85,15 @@ export default function SinglePageWebsite() {
       {/* Header */}
       <header className={styles.header}>
         <h1 className={styles.title}>Timeless Treasures Antiques</h1>
+        <p>
+          {" "}
+          Please be advised: The form presented herein serve solely an examples,
+          and the contact information displayed in the footer is for
+          illustrative purposes only. Accurate contact details are available
+          exclusively by navigating back to the original website at any time by
+          clicking the Home button in the navigation bar, where you can access
+          the official Contact page.
+        </p>
         <p className={styles.tagline}>
           Discover unique vintage finds & classic collectibles
         </p>
@@ -117,7 +126,6 @@ export default function SinglePageWebsite() {
           <br />
           <strong>Address:</strong> 123 Heritage Lane, Oldtown
           <br />
-        
           <strong>Hours:</strong> Mon–Fri: 10am – 6pm | Sat: 11am – 4pm
           <br />
           <strong>Contact:</strong> (555) 123-4567 |{" "}

@@ -1,4 +1,3 @@
-// src/pages/WRNewContact.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
@@ -33,31 +32,23 @@ function WRNewContact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validate()) {
-      try {
-        const response = await fetch("http://localhost:5000/send-message", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(formData),
-        });
-
-        if (!response.ok) {
-          throw new Error("Failed to send message. Please try again.");
-        }
-
-        setSubmitSuccess(true);
-        setFormData({ name: "", email: "", phone: "", message: "" });
-        setErrors({});
-      } catch (error) {
-        setSubmitSuccess(false);
-        alert(error.message);
-      }
-    } else {
+    if (!validate()) {
       setSubmitSuccess(false);
+      return;
     }
+
+    // Log form data and show alert instead of sending to backend
+    console.log("Contact form submitted:", formData);
+    alert(
+      "Thank you! Your message has been submitted. Check console for details."
+    );
+
+    setSubmitSuccess(true);
+    setFormData({ name: "", email: "", phone: "", message: "" });
+    setErrors({});
   };
 
   return (
@@ -107,15 +98,21 @@ function WRNewContact() {
         </ul>
       </nav>
 
+      <p>
+        {" "}
+        Please be advised: The forms presented herein serve solely as examples,
+        and the contact information displayed in the footers is for illustrative
+        purposes only. Accurate contact details are available exclusively on the
+        Home page. You may also navigate back to the original website at any
+        time by clicking the website title in the navigation bar, where you can
+        access the official Contact page.
+      </p>
+
       <section className={styles.section}>
         <p className={styles.slogan}>"We listen. We respond. We care."</p>
         <h2 className={styles.subheader}>Contact Us</h2>
 
-        <form
-          onSubmit={handleSubmit}
-          noValidate
-          className={styles.contactForm} /* changed from styles.card */
-        >
+        <form onSubmit={handleSubmit} noValidate className={styles.contactForm}>
           <label htmlFor="name" className={styles.contactForm__label}>
             Name:
           </label>

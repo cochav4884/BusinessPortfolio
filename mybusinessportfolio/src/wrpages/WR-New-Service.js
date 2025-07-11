@@ -24,19 +24,18 @@ function WRNewService() {
     const newErrors = {};
     if (!formData.name.trim()) newErrors.name = "Name is required.";
     if (!formData.email.trim()) newErrors.email = "Email is required.";
-    else if (
-      !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)
-    )
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email))
       newErrors.email = "Invalid email address.";
     if (!formData.date) newErrors.date = "Please select a date.";
-    if (!formData.serviceType) newErrors.serviceType = "Please select a service type.";
+    if (!formData.serviceType)
+      newErrors.serviceType = "Please select a service type.";
 
-    // Note: No validation for paymentPlan (it's optional now)
+    // paymentPlan is optional, so no validation here
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!validate()) {
@@ -44,28 +43,19 @@ function WRNewService() {
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:5000/api/service-booking", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-      });
+    // Instead of sending data to backend, just log and alert
+    console.log("Booking submitted:", formData);
+    alert("Successfully submitted! Check console for details.");
 
-      if (!response.ok) throw new Error("Failed to submit booking. Please try again.");
-
-      setSubmitSuccess(true);
-      setFormData({
-        name: "",
-        email: "",
-        date: "",
-        serviceType: "",
-        paymentPlan: "",
-      });
-      setErrors({});
-    } catch (error) {
-      setSubmitSuccess(false);
-      alert(error.message);
-    }
+    setSubmitSuccess(true);
+    setFormData({
+      name: "",
+      email: "",
+      date: "",
+      serviceType: "",
+      paymentPlan: "",
+    });
+    setErrors({});
   };
 
   return (
@@ -85,13 +75,43 @@ function WRNewService() {
           ☰
         </button>
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
-          <li><Link to="/website-redesign" className={styles.navItem}>Home</Link></li>
-          <li><Link to="/wr-new-about" className={styles.navItem}>About</Link></li>
-          <li><Link to="/wr-new-gallery" className={styles.navItem}>Gallery</Link></li>
-          <li><Link to="/wr-new-service" className={styles.navItem}>Service</Link></li>
-          <li><Link to="/wr-new-contact" className={styles.navItem}>Contact</Link></li>
+          <li>
+            <Link to="/website-redesign" className={styles.navItem}>
+              Home
+            </Link>
+          </li>
+          <li>
+            <Link to="/wr-new-about" className={styles.navItem}>
+              About
+            </Link>
+          </li>
+          <li>
+            <Link to="/wr-new-gallery" className={styles.navItem}>
+              Gallery
+            </Link>
+          </li>
+          <li>
+            <Link to="/wr-new-service" className={styles.navItem}>
+              Service
+            </Link>
+          </li>
+          <li>
+            <Link to="/wr-new-contact" className={styles.navItem}>
+              Contact
+            </Link>
+          </li>
         </ul>
       </nav>
+
+      <p>
+        {" "}
+        Please be advised: The forms presented herein serve solely as examples,
+        and the contact information displayed in the footers is for illustrative
+        purposes only. Accurate contact details are available exclusively on the
+        Home page. You may also navigate back to the original website at any
+        time by clicking the website title in the navigation bar, where you can
+        access the official Contact page.
+      </p>
 
       {/* Slogan */}
       <div className={styles.slogan}>
@@ -108,7 +128,9 @@ function WRNewService() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${errors.name ? styles.contactForm__errorInput : ""}`}
+            className={`${styles.contactForm__input} ${
+              errors.name ? styles.contactForm__errorInput : ""
+            }`}
           />
           {errors.name && <div style={{ color: "red" }}>{errors.name}</div>}
 
@@ -118,7 +140,9 @@ function WRNewService() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${errors.email ? styles.contactForm__errorInput : ""}`}
+            className={`${styles.contactForm__input} ${
+              errors.email ? styles.contactForm__errorInput : ""
+            }`}
           />
           {errors.email && <div style={{ color: "red" }}>{errors.email}</div>}
 
@@ -128,7 +152,9 @@ function WRNewService() {
             name="date"
             value={formData.date}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${errors.date ? styles.contactForm__errorInput : ""}`}
+            className={`${styles.contactForm__input} ${
+              errors.date ? styles.contactForm__errorInput : ""
+            }`}
           />
           {errors.date && <div style={{ color: "red" }}>{errors.date}</div>}
 
@@ -137,20 +163,28 @@ function WRNewService() {
             name="serviceType"
             value={formData.serviceType}
             onChange={handleChange}
-            className={`${styles.contactForm__input} ${errors.serviceType ? styles.contactForm__errorInput : ""}`}
+            className={`${styles.contactForm__input} ${
+              errors.serviceType ? styles.contactForm__errorInput : ""
+            }`}
           >
             <option value="">-- Select Service --</option>
-            <option value="Car Engine & Transmission Repair">Car Engine Repair</option>
+            <option value="Car Engine & Transmission Repair">
+              Car Engine Repair
+            </option>
             <option value="Brake Replacement">Brake Replacement</option>
             <option value="Oil Change">Oil Change</option>
             <option value="Tire Service">Tire Service</option>
             <option value="Paint & Body Repair">Body Repair</option>
             <option value="Electrical Work">Electrical Work</option>
           </select>
-          {errors.serviceType && <div style={{ color: "red" }}>{errors.serviceType}</div>}
+          {errors.serviceType && (
+            <div style={{ color: "red" }}>{errors.serviceType}</div>
+          )}
 
           <fieldset style={{ marginTop: "1rem" }}>
-            <legend className={styles.contactForm__label}>Payment Options (Optional):</legend>
+            <legend className={styles.contactForm__label}>
+              Payment Options (Optional):
+            </legend>
 
             <div>
               <label className={styles["radio-label"]}>
@@ -184,7 +218,10 @@ function WRNewService() {
                   type="radio"
                   name="paymentPlan"
                   value="Income-based payment plan $250 - $500"
-                  checked={formData.paymentPlan === "Income-based payment plan $250 - $500"}
+                  checked={
+                    formData.paymentPlan ===
+                    "Income-based payment plan $250 - $500"
+                  }
                   onChange={handleChange}
                 />
                 Income-based payment plan $250 - $500
@@ -197,7 +234,10 @@ function WRNewService() {
                   type="radio"
                   name="paymentPlan"
                   value="Personal car repair loan above $500"
-                  checked={formData.paymentPlan === "Personal car repair loan above $500"}
+                  checked={
+                    formData.paymentPlan ===
+                    "Personal car repair loan above $500"
+                  }
                   onChange={handleChange}
                 />
                 Personal car repair loan above $500
@@ -225,14 +265,29 @@ function WRNewService() {
       {/* Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights reserved.
+          &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
+          reserved.
         </div>
-        <div style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}>
+        <div
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+        >
           <h2>Contact Information</h2>
-          <p><strong>Contact Person:</strong> Tony Auto</p>
-          <p><strong>Contact Number:</strong> (023) 456-7890</p>
-          <p><strong>Business Hours:</strong></p>
-          <ul style={{ listStyleType: "none", paddingLeft: 0, marginBottom: "1rem" }}>
+          <p>
+            <strong>Contact Person:</strong> Tony Auto
+          </p>
+          <p>
+            <strong>Contact Number:</strong> (023) 456-7890
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
+          </p>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
             <li>Monday - Friday: 8:00am to 5:00pm</li>
             <li>Saturday: 12:00pm to 4:00pm</li>
             <li>Closed Sunday and Holidays</li>

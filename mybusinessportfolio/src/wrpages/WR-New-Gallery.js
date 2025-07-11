@@ -64,6 +64,16 @@ function WRNewGallery() {
         </ul>
       </nav>
 
+      <p>
+        {" "}
+        Please be advised: The forms presented herein serve solely as examples,
+        and the contact information displayed in the footers is for illustrative
+        purposes only. Accurate contact details are available exclusively on the
+        Home page. You may also navigate back to the original website at any
+        time by clicking the website title in the navigation bar, where you can
+        access the official Contact page.
+      </p>
+
       <p className={styles.slogan}>
         "The Skilled Team Behind Every Smooth Ride”
       </p>

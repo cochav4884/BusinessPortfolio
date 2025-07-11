@@ -1,4 +1,3 @@
-// src/pages/MPWBookingPage.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
@@ -15,35 +14,42 @@ export default function MPWBookingPage() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e) => {
+  // Simple validation function
+  const validate = () => {
+    const newErrors = {};
+    if (!formData.name.trim()) newErrors.name = "Full name is required.";
+    if (!formData.email.trim()) newErrors.email = "Email address is required.";
+    else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email))
+      newErrors.email = "Invalid email address.";
+    if (!formData.date) newErrors.date = "Please select a preferred date.";
+    if (!formData.time) newErrors.time = "Please select a preferred time.";
+    if (!formData.package) newErrors.package = "Please select a package.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:5000/booking", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitted(true);
-      } else {
-        alert(data.message || "Failed to submit booking. Please try again.");
-      }
-    } catch (error) {
-      alert("Error submitting booking. Please check your connection.");
-      console.error("Booking submission error:", error);
+    if (!validate()) {
+      return;
     }
+
+    // Log data to console
+    console.log("Booking submitted:", formData);
+
+    // Show popup alert instead of backend call
+    alert("Booking successfully submitted! Check the console for details.");
+
+    // Optionally clear form or show success message below
+    setSubmitted(true);
   };
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -103,6 +109,15 @@ export default function MPWBookingPage() {
       {/* Page Title */}
       <header className={styles.header} style={{ marginBottom: "2rem" }}>
         <h1 className={styles.pageTitle2}>Book Your Photo Session</h1>
+        <p>
+          {" "}
+          Please be advised: The forms presented herein serve solely as
+          examples, and the contact information displayed in the footers is for
+          illustrative purposes only. Accurate contact details are available
+          exclusively on the Home page. You may also navigate back to the
+          original website at any time by clicking the website title in the
+          navigation bar, where you can access the official Contact page.
+        </p>
         <p className={styles.intro}>
           Choose your preferred date, time, and package below.
         </p>
@@ -111,7 +126,7 @@ export default function MPWBookingPage() {
         </p>
       </header>
 
-      {/* Booking Form */}
+      {/* Booking Form or Success Message */}
       {submitted ? (
         <div
           style={{
@@ -150,6 +165,11 @@ export default function MPWBookingPage() {
             onChange={handleChange}
             placeholder="Your full name"
           />
+          {errors.name && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {errors.name}
+            </div>
+          )}
 
           <label className={styles.formLabel} htmlFor="email">
             Email Address<span style={{ color: "#cc0000" }}>*</span>
@@ -164,6 +184,11 @@ export default function MPWBookingPage() {
             onChange={handleChange}
             placeholder="you@example.com"
           />
+          {errors.email && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {errors.email}
+            </div>
+          )}
 
           <label className={styles.formLabel} htmlFor="phone">
             Phone Number
@@ -190,6 +215,11 @@ export default function MPWBookingPage() {
             value={formData.date}
             onChange={handleChange}
           />
+          {errors.date && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {errors.date}
+            </div>
+          )}
 
           <label className={styles.formLabel} htmlFor="time">
             Preferred Time<span style={{ color: "#cc0000" }}>*</span>
@@ -203,6 +233,11 @@ export default function MPWBookingPage() {
             value={formData.time}
             onChange={handleChange}
           />
+          {errors.time && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {errors.time}
+            </div>
+          )}
 
           <label className={styles.formLabel} htmlFor="package">
             Select Package<span style={{ color: "#cc0000" }}>*</span>
@@ -222,6 +257,11 @@ export default function MPWBookingPage() {
             <option value="standard">Standard - 1 hour session</option>
             <option value="deluxe">Deluxe - 2 hour session with prints</option>
           </select>
+          {errors.package && (
+            <div style={{ color: "red", marginBottom: "10px" }}>
+              {errors.package}
+            </div>
+          )}
 
           <label className={styles.formLabel} htmlFor="notes">
             Additional Notes

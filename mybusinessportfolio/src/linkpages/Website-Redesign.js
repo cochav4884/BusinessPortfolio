@@ -67,6 +67,16 @@ function WebsiteRedesign() {
         </p>
       </div>
 
+      <p>
+        {" "}
+        Please be advised: The forms presented herein serve solely as examples,
+        and the contact information displayed in the footers is for illustrative
+        purposes only. Accurate contact details are available exclusively on the
+        Home page. You may also navigate back to the original website at any
+        time by clicking the website title in the navigation bar, where you can
+        access the official Contact page.
+      </p>
+
       <DesignCard
         title="Original Design | 1978 – HTML & CSS"
         description="This version was created using only HTML and CSS. It has a basic layout, fixed-width design, and limited mobile support."
