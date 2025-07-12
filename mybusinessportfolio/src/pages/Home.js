@@ -7,9 +7,9 @@ function Home() {
   const [showModal, setShowModal] = useState(false);
 
   // Direct URLs for public/ images
-  const logoSmall = "/images/logo_small.jpeg";
-  const logoMedium = "/images/logo_medium.jpeg";
-  const logoLarge = "/images/logo_large.jpeg";
+  const logoSmall = "/images/logo-small.jpeg";
+  const logoMedium = "/images/logo-medium.jpeg";
+  const logoLarge = "/images/logo-large.jpeg";
 
   return (
     <div className="container-fluid">
