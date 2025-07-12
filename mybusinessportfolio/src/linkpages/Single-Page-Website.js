@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../linkstyles/Single-Page-Website.module.css";
 import CollectionPreview from "../components/CollectionPreview";
 
@@ -78,9 +79,9 @@ export default function SinglePageWebsite() {
         <h1 className={styles.navTitle}>Timeless Treasures Antiques</h1>
         <ul className={styles.navList}>
           <li>
-            <a href="/" className={styles.navLink}>
+            <Link to="/" className={styles.brandLink}>
               Home
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
