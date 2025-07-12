@@ -92,27 +92,33 @@ export default function Author() {
                   By the age of four, I could discern the good and bad in
                   people. I sensed their true intentions. I looked to my parents
                   and other adults in my life to understand why people chose
-                  good over bad, or bad over good. I remember observing the good
-                  that adults did for others and began building my core beliefs.
-                  These core beliefs became the foundation for how I would treat
-                  others—and how I would allow them to treat me. To this day, my
-                  core values are:
-                  <ol>
-                    <li>Don’t steal</li>
-                    <li>Don’t cheat</li>
-                    <li>Don’t lie</li>
-                    <li>Don’t hit</li>
-                    <li>Don’t call me dumb</li>
-                  </ol>
+                  good over bad—or bad over good.
+                </p>
+                <p className="born">
+                  I remember observing the good that adults did for others and
+                  began building my core beliefs. These core beliefs became the
+                  foundation for how I would treat others—and how I would allow
+                  them to treat me. To this day, my core values are:
+                </p>
+                <ol>
+                  <li>Don’t steal</li>
+                  <li>Don’t cheat</li>
+                  <li>Don’t lie</li>
+                  <li>Don’t hit</li>
+                  <li>Don’t call me dumb</li>
+                </ol>
+                <p className="born">
                   I learned that sometimes you have to accept what is and make
                   the best of it. I trust easily and look for the good in
-                  people, no matter how small it may be. God was in and out of
-                  my life depending on who was around me. As a child, adults are
-                  responsible for nourishing us—physically, emotionally, and
-                  spiritually. As I got older, I felt resentment toward God for
-                  not saving me from bad people. But as an adult, I realized
-                  just how much He was there for me—I just didn’t know it at the
-                  time.
+                  people, no matter how small it may be.
+                </p>
+                <p className="born">
+                  God was in and out of my life depending on who was around me.
+                  As a child, adults are responsible for nourishing
+                  us—physically, emotionally, and spiritually. As I got older, I
+                  felt resentment toward God for not saving me from bad people.
+                  But as an adult, I realized just how much He was there for
+                  me—I just didn’t know it at the time.
                 </p>
               </section>
 
@@ -124,17 +130,23 @@ export default function Author() {
                   first child on November 26, 1998, and worked various odd jobs
                   from the age of eight through today. I gave birth to my second
                   child on July 20, 2001. I attempted college a second time but
-                  had to resign. After the birth of my third child on April 17,
-                  2003, I started a daycare and also did hair and nails to help
-                  pay bills. I attempted college again but had to resign once
-                  more. I focused on raising my kids and helping others with
-                  theirs until my children started school. Then I became an avid
-                  volunteer, eventually earning an honorary award for the most
-                  volunteer hours that school year. The award was a handmade
-                  book from the preschoolers featuring the words they learned to
-                  spell that year. Once my kids were all over the age of four, I
-                  earned my school bus driver’s license and drove school buses
-                  in both California and Idaho.
+                  had to resign.
+                </p>
+                <p className="born">
+                  After the birth of my third child on April 17, 2003, I started
+                  a daycare and also did hair and nails to help pay the bills. I
+                  attempted college again but had to resign once more. I focused
+                  on raising my kids and helping others with theirs until my
+                  children started school. Then I became an avid volunteer,
+                  eventually earning an honorary award for the most volunteer
+                  hours that school year. The award was a handmade book from the
+                  preschoolers featuring the words they learned to spell that
+                  year.
+                </p>
+                <p className="born">
+                  Once my kids were all over the age of four, I earned my school
+                  bus driver’s license and drove school buses in both California
+                  and Idaho.
                 </p>
               </section>
 
@@ -147,14 +159,16 @@ export default function Author() {
                   Political Government and Science, and a Bachelor of Arts in
                   Sociology. I developed a real interest in Anthropology. My
                   curiosity grew as we learned about local tribes and how
-                  Western influences changed their way of life. I’ve always been
-                  fascinated by people—how they function both individually and
-                  as part of a group. My biggest interest lies in the roles
-                  people play in group settings and how each role contributes to
-                  the group’s overall harmony. By then, my kids were old enough
-                  to volunteer with me in our community. Over time, much of what
-                  we did together counted as community service hours on their
-                  school records.
+                  Western influences changed their way of life.
+                </p>
+                <p className="born">
+                  I’ve always been fascinated by people—how they function both
+                  individually and as part of a group. My biggest interest lies
+                  in the roles people play in group settings and how each role
+                  contributes to the group’s overall harmony. By then, my kids
+                  were old enough to volunteer with me in our community. Over
+                  time, much of what we did together counted as community
+                  service hours on their school records.
                 </p>
               </section>
 
@@ -166,9 +180,11 @@ export default function Author() {
                   and homelessness. I came off of being homeless on January 21,
                   2022. My vehicle shows more interior wear than it should, but
                   we survived our third period of homelessness since the
-                  pandemic began. My good friend Richie played a major role
-                  during this time. He helped me through some of the toughest
-                  moments.
+                  pandemic began.
+                </p>
+                <p className="born">
+                  My good friend Richie played a major role during this time. He
+                  helped me through some of the toughest moments.
                 </p>
               </section>
 
@@ -185,28 +201,26 @@ export default function Author() {
                   preparing for this moment my whole life—strategic board games,
                   mystery books, puzzles, LEGOs, Minecraft—they all built the
                   foundation for the best skill I’ve ever learned: coding for
-                  web design. My first course was{" "}
-                  <em>Websites for Beginners</em>. I am currently in{" "}
-                  <em>Mobile Friendly</em>, and this website is my final project
-                  for the course. I plan to continue with{" "}
-                  <em>JavaScript for Beginners</em>, then complete the final
-                  course in <em>React</em>. By the end of this course, I hope to
-                  have this website fully functioning and live online!
+                  web design.
                 </p>
-              </section>
-
-              <section className={styles.bioSection}>
-                <h2>Continued Education</h2>
                 <p className="born">
-                  I was finally able to buy a trailer home—I was so excited! But
-                  then, my first grandchild ended up in foster care, and now I’m
-                  preparing to adopt them later this year. Unfortunately, the
-                  landowner of the trailer park where I was paying space rent
-                  didn’t want children in the park. He convinced a judge to
-                  force me to move. Since then, I’ve been renting rooms for
-                  myself and my grandchild while continuing to attend bootcamps.
-                  I’m proud to say I received certifications in both backend and
-                  frontend software development!
+                  I successfully completed all four courses:{" "}
+                  <em>Websites for Beginners</em>, <em>Mobile Friendly</em>,{" "}
+                  <em>JavaScript for Beginners</em>, and <em>React</em>. The
+                  website for my final project for the <em>React</em> course was
+                  completed and published.
+                </p>
+                <p className="born">
+                  I have recently updated all code and am now waiting for more
+                  information from Richie to add to the final project. I want to
+                  learn more about where Richie lived, and together we hope all
+                  users of the website will learn as much as we did—and maybe
+                  even choose to visit. I plan to publish this project by the
+                  end of 2025.
+                </p>
+                <p className="born">
+                  I look forward to continuing to expand my skills and projects
+                  as I grow in my coding journey.
                 </p>
               </section>
 
@@ -217,16 +231,37 @@ export default function Author() {
                   skills to potential clients and employers. I plan to update
                   all the code from my past four years of projects and link them
                   to this site. I’ll also include short videos explaining how to
-                  use each one. My goal is to build a successful career and
-                  eventually purchase land where I can place a modular home for
-                  myself and my grandchild. I know the road ahead won’t be
-                  easy—but I’m ready to take one successful step at a time
-                  toward a beautiful future!
+                  use each one. My goal is to build a successful career in web
+                  design and development.
+                </p>
+                <p className="born">
+                  Eventually, I hope to purchase land where I can place a
+                  modular home for myself and my grandchild. I know the road
+                  ahead won’t be easy—but I’m ready to take one successful step
+                  at a time toward our beautiful future!
+                </p>
+              </section>
+
+              <section className={styles.bioSection}>
+                <h2>My Future</h2>
+                <p className="born">
+                  I’ve built this Business Portfolio Website to showcase my
+                  skills to potential clients and employers. I plan to update
+                  all the code from my past four years of projects and link them
+                  to this site. I’ll also include short videos explaining how to
+                  use each one. My goal is to build a successful career in web
+                  design and development.
+                </p>
+                <p className="born">
+                  Eventually, I hope to purchase land where I can place a
+                  modular home for myself and my grandchild. I know the road
+                  ahead won’t be easy—but I’m ready to take one successful step
+                  at a time toward our beautiful future!
                 </p>
               </section>
 
               <p className="text-center fs-4 mt-4">
-                *Last Update July 11, 2025*
+                *Last Update July 12, 2025*
               </p>
             </article>
           </div>
