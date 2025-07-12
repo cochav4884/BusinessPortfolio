@@ -205,3 +205,39 @@ h1 {
 .footer ul {
   margin: 0.5rem 0;
 }
+
+/* === Shared Background and Overlay Styles === */
+.studentInquiryBackground,
+.tamarackformBackground,
+.simpleContactFormBg,
+.simpleBookingFormBackground,
+.hrContactFormBackground,
+.danceLessonsBackground {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* performance optimization */
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+.studentInquiryOverlay,
+.tamarackformOverlay,
+.simpleContactFormOverlay,
+.simpleBookingFormOverlay,
+.hrContactFormOverlay,
+.danceLessonsOverlay {
+  background-color: rgba(255, 255, 255, 0.7);
+  padding: 2rem;
+  border-radius: 12px;
+  max-width: 800px;
+  width: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}

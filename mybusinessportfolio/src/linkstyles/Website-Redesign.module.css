@@ -70,22 +70,27 @@
 
 .screenshotContainer {
   display: flex;
-  flex-direction: row; /* ← change this from column to row */
+  flex-direction: row;
   gap: 15px;
   margin: 20px 0;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap; /* optional: wraps on small screens */
+  flex-wrap: wrap;
 }
 
-.screenshotContainer img {
-  width: 90%;
-  max-width: 400px;
+.screenshotContainer img,
+.imageWrapper img {
+  width: 100%;
   height: auto;
-  border: 2px solid #003366;
   border-radius: 6px;
+  border: 2px solid #003366;
   box-shadow: 0 2px 8px rgba(0, 51, 102, 0.3);
+  transition: transform 0.3s ease;
   object-fit: contain;
+}
+
+.imageWrapper:hover img {
+  transform: scale(1.01);
 }
 
 /* Responsive Images */
@@ -249,26 +254,12 @@
   display: inline-block;
 }
 
-.imageWrapper img {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  border: 2px solid #003366;
-  box-shadow: 0 2px 8px rgba(0, 51, 102, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.imageWrapper:hover img {
-  transform: scale(1.01);
-}
-
 .caption {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(30, 58, 95, 0.8); /* deep blue overlay */
+  background: rgba(30, 58, 95, 0.8);
   color: #fff;
   font-size: 0.9rem;
   padding: 0.5rem;
@@ -335,8 +326,6 @@
 
 .flipCardFront {
   background-color: #fff;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
 }
 
@@ -429,18 +418,16 @@
 .radio-label {
   display: flex;
   align-items: center;
-  gap: 0.5rem; /* space between radio and text */
+  gap: 0.5rem;
   cursor: pointer;
   margin-bottom: 0.5rem;
 }
 
-/* Optionally style the input a bit */
 .radio-label input[type="radio"] {
   flex-shrink: 0;
   width: 1rem;
   height: 1rem;
 }
-
 
 /* Responsive adjustments */
 @media (max-width: 600px) {

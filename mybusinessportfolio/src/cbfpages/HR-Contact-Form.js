@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
-export default function SimpleBookingForm() {
-  const [simpleBooking, setSimpleBooking] = useState({
+import hrContactFormBg from "../linkimages/HR-form.jpg";
+
+export default function HRContactForm() {
+  const [hrContact, setHrContact] = useState({
     name: "",
-    email: "",
+    employeeId: "",
+    subject: "",
     message: "",
   });
 
@@ -21,13 +24,13 @@ export default function SimpleBookingForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitting Simple Booking Form:", simpleBooking);
-    alert("Submitted Simple Booking Form! Check console for data.");
+    console.log("Submitting HR Contact Form:", hrContact);
+    alert("Submitted HR Contact Form! Check console for data.");
   };
 
   return (
     <div className="container-fluid">
-      {/* Navbar with dropdowns */}
+      {/* ✅ Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
           <Link to="/" className={styles.brandLink}>
@@ -45,7 +48,6 @@ export default function SimpleBookingForm() {
         </button>
 
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
-          {/* Home */}
           <li>
             <Link to="/contact-and-booking-forms" className={styles.navItem}>
               Home
@@ -129,7 +131,7 @@ export default function SimpleBookingForm() {
         </ul>
       </nav>
 
-      {/* Page Content */}
+      {/* ✅ Page Header & Form */}
       <h1 className={styles.pageHeader}>Contact and Booking Forms</h1>
       <p>
         {" "}
@@ -141,86 +143,96 @@ export default function SimpleBookingForm() {
         access the official Contact page.
       </p>
 
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>Simple Booking Form</h2>
-        <form onSubmit={handleSubmit} noValidate>
-          <input
-            type="text"
-            placeholder="Name"
-            value={simpleBooking.name}
-            onChange={(e) =>
-              setSimpleBooking((prev) => ({ ...prev, name: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={simpleBooking.email}
-            onChange={(e) =>
-              setSimpleBooking((prev) => ({ ...prev, email: e.target.value }))
-            }
-            required
-          />
-          <textarea
-            placeholder="Message"
-            value={simpleBooking.message}
-            onChange={(e) =>
-              setSimpleBooking((prev) => ({
-                ...prev,
-                message: e.target.value,
-              }))
-            }
-            required
-          />
-          <button type="submit" className={styles.customButton}>
-            Submit
-          </button>
-        </form>
+      <section
+        className={styles.hrContactFormBackground}
+        style={{ backgroundImage: `url(${hrContactFormBg})` }}
+      >
+        <div className={styles.hrContactFormOverlay}>
+          <h2 className={styles.subheader}>HR Contact Form</h2>
+          <form onSubmit={handleSubmit} noValidate>
+            <input
+              type="text"
+              placeholder="Name"
+              value={hrContact.name}
+              onChange={(e) =>
+                setHrContact((prev) => ({ ...prev, name: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="text"
+              placeholder="Employee ID"
+              value={hrContact.employeeId}
+              onChange={(e) =>
+                setHrContact((prev) => ({
+                  ...prev,
+                  employeeId: e.target.value,
+                }))
+              }
+              required
+            />
+            <select
+              value={hrContact.subject}
+              onChange={(e) =>
+                setHrContact((prev) => ({ ...prev, subject: e.target.value }))
+              }
+              required
+            >
+              <option value="" disabled>
+                Select Subject
+              </option>
+              <option value="Schedule">Schedule</option>
+              <option value="Holiday Pay">Holiday Pay</option>
+              <option value="Request Vacation">Request Vacation</option>
+              <option value="Request Medical Leave">
+                Request Medical Leave
+              </option>
+              <option value="Complaint">Complaint</option>
+              <option value="Other">Other</option>
+            </select>
+            <textarea
+              placeholder="Message"
+              value={hrContact.message}
+              onChange={(e) =>
+                setHrContact((prev) => ({ ...prev, message: e.target.value }))
+              }
+              required
+            />
+            <button type="submit" className={styles.customButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </section>
 
-      {/* Footer */}
+      {/* ✅ Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Your Service Company — All rights
+          &copy; {new Date().getFullYear()} Acme Corporation — All rights
           reserved.
         </div>
 
         <div
-          style={{
-            marginTop: "1rem",
-            textAlign: "center",
-            fontSize: "0.9rem",
-          }}
+          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
         >
-          <h2>Contact Information</h2>
+          <h2>Human Resources Department</h2>
           <p>
-            <strong>Booking Coordinator:</strong> Alex Johnson
+            <strong>Contact Person:</strong> Jane Smith, HR Manager
           </p>
           <p>
-            <strong>Phone:</strong> (555) 246-8100
+            <strong>Phone:</strong> (555) 321-7890
           </p>
           <p>
-            <strong>Business Hours:</strong>
+            <strong>Office Hours:</strong>
           </p>
-          <ul
-            style={{
-              listStyleType: "none",
-              paddingLeft: 0,
-              marginBottom: "1rem",
-            }}
-          >
+          <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
             <li>Monday - Friday: 9:00am to 6:00pm</li>
-            <li>Saturday: 10:00am to 2:00pm</li>
-            <li>Closed Sundays and Holidays</li>
+            <li>Closed Saturday and Sunday</li>
           </ul>
           <p>
             <strong>Email:</strong>{" "}
-            <a
-              href="mailto:booking@yourservice.com"
-              style={{ color: "#f0f4f8" }}
-            >
-              booking@yourservice.com
+            <a href="mailto:hr@acmecorp.com" style={{ color: "#f0f4f8" }}>
+              hr@acmecorp.com
             </a>
           </p>
         </div>

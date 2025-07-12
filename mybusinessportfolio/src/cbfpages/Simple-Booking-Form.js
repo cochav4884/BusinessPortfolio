@@ -2,15 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
-export default function SkiResortCabinBookingForm() {
-  const [skiBooking, setSkiBooking] = useState({
+import simpleBookingFormBg from "../linkimages/Simple-Booking-Form.jpg"; // adjust path and filename as needed
+
+export default function SimpleBookingForm() {
+  const [simpleBooking, setSimpleBooking] = useState({
     name: "",
-    phone: "",
     email: "",
-    adults: "",
-    children: "",
-    days: "",
-    memberNumber: "",
+    message: "",
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,15 +21,15 @@ export default function SkiResortCabinBookingForm() {
   const toggleBookingDropdown = () =>
     setBookingDropdownOpen(!bookingDropdownOpen);
 
-  const handleSubmit = (e, formName, data) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Submitting ${formName}`, data);
-    alert(`Submitted ${formName}! Check console for data.`);
+    console.log("Submitting Simple Booking Form:", simpleBooking);
+    alert("Submitted Simple Booking Form! Check console for data.");
   };
 
   return (
     <div className="container-fluid">
-      {/* Dropdown Navbar */}
+      {/* Navbar with dropdowns */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
           <Link to="/" className={styles.brandLink}>
@@ -133,7 +131,7 @@ export default function SkiResortCabinBookingForm() {
         </ul>
       </nav>
 
-      {/* Page Header & Form */}
+      {/* Page Content */}
       <h1 className={styles.pageHeader}>Contact and Booking Forms</h1>
       <p>
         {" "}
@@ -145,92 +143,53 @@ export default function SkiResortCabinBookingForm() {
         access the official Contact page.
       </p>
 
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>Ski Resort Cabin Booking</h2>
-        <form
-          onSubmit={(e) =>
-            handleSubmit(e, "Ski Resort Cabin Booking", skiBooking)
-          }
-          noValidate
-        >
-          <input
-            type="text"
-            placeholder="Name"
-            value={skiBooking.name}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({ ...prev, name: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={skiBooking.phone}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({ ...prev, phone: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={skiBooking.email}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({ ...prev, email: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="number"
-            placeholder="Number of Adults"
-            min="0"
-            value={skiBooking.adults}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({ ...prev, adults: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="number"
-            placeholder="Number of Children (17 and under)"
-            min="0"
-            value={skiBooking.children}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({ ...prev, children: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="number"
-            placeholder="Number of Days"
-            min="1"
-            value={skiBooking.days}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({ ...prev, days: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="text"
-            placeholder="Member Number (optional)"
-            value={skiBooking.memberNumber}
-            onChange={(e) =>
-              setSkiBooking((prev) => ({
-                ...prev,
-                memberNumber: e.target.value,
-              }))
-            }
-          />
-          <button type="submit" className={styles.customButton}>
-            Submit
-          </button>
-        </form>
+      <section
+        className={styles.simpleBookingFormBackground}
+        style={{ backgroundImage: `url(${simpleBookingFormBg})` }}
+      >
+        <div className={styles.simpleBookingFormOverlay}>
+          <h2 className={styles.subheader}>Simple Booking Form</h2>
+          <form onSubmit={handleSubmit} noValidate>
+            <input
+              type="text"
+              placeholder="Name"
+              value={simpleBooking.name}
+              onChange={(e) =>
+                setSimpleBooking((prev) => ({ ...prev, name: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={simpleBooking.email}
+              onChange={(e) =>
+                setSimpleBooking((prev) => ({ ...prev, email: e.target.value }))
+              }
+              required
+            />
+            <textarea
+              placeholder="Message"
+              value={simpleBooking.message}
+              onChange={(e) =>
+                setSimpleBooking((prev) => ({
+                  ...prev,
+                  message: e.target.value,
+                }))
+              }
+              required
+            />
+            <button type="submit" className={styles.customButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Tamarack Ski Resort — All rights
+          &copy; {new Date().getFullYear()} Your Service Company — All rights
           reserved.
         </div>
 
@@ -243,13 +202,13 @@ export default function SkiResortCabinBookingForm() {
         >
           <h2>Contact Information</h2>
           <p>
-            <strong>Reservations Desk:</strong> Tamarack Ski Resort
+            <strong>Booking Coordinator:</strong> Alex Johnson
           </p>
           <p>
-            <strong>Phone:</strong> (555) 765-4321
+            <strong>Phone:</strong> (555) 246-8100
           </p>
           <p>
-            <strong>Reservation Hours:</strong>
+            <strong>Business Hours:</strong>
           </p>
           <ul
             style={{
@@ -258,16 +217,17 @@ export default function SkiResortCabinBookingForm() {
               marginBottom: "1rem",
             }}
           >
-            <li>Monday - Sunday: 8:00am to 8:00pm</li>
-            <li>Closed Major Holidays</li>
+            <li>Monday - Friday: 9:00am to 6:00pm</li>
+            <li>Saturday: 10:00am to 2:00pm</li>
+            <li>Closed Sundays and Holidays</li>
           </ul>
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:reservations@tamrackski.com"
-              style={{ color: "#f8f5f2" }}
+              href="mailto:booking@yourservice.com"
+              style={{ color: "#f0f4f8" }}
             >
-              reservations@tamrackski.com
+              booking@yourservice.com
             </a>
           </p>
         </div>

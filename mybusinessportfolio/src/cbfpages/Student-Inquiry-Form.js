@@ -2,10 +2,16 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
-export default function ContactAndBookingForms() {
-  const [simpleContact, setSimpleContact] = useState({
-    name: "",
-    email: "",
+import springfieldFormBg from "../linkimages/springfield-form.jpg";
+
+export default function StudentInquiryForm() {
+  const [studentContact, setStudentContact] = useState({
+    studentName: "",
+    parentName: "",
+    parentPhone: "",
+    parentEmail: "",
+    subject: "",
+    teacherName: "",
     message: "",
   });
 
@@ -19,15 +25,15 @@ export default function ContactAndBookingForms() {
   const toggleBookingDropdown = () =>
     setBookingDropdownOpen(!bookingDropdownOpen);
 
-  const handleSubmit = (e, formName, data) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`Submitting ${formName}`, data);
-    alert(`Submitted ${formName}! Check console for data.`);
+    console.log("Submitting Student Inquiry Contact Form:", studentContact);
+    alert("Submitted Student Inquiry Contact Form! Check console for data.");
   };
 
   return (
     <div className="container-fluid">
-      {/* ✅ Navbar */}
+      {/* Navbar Dropdown */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
           <Link to="/" className={styles.brandLink}>
@@ -128,7 +134,7 @@ export default function ContactAndBookingForms() {
         </ul>
       </nav>
 
-      {/* ✅ Page Header */}
+      {/* Page Header & Form */}
       <h1 className={styles.pageHeader}>Contact and Booking Forms</h1>
       <p>
         {" "}
@@ -140,55 +146,115 @@ export default function ContactAndBookingForms() {
         access the official Contact page.
       </p>
 
-      {/* ✅ Simple Contact Form */}
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>Simple Contact Form</h2>
-        <form
-          onSubmit={(e) =>
-            handleSubmit(e, "Simple Contact Form", simpleContact)
-          }
-          noValidate
-        >
-          <input
-            type="text"
-            placeholder="Name"
-            value={simpleContact.name}
-            onChange={(e) =>
-              setSimpleContact((prev) => ({ ...prev, name: e.target.value }))
-            }
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={simpleContact.email}
-            onChange={(e) =>
-              setSimpleContact((prev) => ({ ...prev, email: e.target.value }))
-            }
-            required
-          />
-          <textarea
-            placeholder="Message"
-            value={simpleContact.message}
-            onChange={(e) =>
-              setSimpleContact((prev) => ({
-                ...prev,
-                message: e.target.value,
-              }))
-            }
-            required
-          />
-          <button type="submit" className={styles.customButton}>
-            Submit
-          </button>
-        </form>
+      <section
+        className={styles.studentInquiryBackground}
+        style={{ backgroundImage: `url(${springfieldFormBg})` }}
+      >
+        <div className={styles.studentInquiryOverlay}>
+          <h2 className={styles.subheader}>Student Inquiry Contact Form</h2>
+          <form onSubmit={handleSubmit} noValidate>
+            <input
+              type="text"
+              placeholder="Student Name"
+              value={studentContact.studentName}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  studentName: e.target.value,
+                }))
+              }
+              required
+            />
+            <input
+              type="text"
+              placeholder="Parent Name"
+              value={studentContact.parentName}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  parentName: e.target.value,
+                }))
+              }
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Parent Phone Number"
+              value={studentContact.parentPhone}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  parentPhone: e.target.value,
+                }))
+              }
+              required
+            />
+            <input
+              type="email"
+              placeholder="Parent Email"
+              value={studentContact.parentEmail}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  parentEmail: e.target.value,
+                }))
+              }
+              required
+            />
+            <select
+              value={studentContact.subject}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  subject: e.target.value,
+                }))
+              }
+              required
+            >
+              <option value="" disabled>
+                Select Subject (High School Class)
+              </option>
+              <option value="Algebra">Algebra</option>
+              <option value="Biology">Biology</option>
+              <option value="English Literature">English Literature</option>
+              <option value="History">History</option>
+              <option value="Chemistry">Chemistry</option>
+            </select>
+            <input
+              type="text"
+              placeholder="Teacher's Name"
+              value={studentContact.teacherName}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  teacherName: e.target.value,
+                }))
+              }
+              required
+            />
+            <textarea
+              placeholder="Message"
+              value={studentContact.message}
+              onChange={(e) =>
+                setStudentContact((prev) => ({
+                  ...prev,
+                  message: e.target.value,
+                }))
+              }
+              required
+            />
+            <button type="submit" className={styles.customButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </section>
 
       {/* ✅ Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Your Company Name — All rights
-          reserved.
+          &copy; {new Date().getFullYear()} Springfield School District — All
+          rights reserved.
         </div>
 
         <div
@@ -196,27 +262,27 @@ export default function ContactAndBookingForms() {
         >
           <h2>Contact Information</h2>
           <p>
-            <strong>Contact Person:</strong> Customer Support
+            <strong>District Office:</strong> Springfield School District
           </p>
           <p>
-            <strong>Phone:</strong> (555) 123-4567
+            <strong>Phone:</strong> (555) 987-6543
           </p>
+          <p>
+            <strong>Office Hours:</strong>
+          </p>
+          <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
+            <li>Monday - Friday: 7:30am to 4:30pm</li>
+            <li>Closed Saturday and Sunday</li>
+          </ul>
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:support@yourcompany.com"
+              href="mailto:studentservices@springfieldschools.edu"
               style={{ color: "#f0f4f8" }}
             >
-              support@yourcompany.com
+              studentservices@springfieldschools.edu
             </a>
           </p>
-          <p>
-            <strong>Business Hours:</strong>
-          </p>
-          <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-            <li>Monday - Friday: 9:00am to 6:00pm</li>
-            <li>Saturday - Sunday: Closed</li>
-          </ul>
         </div>
       </footer>
     </div>

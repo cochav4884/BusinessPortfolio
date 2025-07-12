@@ -2,13 +2,17 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
-export default function DanceLessonsBookingForm() {
-  const [danceBooking, setDanceBooking] = useState({
-    participant1: "",
-    participant2: "",
-    lessons: "",
+import tamarackformBg from "../linkimages/tamarack-form.jpg";
+
+export default function SkiResortCabinBookingForm() {
+  const [skiBooking, setSkiBooking] = useState({
+    name: "",
     phone: "",
     email: "",
+    adults: "",
+    children: "",
+    days: "",
+    memberNumber: "",
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -29,7 +33,7 @@ export default function DanceLessonsBookingForm() {
 
   return (
     <div className="container-fluid">
-      {/* Dropdown Navbar */}
+      {/* Navbar Dropdown */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
           <Link to="/" className={styles.brandLink}>
@@ -47,12 +51,14 @@ export default function DanceLessonsBookingForm() {
         </button>
 
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
+          {/* Home */}
           <li>
             <Link to="/contact-and-booking-forms" className={styles.navItem}>
               Home
             </Link>
           </li>
 
+          {/* Contact Dropdown */}
           <li className={styles.dropdown}>
             <button
               type="button"
@@ -88,6 +94,7 @@ export default function DanceLessonsBookingForm() {
             </ul>
           </li>
 
+          {/* Booking Dropdown */}
           <li className={styles.dropdown}>
             <button
               type="button"
@@ -139,85 +146,99 @@ export default function DanceLessonsBookingForm() {
         time by clicking the website title in the navigation bar, where you can
         access the official Contact page.
       </p>
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>Dance Lessons Booking</h2>
-        <form
-          onSubmit={(e) =>
-            handleSubmit(e, "Dance Lessons Booking", danceBooking)
-          }
-          noValidate
-        >
-          <input
-            type="text"
-            placeholder="Participant 1 Name"
-            value={danceBooking.participant1}
-            onChange={(e) =>
-              setDanceBooking((prev) => ({
-                ...prev,
-                participant1: e.target.value,
-              }))
+
+      <section
+        className={styles.tamarackformBackground}
+        style={{ backgroundImage: `url(${tamarackformBg})` }}
+      >
+        <div className={styles.studentInquiryOverlay}>
+          <h2 className={styles.subheader}>Ski Resort Cabin Booking</h2>
+          <form
+            onSubmit={(e) =>
+              handleSubmit(e, "Ski Resort Cabin Booking", skiBooking)
             }
-            required
-          />
-          <input
-            type="text"
-            placeholder="Participant 2 Name"
-            value={danceBooking.participant2}
-            onChange={(e) =>
-              setDanceBooking((prev) => ({
-                ...prev,
-                participant2: e.target.value,
-              }))
-            }
-          />
-          <input
-            type="number"
-            placeholder="Number of Lessons"
-            min="1"
-            value={danceBooking.lessons}
-            onChange={(e) =>
-              setDanceBooking((prev) => ({
-                ...prev,
-                lessons: e.target.value,
-              }))
-            }
-            required
-          />
-          <input
-            type="tel"
-            placeholder="Phone Number"
-            value={danceBooking.phone}
-            onChange={(e) =>
-              setDanceBooking((prev) => ({
-                ...prev,
-                phone: e.target.value,
-              }))
-            }
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={danceBooking.email}
-            onChange={(e) =>
-              setDanceBooking((prev) => ({
-                ...prev,
-                email: e.target.value,
-              }))
-            }
-            required
-          />
-          <button type="submit" className={styles.customButton}>
-            Submit
-          </button>
-        </form>
+            noValidate
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              value={skiBooking.name}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({ ...prev, name: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={skiBooking.phone}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({ ...prev, phone: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={skiBooking.email}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({ ...prev, email: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="number"
+              placeholder="Number of Adults"
+              min="0"
+              value={skiBooking.adults}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({ ...prev, adults: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="number"
+              placeholder="Number of Children (17 and under)"
+              min="0"
+              value={skiBooking.children}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({ ...prev, children: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="number"
+              placeholder="Number of Days"
+              min="1"
+              value={skiBooking.days}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({ ...prev, days: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="text"
+              placeholder="Member Number (optional)"
+              value={skiBooking.memberNumber}
+              onChange={(e) =>
+                setSkiBooking((prev) => ({
+                  ...prev,
+                  memberNumber: e.target.value,
+                }))
+              }
+            />
+            <button type="submit" className={styles.customButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Rhythm & Grace Dance Studio — All
-          rights reserved.
+          &copy; {new Date().getFullYear()} Tamarack Ski Resort — All rights
+          reserved.
         </div>
 
         <div
@@ -229,13 +250,13 @@ export default function DanceLessonsBookingForm() {
         >
           <h2>Contact Information</h2>
           <p>
-            <strong>Studio Manager:</strong> Emily Carter
+            <strong>Reservations Desk:</strong> Tamarack Ski Resort
           </p>
           <p>
-            <strong>Phone:</strong> (555) 333-2244
+            <strong>Phone:</strong> (555) 765-4321
           </p>
           <p>
-            <strong>Studio Hours:</strong>
+            <strong>Reservation Hours:</strong>
           </p>
           <ul
             style={{
@@ -244,17 +265,16 @@ export default function DanceLessonsBookingForm() {
               marginBottom: "1rem",
             }}
           >
-            <li>Monday - Friday: 9:00am to 7:00pm</li>
-            <li>Saturday: 10:00am to 3:00pm</li>
-            <li>Closed Sundays</li>
+            <li>Monday - Sunday: 8:00am to 8:00pm</li>
+            <li>Closed Major Holidays</li>
           </ul>
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:info@rhythmandgrace.com"
+              href="mailto:reservations@tamrackski.com"
               style={{ color: "#f8f5f2" }}
             >
-              info@rhythmandgrace.com
+              reservations@tamrackski.com
             </a>
           </p>
         </div>

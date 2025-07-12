@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
-export default function StudentInquiryForm() {
-  const [studentContact, setStudentContact] = useState({
-    studentName: "",
-    parentName: "",
-    parentPhone: "",
-    parentEmail: "",
-    subject: "",
-    teacherName: "",
-    message: "",
+import danceLessonsBg from "../linkimages/Dance-form.jpg";
+
+export default function DanceLessonsBookingForm() {
+  const [danceBooking, setDanceBooking] = useState({
+    participant1: "",
+    participant2: "",
+    lessons: "",
+    phone: "",
+    email: "",
   });
 
   const [menuOpen, setMenuOpen] = useState(false);
@@ -23,15 +23,15 @@ export default function StudentInquiryForm() {
   const toggleBookingDropdown = () =>
     setBookingDropdownOpen(!bookingDropdownOpen);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, formName, data) => {
     e.preventDefault();
-    console.log("Submitting Student Inquiry Contact Form:", studentContact);
-    alert("Submitted Student Inquiry Contact Form! Check console for data.");
+    console.log(`Submitting ${formName}`, data);
+    alert(`Submitted ${formName}! Check console for data.`);
   };
 
   return (
     <div className="container-fluid">
-      {/* ✅ Navbar */}
+      {/* Dropdown Navbar */}
       <nav className={styles.navbar}>
         <div className={styles.navbarBrand}>
           <Link to="/" className={styles.brandLink}>
@@ -55,7 +55,6 @@ export default function StudentInquiryForm() {
             </Link>
           </li>
 
-          {/* Contact Dropdown */}
           <li className={styles.dropdown}>
             <button
               type="button"
@@ -91,7 +90,6 @@ export default function StudentInquiryForm() {
             </ul>
           </li>
 
-          {/* Booking Dropdown */}
           <li className={styles.dropdown}>
             <button
               type="button"
@@ -132,7 +130,7 @@ export default function StudentInquiryForm() {
         </ul>
       </nav>
 
-      {/* ✅ Page Header & Form */}
+      {/* Page Header & Form */}
       <h1 className={styles.pageHeader}>Contact and Booking Forms</h1>
       <p>
         {" "}
@@ -143,137 +141,127 @@ export default function StudentInquiryForm() {
         time by clicking the website title in the navigation bar, where you can
         access the official Contact page.
       </p>
-
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>Student Inquiry Contact Form</h2>
-        <form onSubmit={handleSubmit} noValidate>
-          <input
-            type="text"
-            placeholder="Student Name"
-            value={studentContact.studentName}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                studentName: e.target.value,
-              }))
+      <section
+        className={styles.danceLessonsBackground}
+        style={{ backgroundImage: `url(${danceLessonsBg})` }}
+      >
+        <div className={styles.danceLessonsOverlay}>
+          <h2 className={styles.subheader}>Dance Lessons Booking</h2>
+          <form
+            onSubmit={(e) =>
+              handleSubmit(e, "Dance Lessons Booking", danceBooking)
             }
-            required
-          />
-          <input
-            type="text"
-            placeholder="Parent Name"
-            value={studentContact.parentName}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                parentName: e.target.value,
-              }))
-            }
-            required
-          />
-          <input
-            type="tel"
-            placeholder="Parent Phone Number"
-            value={studentContact.parentPhone}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                parentPhone: e.target.value,
-              }))
-            }
-            required
-          />
-          <input
-            type="email"
-            placeholder="Parent Email"
-            value={studentContact.parentEmail}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                parentEmail: e.target.value,
-              }))
-            }
-            required
-          />
-          <select
-            value={studentContact.subject}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                subject: e.target.value,
-              }))
-            }
-            required
+            noValidate
           >
-            <option value="" disabled>
-              Select Subject (High School Class)
-            </option>
-            <option value="Algebra">Algebra</option>
-            <option value="Biology">Biology</option>
-            <option value="English Literature">English Literature</option>
-            <option value="History">History</option>
-            <option value="Chemistry">Chemistry</option>
-          </select>
-          <input
-            type="text"
-            placeholder="Teacher's Name"
-            value={studentContact.teacherName}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                teacherName: e.target.value,
-              }))
-            }
-            required
-          />
-          <textarea
-            placeholder="Message"
-            value={studentContact.message}
-            onChange={(e) =>
-              setStudentContact((prev) => ({
-                ...prev,
-                message: e.target.value,
-              }))
-            }
-            required
-          />
-          <button type="submit" className={styles.customButton}>
-            Submit
-          </button>
-        </form>
+            <input
+              type="text"
+              placeholder="Participant 1 Name"
+              value={danceBooking.participant1}
+              onChange={(e) =>
+                setDanceBooking((prev) => ({
+                  ...prev,
+                  participant1: e.target.value,
+                }))
+              }
+              required
+            />
+            <input
+              type="text"
+              placeholder="Participant 2 Name"
+              value={danceBooking.participant2}
+              onChange={(e) =>
+                setDanceBooking((prev) => ({
+                  ...prev,
+                  participant2: e.target.value,
+                }))
+              }
+            />
+            <input
+              type="number"
+              placeholder="Number of Lessons"
+              min="1"
+              value={danceBooking.lessons}
+              onChange={(e) =>
+                setDanceBooking((prev) => ({
+                  ...prev,
+                  lessons: e.target.value,
+                }))
+              }
+              required
+            />
+            <input
+              type="tel"
+              placeholder="Phone Number"
+              value={danceBooking.phone}
+              onChange={(e) =>
+                setDanceBooking((prev) => ({
+                  ...prev,
+                  phone: e.target.value,
+                }))
+              }
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={danceBooking.email}
+              onChange={(e) =>
+                setDanceBooking((prev) => ({
+                  ...prev,
+                  email: e.target.value,
+                }))
+              }
+              required
+            />
+            <button type="submit" className={styles.customButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </section>
 
-      {/* ✅ Footer */}
+      {/* Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Springfield School District — All
+          &copy; {new Date().getFullYear()} Rhythm & Grace Dance Studio — All
           rights reserved.
         </div>
 
         <div
-          style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
+          style={{
+            marginTop: "1rem",
+            textAlign: "center",
+            fontSize: "0.9rem",
+          }}
         >
           <h2>Contact Information</h2>
           <p>
-            <strong>District Office:</strong> Springfield School District
+            <strong>Studio Manager:</strong> Emily Carter
           </p>
           <p>
-            <strong>Phone:</strong> (555) 987-6543
+            <strong>Phone:</strong> (555) 333-2244
           </p>
           <p>
-            <strong>Office Hours:</strong>
+            <strong>Studio Hours:</strong>
           </p>
-          <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
-            <li>Monday - Friday: 7:30am to 4:30pm</li>
-            <li>Closed Saturday and Sunday</li>
+          <ul
+            style={{
+              listStyleType: "none",
+              paddingLeft: 0,
+              marginBottom: "1rem",
+            }}
+          >
+            <li>Monday - Friday: 9:00am to 7:00pm</li>
+            <li>Saturday: 10:00am to 3:00pm</li>
+            <li>Closed Sundays</li>
           </ul>
           <p>
             <strong>Email:</strong>{" "}
             <a
-              href="mailto:studentservices@springfieldschools.edu"
-              style={{ color: "#f0f4f8" }}
+              href="mailto:info@rhythmandgrace.com"
+              style={{ color: "#f8f5f2" }}
             >
-              studentservices@springfieldschools.edu
+              info@rhythmandgrace.com
             </a>
           </p>
         </div>

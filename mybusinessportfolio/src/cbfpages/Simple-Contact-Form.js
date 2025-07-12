@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
-export default function HRContactForm() {
-  const [hrContact, setHrContact] = useState({
+import simpleContactFormBg from "../linkimages/Simple-Contact-Form.jpg";
+
+export default function ContactAndBookingForms() {
+  const [simpleContact, setSimpleContact] = useState({
     name: "",
-    employeeId: "",
-    subject: "",
+    email: "",
     message: "",
   });
 
@@ -20,10 +21,10 @@ export default function HRContactForm() {
   const toggleBookingDropdown = () =>
     setBookingDropdownOpen(!bookingDropdownOpen);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e, formName, data) => {
     e.preventDefault();
-    console.log("Submitting HR Contact Form:", hrContact);
-    alert("Submitted HR Contact Form! Check console for data.");
+    console.log(`Submitting ${formName}`, data);
+    alert(`Submitted ${formName}! Check console for data.`);
   };
 
   return (
@@ -52,7 +53,7 @@ export default function HRContactForm() {
             </Link>
           </li>
 
-          {/* Contact Forms Dropdown */}
+          {/* Contact Dropdown */}
           <li className={styles.dropdown}>
             <button
               type="button"
@@ -88,7 +89,7 @@ export default function HRContactForm() {
             </ul>
           </li>
 
-          {/* Booking Forms Dropdown */}
+          {/* Booking Dropdown */}
           <li className={styles.dropdown}>
             <button
               type="button"
@@ -129,7 +130,7 @@ export default function HRContactForm() {
         </ul>
       </nav>
 
-      {/* ✅ Page Header & Form */}
+      {/* ✅ Page Header */}
       <h1 className={styles.pageHeader}>Contact and Booking Forms</h1>
       <p>
         {" "}
@@ -141,88 +142,88 @@ export default function HRContactForm() {
         access the official Contact page.
       </p>
 
-      <section className={styles.section}>
-        <h2 className={styles.subheader}>HR Contact Form</h2>
-        <form onSubmit={handleSubmit} noValidate>
-          <input
-            type="text"
-            placeholder="Name"
-            value={hrContact.name}
-            onChange={(e) =>
-              setHrContact((prev) => ({ ...prev, name: e.target.value }))
+      {/* ✅ Simple Contact Form */}
+      <section
+        className={styles.simpleContactFormBg}
+        style={{ backgroundImage: `url(${simpleContactFormBg})` }}
+      >
+        <div className={styles.simpleContactFormOverlay}>
+          <h2 className={styles.subheader}>Simple Contact Form</h2>
+          <form
+            onSubmit={(e) =>
+              handleSubmit(e, "Simple Contact Form", simpleContact)
             }
-            required
-          />
-          <input
-            type="text"
-            placeholder="Employee ID"
-            value={hrContact.employeeId}
-            onChange={(e) =>
-              setHrContact((prev) => ({ ...prev, employeeId: e.target.value }))
-            }
-            required
-          />
-          <select
-            value={hrContact.subject}
-            onChange={(e) =>
-              setHrContact((prev) => ({ ...prev, subject: e.target.value }))
-            }
-            required
+            noValidate
           >
-            <option value="" disabled>
-              Select Subject
-            </option>
-            <option value="Schedule">Schedule</option>
-            <option value="Holiday Pay">Holiday Pay</option>
-            <option value="Request Vacation">Request Vacation</option>
-            <option value="Request Medical Leave">Request Medical Leave</option>
-            <option value="Complaint">Complaint</option>
-            <option value="Other">Other</option>
-          </select>
-          <textarea
-            placeholder="Message"
-            value={hrContact.message}
-            onChange={(e) =>
-              setHrContact((prev) => ({ ...prev, message: e.target.value }))
-            }
-            required
-          />
-          <button type="submit" className={styles.customButton}>
-            Submit
-          </button>
-        </form>
+            <input
+              type="text"
+              placeholder="Name"
+              value={simpleContact.name}
+              onChange={(e) =>
+                setSimpleContact((prev) => ({ ...prev, name: e.target.value }))
+              }
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={simpleContact.email}
+              onChange={(e) =>
+                setSimpleContact((prev) => ({ ...prev, email: e.target.value }))
+              }
+              required
+            />
+            <textarea
+              placeholder="Message"
+              value={simpleContact.message}
+              onChange={(e) =>
+                setSimpleContact((prev) => ({
+                  ...prev,
+                  message: e.target.value,
+                }))
+              }
+              required
+            />
+            <button type="submit" className={styles.customButton}>
+              Submit
+            </button>
+          </form>
+        </div>
       </section>
 
       {/* ✅ Footer */}
       <footer className={styles.footer}>
         <div>
-          &copy; {new Date().getFullYear()} Acme Corporation — All rights
+          &copy; {new Date().getFullYear()} Your Company Name — All rights
           reserved.
         </div>
 
         <div
           style={{ marginTop: "1rem", textAlign: "center", fontSize: "0.9rem" }}
         >
-          <h2>Human Resources Department</h2>
+          <h2>Contact Information</h2>
           <p>
-            <strong>Contact Person:</strong> Jane Smith, HR Manager
+            <strong>Contact Person:</strong> Customer Support
           </p>
           <p>
-            <strong>Phone:</strong> (555) 321-7890
+            <strong>Phone:</strong> (555) 123-4567
           </p>
           <p>
-            <strong>Office Hours:</strong>
+            <strong>Email:</strong>{" "}
+            <a
+              href="mailto:support@yourcompany.com"
+              style={{ color: "#f0f4f8" }}
+            >
+              support@yourcompany.com
+            </a>
+          </p>
+          <p>
+            <strong>Business Hours:</strong>
           </p>
           <ul style={{ listStyleType: "none", paddingLeft: 0 }}>
             <li>Monday - Friday: 9:00am to 6:00pm</li>
-            <li>Closed Saturday and Sunday</li>
+            <li>Saturday - Sunday: Closed</li>
           </ul>
-          <p>
-            <strong>Email:</strong>{" "}
-            <a href="mailto:hr@acmecorp.com" style={{ color: "#f0f4f8" }}>
-              hr@acmecorp.com
-            </a>
-          </p>
         </div>
       </footer>
     </div>

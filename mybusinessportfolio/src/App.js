@@ -26,12 +26,12 @@ import WRNewGallery from "./wrpages/WR-New-Gallery";
 import WRNewService from "./wrpages/WR-New-Service";
 import WRNewContact from "./wrpages/WR-New-Contact";
 import ContactAndBookingForms from "./linkpages/Contact-And-Booking-Forms";
-import SimpleContactForm from "./mufpages/Simple-Contact-Form";
-import StudentInquiryForm from "./mufpages/Student-Inquiry-Form";
-import HRContactForm from "./mufpages/HR-Contact-Form";
-import SimpleBookingForm from "./mufpages/Simple-Booking-Form";
-import SkiResortCabinBookingForm from "./mufpages/Ski-Resort-Cabin-Booking-Form";
-import DanceLessonsBookingForm from "./mufpages/Dance-Lessons-Booking-Form";
+import SimpleContactForm from "./cbfpages/Simple-Contact-Form";
+import StudentInquiryForm from "./cbfpages/Student-Inquiry-Form";
+import HRContactForm from "./cbfpages/HR-Contact-Form";
+import SimpleBookingForm from "./cbfpages/Simple-Booking-Form";
+import SkiResortCabinBookingForm from "./cbfpages/Ski-Resort-Cabin-Booking-Form";
+import DanceLessonsBookingForm from "./cbfpages/Dance-Lessons-Booking-Form";
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
