@@ -11,13 +11,13 @@ function LogoModal({ show, handleClose, logoSmall, logoMedium, logoLarge }) {
       <Modal.Body className="text-center">
         <p>Select a size to download:</p>
         <div className="d-flex justify-content-center gap-2 mb-3 flex-wrap">
-          <a href={logoSmall} download="MomPopLogo_Small.jpeg" className="btn btn-outline-primary">
+          <a href={logoSmall} download="MomPopLogo-Small.jpeg" className="btn btn-outline-primary">
             Small (150px)
           </a>
-          <a href={logoMedium} download="MomPopLogo_Medium.jpeg" className="btn btn-outline-primary">
+          <a href={logoMedium} download="MomPopLogo-Medium.jpeg" className="btn btn-outline-primary">
             Medium (300px)
           </a>
-          <a href={logoLarge} download="MomPopLogo_Large.jpeg" className="btn btn-outline-primary">
+          <a href={logoLarge} download="MomPopLogo-Large.jpeg" className="btn btn-outline-primary">
             Large (600px)
           </a>
         </div>
