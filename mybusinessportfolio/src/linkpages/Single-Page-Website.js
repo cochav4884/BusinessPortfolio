@@ -90,8 +90,8 @@ export default function SinglePageWebsite() {
         <h1 className={styles.title}>Timeless Treasures Antiques</h1>
         <p>
           {" "}
-          Please be advised: The forms presented herein serve solely as
-          examples, and the contact information displayed in the page is for
+          Please be advised: The form presented herein serves solely as an
+          example, and the contact information displayed in the page is for
           illustrative purposes only. Accurate contact details are available
           exclusively by navigating back to the original website at any time by
           clicking the Home button in the navigation bar, where you can access
