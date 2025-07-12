@@ -40,9 +40,9 @@ export default function MultiPageWebsite() {
       {/* Navigation */}
       <nav className={styles.nav}>
         <h1 className={styles.title}>
-          <a href="/" style={{ color: "#cc0000", textDecoration: "none" }}>
+          <Link to="/" style={{ color: "#cc0000", textDecoration: "none" }}>
             Retro Photo Shop
-          </a>
+          </Link>
         </h1>
 
         <button
