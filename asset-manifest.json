@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/BusinessPortfolio/static/css/main.c017b5e0.css",
-    "main.js": "/BusinessPortfolio/static/js/main.bf4b0fd6.js",
+    "main.js": "/BusinessPortfolio/static/js/main.bc95fa14.js",
     "static/js/977.498d0098.chunk.js": "/BusinessPortfolio/static/js/977.498d0098.chunk.js",
     "static/js/732.cd33a6fe.chunk.js": "/BusinessPortfolio/static/js/732.cd33a6fe.chunk.js",
     "static/media/screen-shot-Gallery.jpeg": "/BusinessPortfolio/static/media/screen-shot-Gallery.95bec2babd9c485f0781.jpeg",
@@ -47,10 +47,10 @@
     "static/media/event5.jpg": "/BusinessPortfolio/static/media/event5.4ed92216e61249938a80.jpg",
     "static/media/porcelain2.jpg": "/BusinessPortfolio/static/media/porcelain2.8c7a2ea3e579f2beed96.jpg",
     "static/media/client10.jpg": "/BusinessPortfolio/static/media/client10.7ab804262021461b383e.jpg",
+    "static/media/photographer6.jpg": "/BusinessPortfolio/static/media/photographer6.0a76862dedd569f55242.jpg",
     "static/media/retro-photo9.jpg": "/BusinessPortfolio/static/media/retro-photo9.a14867e11418eb2be9a5.jpg",
     "static/media/client6.jpg": "/BusinessPortfolio/static/media/client6.7c15625087e51157c334.jpg",
     "static/media/new-worker18.jpg": "/BusinessPortfolio/static/media/new-worker18.fc29c8be1471cd133e91.jpg",
-    "static/media/photographer5.jpg": "/BusinessPortfolio/static/media/photographer5.2da84348aed19ac8ac90.jpg",
     "static/media/decor2.jpg": "/BusinessPortfolio/static/media/decor2.2f829c917902d0ab600b.jpg",
     "static/media/classic2.jpg": "/BusinessPortfolio/static/media/classic2.9642d9acc73441ac9aff.jpg",
     "static/media/event3.jpg": "/BusinessPortfolio/static/media/event3.eb00de65da6a14b55044.jpg",
@@ -97,18 +97,18 @@
     "static/media/restore5.jpg": "/BusinessPortfolio/static/media/restore5.a2046477890c215e2646.jpg",
     "static/media/new-auto4.jpg": "/BusinessPortfolio/static/media/new-auto4.bc3e3edf945cf4c23f68.jpg",
     "static/media/auto-contract.jpg": "/BusinessPortfolio/static/media/auto-contract.155712eab58d349fd0f0.jpg",
+    "static/media/photographer5.jpg": "/BusinessPortfolio/static/media/photographer5.edd6a0b0d49e103daacd.jpg",
     "static/media/auto-paint.jpg": "/BusinessPortfolio/static/media/auto-paint.49f062bc2df426945a8e.jpg",
     "static/media/furniture2.jpg": "/BusinessPortfolio/static/media/furniture2.d3cab7c0727e5c429c79.jpg",
     "static/media/jewlery3.jpg": "/BusinessPortfolio/static/media/jewlery3.3c74539990d152b08cb0.jpg",
-    "static/media/photographer6.jpg": "/BusinessPortfolio/static/media/photographer6.65db102f48f3ea483e99.jpg",
     "index.html": "/BusinessPortfolio/index.html",
     "main.c017b5e0.css.map": "/BusinessPortfolio/static/css/main.c017b5e0.css.map",
-    "main.bf4b0fd6.js.map": "/BusinessPortfolio/static/js/main.bf4b0fd6.js.map",
+    "main.bc95fa14.js.map": "/BusinessPortfolio/static/js/main.bc95fa14.js.map",
     "977.498d0098.chunk.js.map": "/BusinessPortfolio/static/js/977.498d0098.chunk.js.map",
     "732.cd33a6fe.chunk.js.map": "/BusinessPortfolio/static/js/732.cd33a6fe.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c017b5e0.css",
-    "static/js/main.bf4b0fd6.js"
+    "static/js/main.bc95fa14.js"
   ]
 }
