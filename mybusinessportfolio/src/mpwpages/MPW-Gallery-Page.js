@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
+import logo from "../images/logo_small.jpeg"; // Adjust the path if your logo is in a different location
 
 import {
   retroPhotoImages,
@@ -219,6 +220,15 @@ export default function MpwGalleryPage() {
 
       {/* Footer */}
       <footer className={styles.footer}>
+        <p>
+          <img
+            src={logo}
+            alt="Mom & Pop Logo - Click to scroll to top"
+            title="Back to Top"
+            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        </p>
         <div>
           &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
           reserved.

@@ -6,6 +6,7 @@ import DesignCard from "../components/DesignCard";
 /* Images from WR-Link-Images */
 import oldauto from "../wrlinkimages/old-shop2.jpg";
 import newauto4 from "../wrlinkimages/new-auto4.jpg";
+import logo from "../images/logo_small.jpeg";
 
 function WebsiteRedesign() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -101,6 +102,15 @@ function WebsiteRedesign() {
 
       {/* Footer */}
       <footer className={styles.footer}>
+        <p>
+          <img
+            src={logo}
+            alt="Mom & Pop Logo - Click to scroll to top"
+            title="Back to Top"
+            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        </p>
         <div>
           &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
           reserved.

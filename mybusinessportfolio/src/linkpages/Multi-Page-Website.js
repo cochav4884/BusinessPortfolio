@@ -26,6 +26,9 @@ import event4 from "../linkimages/event4.jpg";
 import event5 from "../linkimages/event5.jpg";
 import event6 from "../linkimages/event6.jpg";
 
+// Import logo image
+import logo from "../images/logo_small.jpeg";
+
 export default function MultiPageWebsite() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -169,6 +172,15 @@ export default function MultiPageWebsite() {
 
       {/* Footer */}
       <footer className={styles.footer}>
+        <p>
+          <img
+            src={logo}
+            alt="Mom & Pop Logo - Click to scroll to top"
+            title="Back to Top"
+            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        </p>
         <div>
           &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
           reserved.

@@ -29,7 +29,7 @@ function Home() {
           <p className="subheader">
             Whether you need a brand new website or a refresh, I specialize in
             creating easy-to-manage, responsive sites using HTML, CSS,
-            JavaScript, and React.
+            JavaScript, and React. I can use backend code for form submission success!
           </p>
 
           <a href="/services" className="custom-button">

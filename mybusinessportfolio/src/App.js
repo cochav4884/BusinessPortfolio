@@ -13,6 +13,7 @@ import TermsOfUse from "./pages/TermsofUse";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import MaintenanceAndUpdates from "./linkpages/Maintenance-And-Updates";
 import DomainAndHostingSetup from "./linkpages/Domain-And-Hosting-Setup";
+import Author from "./pages/Author";
 // Demo example page (does NOT use global NavBar/Footer)
 import SinglePageWebsite from "./linkpages/Single-Page-Website";
 import MultiPageWebsite from "./linkpages/Multi-Page-Website";
@@ -32,7 +33,6 @@ import HRContactForm from "./cbfpages/HR-Contact-Form";
 import SimpleBookingForm from "./cbfpages/Simple-Booking-Form";
 import SkiResortCabinBookingForm from "./cbfpages/Ski-Resort-Cabin-Booking-Form";
 import DanceLessonsBookingForm from "./cbfpages/Dance-Lessons-Booking-Form";
-
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
@@ -117,6 +117,16 @@ function App() {
           <>
             <NavBar />
             <DomainAndHostingSetup />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/author"
+        element={
+          <>
+            <NavBar />
+            <Author />
             <Footer />
           </>
         }

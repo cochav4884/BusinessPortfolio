@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
+import logo from "../images/logo_small.jpeg";
 
 import simpleBookingFormBg from "../linkimages/Simple-Booking-Form.jpg"; // adjust path and filename as needed
 
@@ -188,6 +189,15 @@ export default function SimpleBookingForm() {
 
       {/* Footer */}
       <footer className={styles.footer}>
+        <p>
+          <img
+            src={logo}
+            alt="Mom & Pop Logo - Click to scroll to top"
+            title="Back to Top"
+            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        </p>
         <div>
           &copy; {new Date().getFullYear()} Your Service Company — All rights
           reserved.

@@ -1,0 +1,116 @@
+/* === Author.module.css === */
+
+/* === Page Header === */
+.pageHeader {
+  font-size: clamp(1.5rem, 5vw, 4rem);
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: #000000;
+  font-weight: 700;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 4px 6px #000000;
+  width: 100%;
+  border-bottom: 3px solid #400669; /* eggplant purple */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* === Biography Section === */
+.bioSection {
+  width: 100%;
+  padding: 1rem;
+  font-family: Georgia, serif;
+  line-height: 1.7;
+  font-size: 1.05rem;
+  color: #000000;
+  background-color: #ffffff;
+  border-left: 5px solid #400669;
+}
+
+.bioSection::first-letter {
+  font-size: 200%;
+  color: #400669;
+  font-style: italic;
+  padding: 5px;
+  border: 6px double #400669;
+  margin-right: 8px;
+}
+
+.bioSection::first-line {
+  line-height: 2;
+}
+
+/* === Image === */
+.imageWrapper {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px #000000;
+}
+
+/* === Button Group === */
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.button {
+  border: none;
+  color: #282c34;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.button:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.custom-button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 4px;
+  background-color: #400669;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 15px;
+  margin-left: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.custom-button:first-of-type {
+  margin-left: 0; /* Prevent unwanted spacing before first button */
+}
+
+.custom-button:hover {
+  background-color: #1e40af; /* Slightly darker blue on hover */
+}
+
+
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .button {
+    font-size: 0.95rem;
+  }
+
+  .pageHeader {
+    font-size: 1.5rem;
+  }
+
+  .bioSection {
+    font-size: 1rem;
+  }
+}

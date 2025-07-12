@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 import shopImg from "../wrlinkimages/old-shop2.jpg";
 import workerImg from "../wrlinkimages/old-worker3.jpg";
+import logo from "../images/logo_small.jpeg";
 
 import { useState } from "react";
 
@@ -148,6 +149,15 @@ function WRNewAbout() {
 
       {/* Footer */}
       <footer className={styles.footer}>
+        <p>
+          <img
+            src={logo}
+            alt="Mom & Pop Logo - Click to scroll to top"
+            title="Back to Top"
+            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          />
+        </p>
         <div>
           &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights
           reserved.
