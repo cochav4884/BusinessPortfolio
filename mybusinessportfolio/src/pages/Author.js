@@ -1,6 +1,5 @@
 // src/pages/Author.js
 import React, { useRef } from "react";
-import corinneBW from "../images/corinne_bw.jpg";
 import styles from "../linkstyles/Author.module.css";
 
 import jsPDF from "jspdf";
@@ -69,7 +68,7 @@ export default function Author() {
         >
           <div className="col-md-5 mb-4 text-center">
             <img
-              src={corinneBW}
+              src="/images/corinne_bw.jpg"
               alt="Portrait of Corinne Padilla"
               className="img-fluid"
               style={{

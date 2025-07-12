@@ -1,7 +1,7 @@
 // src/pages/About.js
 import React from "react";
 import { Link } from "react-router-dom";
-import corinneBW from "../images/corinne_bw.jpg";
+import corinneBW from "/public/images/corinne_bw.jpg";
 
 function About() {
   return (
