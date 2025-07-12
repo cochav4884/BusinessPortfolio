@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/BusinessPortfolio/static/css/main.66bb50bc.css",
-    "main.js": "/BusinessPortfolio/static/js/main.9c8d4ee5.js",
+    "main.css": "/BusinessPortfolio/static/css/main.c2105c79.css",
+    "main.js": "/BusinessPortfolio/static/js/main.8a10a8ec.js",
     "static/js/977.498d0098.chunk.js": "/BusinessPortfolio/static/js/977.498d0098.chunk.js",
     "static/js/732.cd33a6fe.chunk.js": "/BusinessPortfolio/static/js/732.cd33a6fe.chunk.js",
     "static/media/screen-shot-Gallery.jpeg": "/BusinessPortfolio/static/media/screen-shot-Gallery.95bec2babd9c485f0781.jpeg",
@@ -102,13 +102,13 @@
     "static/media/jewlery3.jpg": "/BusinessPortfolio/static/media/jewlery3.3c74539990d152b08cb0.jpg",
     "static/media/photographer6.jpg": "/BusinessPortfolio/static/media/photographer6.65db102f48f3ea483e99.jpg",
     "index.html": "/BusinessPortfolio/index.html",
-    "main.66bb50bc.css.map": "/BusinessPortfolio/static/css/main.66bb50bc.css.map",
-    "main.9c8d4ee5.js.map": "/BusinessPortfolio/static/js/main.9c8d4ee5.js.map",
+    "main.c2105c79.css.map": "/BusinessPortfolio/static/css/main.c2105c79.css.map",
+    "main.8a10a8ec.js.map": "/BusinessPortfolio/static/js/main.8a10a8ec.js.map",
     "977.498d0098.chunk.js.map": "/BusinessPortfolio/static/js/977.498d0098.chunk.js.map",
     "732.cd33a6fe.chunk.js.map": "/BusinessPortfolio/static/js/732.cd33a6fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.66bb50bc.css",
-    "static/js/main.9c8d4ee5.js"
+    "static/css/main.c2105c79.css",
+    "static/js/main.8a10a8ec.js"
   ]
 }
