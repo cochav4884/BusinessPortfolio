@@ -1,6 +1,8 @@
 // src/App.js
 import "./App.css";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Routes, Route } from "react-router-dom";
+
+
 
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -39,130 +41,128 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        {/* ✅ Main Pages */}
-        <Route
-          path="/"
-          element={
-            <>
-              <NavBar />
-              <Home />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/about"
-          element={
-            <>
-              <NavBar />
-              <About />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/services"
-          element={
-            <>
-              <NavBar />
-              <Services />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <>
-              <NavBar />
-              <Contact />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/termsofuse"
-          element={
-            <>
-              <NavBar />
-              <TermsOfUse />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/privacypolicy"
-          element={
-            <>
-              <NavBar />
-              <PrivacyPolicy />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/maintenance-and-updates"
-          element={
-            <>
-              <NavBar />
-              <MaintenanceAndUpdates />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/domain-and-hosting-setup"
-          element={
-            <>
-              <NavBar />
-              <DomainAndHostingSetup />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/author"
-          element={
-            <>
-              <NavBar />
-              <Author />
-              <Footer />
-            </>
-          }
-        />
+    <Routes>
+      {/* ✅ Main Pages */}
+      <Route
+        path="/"
+        element={
+          <>
+            <NavBar />
+            <Home />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/about"
+        element={
+          <>
+            <NavBar />
+            <About />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/services"
+        element={
+          <>
+            <NavBar />
+            <Services />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/contact"
+        element={
+          <>
+            <NavBar />
+            <Contact />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/termsofuse"
+        element={
+          <>
+            <NavBar />
+            <TermsOfUse />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/privacypolicy"
+        element={
+          <>
+            <NavBar />
+            <PrivacyPolicy />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/maintenance-and-updates"
+        element={
+          <>
+            <NavBar />
+            <MaintenanceAndUpdates />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/domain-and-hosting-setup"
+        element={
+          <>
+            <NavBar />
+            <DomainAndHostingSetup />
+            <Footer />
+          </>
+        }
+      />
+      <Route
+        path="/author"
+        element={
+          <>
+            <NavBar />
+            <Author />
+            <Footer />
+          </>
+        }
+      />
 
-        {/* ✅ Demo Pages (no global NavBar/Footer) */}
-        <Route path="/single-page-website" element={<SinglePageWebsite />} />
-        <Route path="/multi-page-website" element={<MultiPageWebsite />} />
-        <Route path="/mpw-gallery-page" element={<MPWGalleryPage />} />
-        <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
-        <Route path="/mpw-contact-page" element={<MPWContactPage />} />
-        <Route path="/website-redesign" element={<WebsiteRedesign />} />
-        <Route path="/wr-old-website-design" element={<WROldWebsiteDesign />} />
-        <Route path="/wr-new-about" element={<WRNewAbout />} />
-        <Route path="/wr-new-gallery" element={<WRNewGallery />} />
-        <Route path="/wr-new-service" element={<WRNewService />} />
-        <Route path="/wr-new-contact" element={<WRNewContact />} />
-        <Route
-          path="/contact-and-booking-forms"
-          element={<ContactAndBookingForms />}
-        />
-        <Route path="/simple-contact-form" element={<SimpleContactForm />} />
-        <Route path="/student-inquiry-form" element={<StudentInquiryForm />} />
-        <Route path="/hr-contact-form" element={<HRContactForm />} />
-        <Route path="/simple-booking-form" element={<SimpleBookingForm />} />
-        <Route
-          path="/ski-resort-cabin-booking-form"
-          element={<SkiResortCabinBookingForm />}
-        />
-        <Route
-          path="/dance-lessons-booking-form"
-          element={<DanceLessonsBookingForm />}
-        />
-      </Routes>
-    </Router>
+      {/* ✅ Demo Pages (no global NavBar/Footer) */}
+      <Route path="/single-page-website" element={<SinglePageWebsite />} />
+      <Route path="/multi-page-website" element={<MultiPageWebsite />} />
+      <Route path="/mpw-gallery-page" element={<MPWGalleryPage />} />
+      <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
+      <Route path="/mpw-contact-page" element={<MPWContactPage />} />
+      <Route path="/website-redesign" element={<WebsiteRedesign />} />
+      <Route path="/wr-old-website-design" element={<WROldWebsiteDesign />} />
+      <Route path="/wr-new-about" element={<WRNewAbout />} />
+      <Route path="/wr-new-gallery" element={<WRNewGallery />} />
+      <Route path="/wr-new-service" element={<WRNewService />} />
+      <Route path="/wr-new-contact" element={<WRNewContact />} />
+      <Route
+        path="/contact-and-booking-forms"
+        element={<ContactAndBookingForms />}
+      />
+      <Route path="/simple-contact-form" element={<SimpleContactForm />} />
+      <Route path="/student-inquiry-form" element={<StudentInquiryForm />} />
+      <Route path="/hr-contact-form" element={<HRContactForm />} />
+      <Route path="/simple-booking-form" element={<SimpleBookingForm />} />
+      <Route
+        path="/ski-resort-cabin-booking-form"
+        element={<SkiResortCabinBookingForm />}
+      />
+      <Route
+        path="/dance-lessons-booking-form"
+        element={<DanceLessonsBookingForm />}
+      />
+    </Routes>
   );
 }
 
