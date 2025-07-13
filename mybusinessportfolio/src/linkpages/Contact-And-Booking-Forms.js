@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
-import logo from "../images/logo_small.jpeg";
 
 export default function ContactAndBookingForms() {
   const navigate = useNavigate();
@@ -191,7 +190,7 @@ export default function ContactAndBookingForms() {
       <footer className={styles.footer}>
         <p>
           <img
-            src={logo}
+            src="/images/logo_small.jpeg"
             alt="Mom & Pop Logo - Click to scroll to top"
             title="Back to Top"
             style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}

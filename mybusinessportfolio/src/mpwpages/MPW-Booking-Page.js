@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
-import logo from "../images/logo_small.jpeg"; // Adjust the path if your logo is in a different location
 
 export default function MPWBookingPage() {
   const [formData, setFormData] = useState({
@@ -57,6 +56,9 @@ export default function MPWBookingPage() {
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const closeMenu = () => setMenuOpen(false);
+
+  // Reference logo from public folder as string path:
+  const logo = "/images/logo_small.jpeg";
 
   return (
     <>

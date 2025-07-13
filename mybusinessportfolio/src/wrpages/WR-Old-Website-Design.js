@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
-import logo from "../images/logo_small.jpeg";
 
 import screenshotHome from "../wrlinkimages/screen-shot-Home.jpeg";
 import screenshotGallery from "../wrlinkimages/screen-shot-Gallery.jpeg";
@@ -135,7 +134,7 @@ function WROldWebsiteDesign() {
       <footer className={styles.footer}>
         <p>
           <img
-            src={logo}
+            src="/images/logo_small.jpeg"
             alt="Mom & Pop Logo - Click to scroll to top"
             title="Back to Top"
             style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}

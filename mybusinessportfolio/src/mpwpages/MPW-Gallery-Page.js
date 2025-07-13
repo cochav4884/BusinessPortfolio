@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
-import logo from "../images/logo_small.jpeg"; // Adjust the path if your logo is in a different location
 
 import {
   retroPhotoImages,
@@ -27,6 +26,8 @@ export default function MpwGalleryPage() {
     setModalOpen(false);
     setCurrentImage(null);
   };
+
+  const logo = "/images/logo_small.jpeg";
 
   return (
     <>

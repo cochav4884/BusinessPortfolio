@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Multi-Page-Website.module.css";
-import logo from "../images/logo_small.jpeg"; // Adjust the path as needed to your logo file
 
 export default function Contact() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,6 +38,8 @@ export default function Contact() {
     setStatus("success");
     setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
   };
+
+  const logo = "/images/logo_small.jpeg";
 
   return (
     <>

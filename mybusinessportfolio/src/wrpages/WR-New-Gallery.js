@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 import employeeData from "../linkdata/WRData";
-import logo from "../images/logo_small.jpeg";
 
 import job1 from "../wrlinkimages/new-worker6.jpg";
 import job2 from "../wrlinkimages/auto-brake.jpg";
@@ -83,7 +82,7 @@ function WRNewGallery() {
         <h2 className={styles.subheader}>Meet Our Team</h2>
         <div className={styles.flipCardContainer}>
           {employeeData.map((member, index) => (
-            <div className={styles.flipCard} key={index}>
+            <div className={styles.flipCard} key={member.name}>
               <div className={styles.flipCardInner}>
                 <div className={styles.flipCardFront}>
                   <img src={member.image} alt={member.name} />
@@ -104,30 +103,36 @@ function WRNewGallery() {
       <section className={styles.section}>
         <h2 className={styles.subheader}>Work in Progress</h2>
         <div className={styles.screenshotContainer}>
-          <div className={styles.imageWrapper}>
+          <figure className={styles.imageWrapper}>
             <img src={job1} alt="Car Transmission Repair" />
-            <div className={styles.caption}>Car Transmission Repair</div>
-          </div>
-          <div className={styles.imageWrapper}>
+            <figcaption className={styles.caption}>
+              Car Transmission Repair
+            </figcaption>
+          </figure>
+          <figure className={styles.imageWrapper}>
             <img src={job2} alt="Brake Replacement" />
-            <div className={styles.caption}>Brake Replacement</div>
-          </div>
-          <div className={styles.imageWrapper}>
+            <figcaption className={styles.caption}>
+              Brake Replacement
+            </figcaption>
+          </figure>
+          <figure className={styles.imageWrapper}>
             <img src={job3} alt="Oil Change" />
-            <div className={styles.caption}>Oil Change</div>
-          </div>
-          <div className={styles.imageWrapper}>
+            <figcaption className={styles.caption}>Oil Change</figcaption>
+          </figure>
+          <figure className={styles.imageWrapper}>
             <img src={job4} alt="Tire Service" />
-            <div className={styles.caption}>Tire Service</div>
-          </div>
-          <div className={styles.imageWrapper}>
+            <figcaption className={styles.caption}>Tire Service</figcaption>
+          </figure>
+          <figure className={styles.imageWrapper}>
             <img src={job5} alt="Paint & Body Work" />
-            <div className={styles.caption}>Paint & Body Work</div>
-          </div>
-          <div className={styles.imageWrapper}>
+            <figcaption className={styles.caption}>
+              Paint & Body Work
+            </figcaption>
+          </figure>
+          <figure className={styles.imageWrapper}>
             <img src={job6} alt="Diagnostics" />
-            <div className={styles.caption}>Diagnostics</div>
-          </div>
+            <figcaption className={styles.caption}>Diagnostics</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -135,7 +140,7 @@ function WRNewGallery() {
       <footer className={styles.footer}>
         <p>
           <img
-            src={logo}
+            src="/images/logo_small.jpeg"
             alt="Mom & Pop Logo - Click to scroll to top"
             title="Back to Top"
             style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
