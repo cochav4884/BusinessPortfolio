@@ -77,51 +77,59 @@ function WROldWebsiteDesign() {
 
           {/* New screenshots container */}
           <div className={styles.screenshotContainer}>
-            <a
-              href={screenshotHome}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Enlarge screenshot of Home Page"
-            >
-              <img
-                src={screenshotHome}
-                alt="Screen Shot of WR-Old-Website-Design's Home Page"
-              />
-            </a>
-            <a
-              href={screenshotGallery}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Enlarge screenshot of Contact Page"
-            >
-              <img
-                src={screenshotGallery}
-                alt="Screen Shot of WR-Old-Website-Design's Contact Page"
-              />
-            </a>
-            <a
-              href={screenshotGallery2}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Enlarge screenshot of Gallery Page"
-            >
-              <img
-                src={screenshotGallery2}
-                alt="Screen Shot of WR-Old-Website-Design's Gallery Page"
-              />
-            </a>
+            <div className={styles.imageWrapper}>
+              <a
+                href={screenshotHome}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Enlarge screenshot of Home Page"
+              >
+                <img
+                  src={screenshotHome}
+                  alt="Screen Shot of WR-Old-Website-Design's Home Page"
+                />
+              </a>
+            </div>
+            <div className={styles.imageWrapper}>
+              <a
+                href={screenshotGallery}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Enlarge screenshot of Gallery Page"
+              >
+                <img
+                  src={screenshotGallery}
+                  alt="Screen Shot of WR-Old-Website-Design's Gallery Page"
+                />
+              </a>
+            </div>
+            <div className={styles.imageWrapper}>
+              <a
+                href={screenshotGallery2}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Enlarge screenshot of Gallery Page 2"
+              >
+                <img
+                  src={screenshotGallery2}
+                  alt="Screen Shot of WR-Old-Website-Design's Gallery Page 2"
+                />
+              </a>
+            </div>
 
-            <a
-              href={screenshotContact}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Enlarge screenshot of Contact Page"
-            >
-              <img
-                src={screenshotContact}
-                alt="Screen Shot of WR-Old-Website-Design's Contact Page"
-              />
-            </a>
+            <div className={styles.imageWrapper}>
+              <a
+                href={screenshotContact}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Enlarge screenshot of Contact Page"
+              >
+                <img
+                  src={screenshotContact}
+                  alt="Screen Shot of WR-Old-Website-Design's Contact Page"
+                />
+              </a>
+            </div>
           </div>
 
           <Link to="/website-redesign" className={styles.customButton}>

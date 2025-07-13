@@ -70,17 +70,25 @@
 
 .screenshotContainer {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap; /* allow wrapping */
   gap: 15px;
   margin: 20px 0;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
 }
 
-.screenshotContainer img,
+.imageWrapper {
+  flex: 1 1 300px; /* flex item with basis 300px */
+  max-width: 300px;
+  box-sizing: border-box; /* avoid sizing issues */
+}
+
+.imageWrapper a {
+  display: block; /* make the link block to contain the img */
+}
+
 .imageWrapper img {
-  width: 100%;
+  width: 100%; /* fill the wrapper */
   height: auto;
   border-radius: 6px;
   border: 2px solid #003366;
