@@ -1,5 +1,6 @@
 // src/pages/Home.js
 import React, { useState } from "react";
+import { Link } from "react-router-dom"; // make sure this is at the top
 import LogoModal from "../components/LogoModal";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
@@ -34,9 +35,9 @@ function Home() {
           and React. I can use backend code for form submission success!
         </p>
 
-        <a href="/services" className="custom-button">
+        <Link to="/services" className="custom-button">
           View Our Services
-        </a>
+        </Link>
       </div>
 
       {/* Modal for Download/Print */}
