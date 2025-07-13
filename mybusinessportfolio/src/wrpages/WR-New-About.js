@@ -139,12 +139,6 @@ function WRNewAbout() {
         </div>
 
         <h5>Check out our Gallery page located in the navbar!</h5>
-        <button
-          className={styles.backToTop}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          ↑ Back to Top
-        </button>
       </div>
 
       {/* Footer */}
