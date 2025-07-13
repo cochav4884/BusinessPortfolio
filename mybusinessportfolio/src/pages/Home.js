@@ -36,7 +36,7 @@ function Home() {
         </p>
 
         <Link to="/services" className="custom-button">
-          View Our Services
+          View My Services  
         </Link>
       </div>
 
