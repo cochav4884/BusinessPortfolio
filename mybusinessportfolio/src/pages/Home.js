@@ -34,10 +34,11 @@ function Home() {
           creating easy-to-manage, responsive sites using HTML, CSS, JavaScript,
           and React. I can use backend code for form submission success!
         </p>
-
-        <Link to="/services" className="custom-button">
-          View My Services
-        </Link>
+        <p>
+          <Link to="/services" className="custom-button">
+            View My Services
+          </Link>
+        </p>
       </div>
 
       {/* Modal for Download/Print */}

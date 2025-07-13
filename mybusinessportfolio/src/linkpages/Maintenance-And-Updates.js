@@ -40,7 +40,7 @@ function MaintenanceUpdates() {
         <p>
           I'm here to help keep your website modern, functional, and bug-free.
           <br />
-          <Link to="/contact" className="custom-button mt-3 d-inline-block">
+          <Link to="/contact" className="custom-button">
             Contact Me for Updates
           </Link>
         </p>
