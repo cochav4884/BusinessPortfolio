@@ -24,9 +24,6 @@ import books from "../spimages/books.jpg";
 import books2 from "../spimages/books2.jpg";
 import books3 from "../spimages/books3.jpg";
 
-// === Logo Image ===
-import logo from "../images/logo_small.jpeg";
-
 // === Collection Data ===
 const collections = [
   {
@@ -143,8 +140,8 @@ export default function SinglePageWebsite() {
       <footer className={styles.footer}>
         <p>
           <img
-            src={logo}
-            alt="Mom & Pop Logo - Click to scroll to top"
+            src="/images/logo_small.jpeg"
+            alt="Logo"
             title="Back to Top"
             style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
