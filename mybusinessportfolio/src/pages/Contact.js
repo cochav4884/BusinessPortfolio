@@ -153,7 +153,7 @@ function Contact() {
                   <span>
                     I consent to the processing of my personal data as described
                     in the{" "}
-                    <Link to="/PrivacyPolicy" className="privacy-inline-link">
+                    <Link to="/privacypolicy" className="privacy-inline-link">
                       Privacy Policy
                     </Link>
                     .
@@ -171,7 +171,7 @@ function Contact() {
                   <span>
                     I do not consent to the processing of my personal data as
                     described in the{" "}
-                    <Link to="/PrivacyPolicy" className="privacy-inline-link">
+                    <Link to="/privacypolicy" className="privacy-inline-link">
                       Privacy Policy
                     </Link>
                     .
