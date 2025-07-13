@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 
 import screenshotHome from "../wrlinkimages/screen-shot-Home.jpeg";
-import screenshotGallery from "../wrlinkimages/";
+import screenshotGallery from "../wrlinkimages/screen-shot-Gallery.jpeg";
 import screenshotGallery2 from "../wrlinkimages/screen-shot-Gallery2.jpeg";
 import screenshotContact from "../wrlinkimages/screen-shot-Contact.jpeg";
 
