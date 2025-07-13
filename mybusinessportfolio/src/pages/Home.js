@@ -35,9 +35,8 @@ function Home() {
           and React. I can use backend code for form submission success!
         </p>
 
-        <Link to="/services" className="custom-button">
-          View My Services
-        </Link>
+        <button onClick={() => window.location.href = "/services"}>View My Services</button>
+
       </div>
 
       {/* Modal for Download/Print */}
