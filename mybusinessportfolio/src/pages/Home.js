@@ -35,7 +35,7 @@ function Home() {
           and React. I can use backend code for form submission success!
         </p>
 
-        <Link to="/services" className="custom-button">
+        <Link to="./Services.js" className="custom-button">
           View My Services  
         </Link>
       </div>
