@@ -209,11 +209,11 @@ function Contact() {
                     required
                   />
                   &nbsp;I agree to the{" "}
-                  <Link className="privacy-inline-link" to="/TermsOfUse">
+                  <Link className="privacy-inline-link" to="/termsofuse">
                     Terms of Use
                   </Link>{" "}
                   and{" "}
-                  <Link className="privacy-inline-link" to="/PrivacyPolicy">
+                  <Link className="privacy-inline-link" to="/privacypolicy">
                     Privacy Policy
                   </Link>
                   .

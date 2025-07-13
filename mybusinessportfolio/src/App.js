@@ -52,7 +52,7 @@ function App() {
             </>
           }
         />
-        {/* <Route
+        <Route
           path="/about"
           element={
             <>
@@ -131,7 +131,7 @@ function App() {
               <Footer />
             </>
           }
-        /> */}
+        />
 
         {/* ✅ Demo Pages (no global NavBar/Footer) */}
         <Route path="/single-page-website" element={<SinglePageWebsite />} />
