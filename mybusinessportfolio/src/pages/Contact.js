@@ -15,6 +15,8 @@ function Contact() {
   const [status, setStatus] = useState("");
 
   const handleChange = (e) => {
+    setStatus(""); // Clear any existing status message on new input
+
     const { name, type, checked, value } = e.target;
     setFormData((prev) => ({
       ...prev,
@@ -66,7 +68,7 @@ function Contact() {
           email: "",
           subject: "",
           message: "",
-          doNotSell: false,
+          donotsell: false,
           consentChoice: "",
           acceptedTermsAndPrivacy: false,
         });
