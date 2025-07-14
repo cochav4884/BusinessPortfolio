@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 
-import screenshotHome from "../wrlinkimages/screen-shot-Home.jpeg";
-import screenshotGallery from "../wrlinkimages/screen-shot-Gallery.jpeg";
-import screenshotGallery2 from "../wrlinkimages/screen-shot-Gallery2.jpeg";
-import screenshotContact from "../wrlinkimages/screen-shot-Contact.jpeg";
-
 // Import the reusable LogoImage component
 import LogoImage from "../components/LogoImage";
 
@@ -81,53 +76,52 @@ function WROldWebsiteDesign() {
           <div className={styles.screenshotContainer}>
             <div className={styles.imageWrapper}>
               <a
-                href={screenshotHome}
+                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Home.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Home Page"
               >
                 <img
-                  src={screenshotHome}
+                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Home.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Home Page"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href={screenshotGallery}
+                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Gallery.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Gallery Page"
               >
                 <img
-                  src={screenshotGallery}
+                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Gallery.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Gallery Page"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href={screenshotGallery2}
+                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Gallery2.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Gallery Page 2"
               >
                 <img
-                  src={screenshotGallery2}
+                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Gallery2.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Gallery Page 2"
                 />
               </a>
             </div>
-
             <div className={styles.imageWrapper}>
               <a
-                href={screenshotContact}
+                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Contact.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Contact Page"
               >
                 <img
-                  src={screenshotContact}
+                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/wrlinkimages/screen-shot-Contact.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Contact Page"
                 />
               </a>
