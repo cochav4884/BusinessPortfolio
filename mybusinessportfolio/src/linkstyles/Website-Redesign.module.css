@@ -77,7 +77,10 @@
   justify-content: center;
 }
 
+/* === Image Wrapper & Caption ===*/
 .imageWrapper {
+  position: relative;
+  display: inline-block;
   flex: 1 1 300px; /* flex item with basis 300px */
   max-width: 300px;
   box-sizing: border-box; /* avoid sizing issues */
