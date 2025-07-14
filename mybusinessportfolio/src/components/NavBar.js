@@ -5,6 +5,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Collapse from "bootstrap/js/dist/collapse";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 function NavBar() {
   useEffect(() => {
     const navLinks = document.querySelectorAll(".nav-link");
@@ -31,13 +34,10 @@ function NavBar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
       <Link className="navbar-brand d-flex align-items-center" to="/">
-        <img
-          src="/images/logo_small.jpeg"
-          alt="Mom & Pop Logo"
-          style={{ height: "50px", marginRight: "10px" }}
-        />
+        <LogoImage style={{ height: "50px", marginRight: "10px" }} />
         Mom & Pop Shop Web Design
       </Link>
+
       <button
         className="navbar-toggler"
         type="button"

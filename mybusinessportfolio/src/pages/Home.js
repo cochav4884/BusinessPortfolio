@@ -17,8 +17,12 @@ function Home() {
       <h1 className="page-header">Welcome to Mom & Pop Shop Web Design</h1>
       <div className="text-center">
         <img
-          src={logoMedium}
-          srcSet={`${logoSmall} 150w, ${logoMedium} 300w, ${logoLarge} 600w`}
+          src={`${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_medium.jpeg`}
+          srcSet={`
+    ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_small.jpeg 150w,
+    ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_medium.jpeg 300w,
+    ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_large.jpeg 600w
+  `}
           sizes="(max-width: 600px) 150px, (max-width: 900px) 300px, 600px"
           alt="Mom & Pop Shop Logo"
           style={{ cursor: "pointer", maxWidth: "100%" }}
