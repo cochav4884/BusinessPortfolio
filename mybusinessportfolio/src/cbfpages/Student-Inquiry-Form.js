@@ -32,6 +32,17 @@ export default function StudentInquiryForm() {
     e.preventDefault();
     console.log("Submitting Student Inquiry Contact Form:", studentContact);
     alert("Submitted Student Inquiry Contact Form! Check console for data.");
+
+    // ✅ Clear the form after submission
+    setStudentContact({
+      studentName: "",
+      parentName: "",
+      parentPhone: "",
+      parentEmail: "",
+      subject: "",
+      teacherName: "",
+      message: "",
+    });
   };
 
   return (

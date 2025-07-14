@@ -28,6 +28,13 @@ export default function SimpleBookingForm() {
     e.preventDefault();
     console.log("Submitting Simple Booking Form:", simpleBooking);
     alert("Submitted Simple Booking Form! Check console for data.");
+
+    // ✅ Clear form fields
+    setSimpleBooking({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (

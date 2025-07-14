@@ -32,6 +32,17 @@ export default function SkiResortCabinBookingForm() {
     e.preventDefault();
     console.log(`Submitting ${formName}`, data);
     alert(`Submitted ${formName}! Check console for data.`);
+
+    // ✅ Clear the form after submission
+    setSkiBooking({
+      name: "",
+      phone: "",
+      email: "",
+      adults: "",
+      children: "",
+      days: "",
+      memberNumber: "",
+    });
   };
 
   return (

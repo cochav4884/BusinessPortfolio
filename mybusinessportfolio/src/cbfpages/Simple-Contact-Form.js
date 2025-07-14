@@ -28,6 +28,13 @@ export default function ContactAndBookingForms() {
     e.preventDefault();
     console.log(`Submitting ${formName}`, data);
     alert(`Submitted ${formName}! Check console for data.`);
+
+    // ✅ Clear the form inputs
+    setSimpleContact({
+      name: "",
+      email: "",
+      message: "",
+    });
   };
 
   return (

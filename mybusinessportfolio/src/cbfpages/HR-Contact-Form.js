@@ -29,6 +29,14 @@ export default function HRContactForm() {
     e.preventDefault();
     console.log("Submitting HR Contact Form:", hrContact);
     alert("Submitted HR Contact Form! Check console for data.");
+
+    // ✅ Clear the form inputs
+    setHrContact({
+      name: "",
+      employeeId: "",
+      subject: "",
+      message: "",
+    });
   };
 
   return (

@@ -30,6 +30,15 @@ export default function DanceLessonsBookingForm() {
     e.preventDefault();
     console.log(`Submitting ${formName}`, data);
     alert(`Submitted ${formName}! Check console for data.`);
+
+    // Reset the form state to clear inputs:
+    setDanceBooking({
+      participant1: "",
+      participant2: "",
+      lessons: "",
+      phone: "",
+      email: "",
+    });
   };
 
   return (
