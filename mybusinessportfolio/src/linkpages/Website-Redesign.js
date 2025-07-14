@@ -7,6 +7,9 @@ import DesignCard from "../components/DesignCard";
 import oldauto from "../wrlinkimages/old-shop2.jpg";
 import newauto4 from "../wrlinkimages/new-auto4.jpg";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 function WebsiteRedesign() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -102,13 +105,8 @@ function WebsiteRedesign() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>
-          <img
-            src="/images/logo_small.jpeg"
-            alt="Logo"
-            title="Back to Top"
-            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
         </p>
         <div>
           &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights

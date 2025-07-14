@@ -9,6 +9,9 @@ import {
   clientImages,
 } from "../linkdata/Link-Data";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 export default function MpwGalleryPage() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
@@ -26,8 +29,6 @@ export default function MpwGalleryPage() {
     setModalOpen(false);
     setCurrentImage(null);
   };
-
-  const logo = "/images/logo_small.jpeg";
 
   return (
     <>
@@ -222,13 +223,8 @@ export default function MpwGalleryPage() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>
-          <img
-            src={logo}
-            alt="Mom & Pop Logo - Click to scroll to top"
-            title="Back to Top"
-            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
         </p>
         <div>
           &copy; {new Date().getFullYear()} Retro Photo Shop — All rights

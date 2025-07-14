@@ -4,6 +4,9 @@ import styles from "../linkstyles/Contact-And-Booking-Forms.module.css";
 
 import simpleContactFormBg from "../linkimages/Simple-Contact-Form.jpg";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 export default function ContactAndBookingForms() {
   const [simpleContact, setSimpleContact] = useState({
     name: "",
@@ -194,13 +197,8 @@ export default function ContactAndBookingForms() {
       {/* ✅ Footer */}
       <footer className={styles.footer}>
         <p>
-          <img
-            src="/images/logo_small.jpeg"
-            alt="Mom & Pop Logo - Click to scroll to top"
-            title="Back to Top"
-            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
         </p>
         <div>
           &copy; {new Date().getFullYear()} Your Company Name — All rights

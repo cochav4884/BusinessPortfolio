@@ -1,17 +1,17 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 function Footer() {
   return (
     <footer>
       <div className="container text-center">
-        <img
-          src="/images/logo_small.jpeg"
-          alt="Mom & Pop Logo - Click to scroll to top"
-          title="Back to Top"
-          style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        />
+        <p>
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
+        </p>
 
         <p>
           © {new Date().getFullYear()} Mom & Pop Shop Web Design. All rights

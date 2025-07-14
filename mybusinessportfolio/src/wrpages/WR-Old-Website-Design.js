@@ -7,6 +7,9 @@ import screenshotGallery from "../wrlinkimages/screen-shot-Gallery.jpeg";
 import screenshotGallery2 from "../wrlinkimages/screen-shot-Gallery2.jpeg";
 import screenshotContact from "../wrlinkimages/screen-shot-Contact.jpeg";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 function WROldWebsiteDesign() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -52,7 +55,6 @@ function WROldWebsiteDesign() {
       </nav>
 
       <p>
-        {" "}
         Please be advised: The forms presented herein serve solely as examples,
         and the contact information displayed in the footers is for illustrative
         purposes only. Accurate contact details are available exclusively on the
@@ -141,13 +143,8 @@ function WROldWebsiteDesign() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>
-          <img
-            src="/images/logo_small.jpeg"
-            alt="Mom & Pop Logo - Click to scroll to top"
-            title="Back to Top"
-            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
         </p>
         <div>
           &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights

@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 function WRNewService() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [formData, setFormData] = useState({
@@ -265,13 +268,8 @@ function WRNewService() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>
-          <img
-            src="/images/logo_small.jpeg"
-            alt="Mom & Pop Logo - Click to scroll to top"
-            title="Back to Top"
-            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
         </p>
         <div>
           &copy; {new Date().getFullYear()} Tony's Auto Repair Shop — All rights

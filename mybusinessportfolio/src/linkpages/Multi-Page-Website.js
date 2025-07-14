@@ -26,6 +26,9 @@ import event4 from "../linkimages/event4.jpg";
 import event5 from "../linkimages/event5.jpg";
 import event6 from "../linkimages/event6.jpg";
 
+// Import the reusable LogoImage component
+import LogoImage from "../components/LogoImage";
+
 export default function MultiPageWebsite() {
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -170,13 +173,8 @@ export default function MultiPageWebsite() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>
-          <img
-            src="/images/logo_small.jpeg"
-            alt="Logo"
-            title="Back to Top"
-            style={{ height: "60px", marginBottom: "15px", cursor: "pointer" }}
-            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-          />
+          {/* Use reusable LogoImage component here */}
+          <LogoImage />
         </p>
         <div>
           &copy; {new Date().getFullYear()} Retro Photo Shop — All rights
