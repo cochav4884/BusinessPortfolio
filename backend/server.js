@@ -188,6 +188,26 @@ app.post("/api/service-booking", async (req, res) => {
   }
 });
 
+// ✅ Temporary Email Test Route
+app.get("/test-email", async (req, res) => {
+  const testMail = {
+    from: `"Test Email" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_USER,
+    subject: "Test from your deployed backend",
+    text: "This is a test email sent directly from your Node backend.",
+  };
+
+  try {
+    await transporter.sendMail(testMail);
+    console.log("✅ Test email sent.");
+    res.send("✅ Test email sent successfully!");
+  } catch (error) {
+    console.error("❌ Failed to send test email:", error);
+    res.status(500).send("❌ Failed to send test email.");
+  }
+});
+
+
 // ✅ Optional: Basic GET route for testing in browser
 app.get("/", (req, res) => {
   res.send("Backend is live. Welcome to the API.");
