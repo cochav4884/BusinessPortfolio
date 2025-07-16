@@ -19,6 +19,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// Verify transporter on startup to catch issues early
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("Email transporter verification failed:", error);
+  } else {
+    console.log("Email transporter is ready to send messages");
+  }
+});
+
 // ✅ 1. Simple Contact Route: /send-message
 app.post("/send-message", async (req, res) => {
   const { name, email, phone, message } = req.body;
