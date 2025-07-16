@@ -1,11 +1,9 @@
 {
   "files": {
-    "main.css": "./static/css/main.8e39f24e.css",
-    "main.js": "./static/js/main.c6e43902.js",
+    "main.css": "./static/css/main.2a3649c3.css",
+    "main.js": "./static/js/main.d786676d.js",
     "static/js/977.498d0098.chunk.js": "./static/js/977.498d0098.chunk.js",
     "static/js/732.cd33a6fe.chunk.js": "./static/js/732.cd33a6fe.chunk.js",
-    "static/media/screen-shot-Gallery.jpeg": "./static/media/screen-shot-Gallery.95bec2babd9c485f0781.jpeg",
-    "static/media/screen-shot-Gallery2.jpeg": "./static/media/screen-shot-Gallery2.31b38bcc62e6ea51cc4e.jpeg",
     "static/media/retro-photo3.jpg": "./static/media/retro-photo3.35e74a325934c9021f03.jpg",
     "static/media/tamarack-form.jpg": "./static/media/tamarack-form.6ef5b3dbbcf95c9915c9.jpg",
     "static/media/retro-photo8.jpg": "./static/media/retro-photo8.2d215edbcff8cfc5a39b.jpg",
@@ -13,9 +11,7 @@
     "static/media/restore6.jpg": "./static/media/restore6.4f164d2f3414046e85de.jpg",
     "static/media/decor.jpg": "./static/media/decor.bfe1fefdd469fddcfade.jpg",
     "static/media/Simple-Booking-Form.jpg": "./static/media/Simple-Booking-Form.2755abc5c99a850d54f9.jpg",
-    "static/media/screen-shot-Home.jpeg": "./static/media/screen-shot-Home.2220e6b0278bcdff1270.jpeg",
     "static/media/event4.jpg": "./static/media/event4.ccdefb76560442a22534.jpg",
-    "static/media/screen-shot-Contact.jpeg": "./static/media/screen-shot-Contact.d31f19927a1f5b7c2daa.jpeg",
     "static/media/retro-photo7.jpg": "./static/media/retro-photo7.c0268c0ec4158f6f4cd5.jpg",
     "static/media/retro-photo13.jpg": "./static/media/retro-photo13.746600f48214e2039631.jpg",
     "static/media/client13.jpg": "./static/media/client13.2b465ac83c2da04d146a.jpg",
@@ -98,13 +94,13 @@
     "static/media/furniture2.jpg": "./static/media/furniture2.d3cab7c0727e5c429c79.jpg",
     "static/media/jewlery3.jpg": "./static/media/jewlery3.3c74539990d152b08cb0.jpg",
     "index.html": "./index.html",
-    "main.8e39f24e.css.map": "./static/css/main.8e39f24e.css.map",
-    "main.c6e43902.js.map": "./static/js/main.c6e43902.js.map",
+    "main.2a3649c3.css.map": "./static/css/main.2a3649c3.css.map",
+    "main.d786676d.js.map": "./static/js/main.d786676d.js.map",
     "977.498d0098.chunk.js.map": "./static/js/977.498d0098.chunk.js.map",
     "732.cd33a6fe.chunk.js.map": "./static/js/732.cd33a6fe.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8e39f24e.css",
-    "static/js/main.c6e43902.js"
+    "static/css/main.2a3649c3.css",
+    "static/js/main.d786676d.js"
   ]
 }
