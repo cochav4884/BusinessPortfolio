@@ -156,8 +156,8 @@ app.post("/api/service-booking", async (req, res) => {
   }
 
   const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
+    from: process.env.EMAIL_USER,
+    replyTo: email,
     subject: `New Service Booking from ${name}`,
     html: `
       <h2>New Service Booking</h2>
