@@ -14,6 +14,8 @@ function Contact() {
 
   const [status, setStatus] = useState("");
 
+  const backendUrl = process.env.REACT_APP_BACKEND_URL;
+
   const handleChange = (e) => {
     setStatus(""); // Clear any existing status message on new input
 
@@ -53,16 +55,13 @@ function Contact() {
     }
 
     try {
-      const response = await fetch(
-        "https://your-backend-name.us-west-2.elasticbeanstalk.com/send-message",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const response = await fetch(`${backendUrl}/send-message`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
       if (response.ok) {
         setStatus("Message sent successfully!");
@@ -71,7 +70,7 @@ function Contact() {
           email: "",
           subject: "",
           message: "",
-          donotsell: false,
+          doNotSell: false,
           consentChoice: "",
           acceptedTermsAndPrivacy: false,
         });
