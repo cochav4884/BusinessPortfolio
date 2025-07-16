@@ -58,8 +58,8 @@ app.post("/send", async (req, res) => {
     email,
     subject = "General Inquiry",
     message,
-    doNotSell,
-    acceptedTermsAndPrivacy,
+    doNotSell = false,
+    acceptedTermsAndPrivacy = false,
   } = req.body;
 
   if (!name || !email || !message) {
@@ -75,7 +75,8 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: email,
+    from: process.env.EMAIL_USER, // your own verified email (to avoid spoofing)
+    replyTo: email, // user's email so you can reply directly
     to: process.env.EMAIL_USER,
     subject: `Contact Form: ${subject} (from ${name})`,
     html: `
