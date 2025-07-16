@@ -84,7 +84,7 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // your own verified email (to avoid spoofing)
+    from: `"Website From" <${process.env.EMAIL_USER}>`, // your own verified email (to avoid spoofing)
     replyTo: email, // user's email so you can reply directly
     to: process.env.EMAIL_USER,
     subject: `Contact Form: ${subject} (from ${name})`,
