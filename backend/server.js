@@ -1,4 +1,3 @@
-// backend/server.js
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -19,7 +18,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-// Verify transporter on startup to catch issues early
+// Verify transporter on startup
 transporter.verify((error, success) => {
   if (error) {
     console.error("Email transporter verification failed:", error);
@@ -84,8 +83,8 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: `"Website From" <${process.env.EMAIL_USER}>`, // your own verified email (to avoid spoofing)
-    replyTo: email, // user's email so you can reply directly
+    from: `"Website From" <${process.env.EMAIL_USER}>`,
+    replyTo: email,
     to: process.env.EMAIL_USER,
     subject: `Contact Form: ${subject} (from ${name})`,
     html: `
@@ -188,7 +187,7 @@ app.post("/api/service-booking", async (req, res) => {
   }
 });
 
-// ✅ Temporary Email Test Route
+// ✅ Temporary Test Route: /test-email
 app.get("/test-email", async (req, res) => {
   const testMail = {
     from: `"Test Email" <${process.env.EMAIL_USER}>`,
@@ -207,13 +206,12 @@ app.get("/test-email", async (req, res) => {
   }
 });
 
-
-// ✅ Optional: Basic GET route for testing in browser
+// ✅ Default Root Route
 app.get("/", (req, res) => {
   res.send("Backend is live. Welcome to the API.");
 });
 
-// Start server
+// ✅ Start Server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
