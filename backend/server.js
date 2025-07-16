@@ -175,7 +175,7 @@ app.post("/api/service-booking", async (req, res) => {
       <p><strong>Email:</strong> ${email}</p>
       <p><strong>Date:</strong> ${date}</p>
       <p><strong>Service Type:</strong> ${serviceType}</p>
-      <p><strong>Payment Plan:</strong> ${paymentPlan} || "None Selected"</p>
+      <p><strong>Payment Plan:</strong> ${paymentPlan || "None Selected"}</p>
     `,
   };
 
