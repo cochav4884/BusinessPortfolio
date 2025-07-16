@@ -24,7 +24,9 @@ app.post("/send-message", async (req, res) => {
   const { name, email, phone, message } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ message: "Please fill in all required fields." });
+    return res
+      .status(400)
+      .json({ message: "Please fill in all required fields." });
   }
 
   const mailOptions = {
@@ -51,14 +53,25 @@ app.post("/send-message", async (req, res) => {
 
 // ✅ 2. Full Contact Form Route: /send
 app.post("/send", async (req, res) => {
-  const { name, email, subject = "General Inquiry", message, doNotSell, acceptedTermsAndPrivacy } = req.body;
+  const {
+    name,
+    email,
+    subject = "General Inquiry",
+    message,
+    doNotSell,
+    acceptedTermsAndPrivacy,
+  } = req.body;
 
   if (!name || !email || !message) {
-    return res.status(400).json({ message: "Please fill in all required fields." });
+    return res
+      .status(400)
+      .json({ message: "Please fill in all required fields." });
   }
 
   if (!acceptedTermsAndPrivacy) {
-    return res.status(400).json({ message: "You must accept the terms and privacy policy." });
+    return res
+      .status(400)
+      .json({ message: "You must accept the terms and privacy policy." });
   }
 
   const mailOptions = {
@@ -72,7 +85,9 @@ app.post("/send", async (req, res) => {
       <p><strong>Subject:</strong> ${subject}</p>
       <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
       <p><strong>Do Not Sell Opt-Out:</strong> ${doNotSell ? "Yes" : "No"}</p>
-      <p><strong>Agreed to Terms:</strong> ${acceptedTermsAndPrivacy ? "Yes" : "No"}</p>
+      <p><strong>Agreed to Terms:</strong> ${
+        acceptedTermsAndPrivacy ? "Yes" : "No"
+      }</p>
     `,
   };
 
@@ -87,10 +102,20 @@ app.post("/send", async (req, res) => {
 
 // ✅ 3. Booking Route: /booking
 app.post("/booking", async (req, res) => {
-  const { name, email, phone, date, time = "N/A", package: pkg, notes } = req.body;
+  const {
+    name,
+    email,
+    phone,
+    date,
+    time = "N/A",
+    package: pkg,
+    notes,
+  } = req.body;
 
   if (!name || !email || !date || !pkg) {
-    return res.status(400).json({ message: "Please fill in all required fields." });
+    return res
+      .status(400)
+      .json({ message: "Please fill in all required fields." });
   }
 
   const mailOptions = {
@@ -105,7 +130,9 @@ app.post("/booking", async (req, res) => {
       <p><strong>Date:</strong> ${date}</p>
       <p><strong>Time:</strong> ${time}</p>
       <p><strong>Package:</strong> ${pkg}</p>
-      <p><strong>Notes:</strong><br/>${notes ? notes.replace(/\n/g, "<br/>") : "None"}</p>
+      <p><strong>Notes:</strong><br/>${
+        notes ? notes.replace(/\n/g, "<br/>") : "None"
+      }</p>
     `,
   };
 
@@ -123,7 +150,9 @@ app.post("/api/service-booking", async (req, res) => {
   const { name, email, date, serviceType, paymentPlan } = req.body;
 
   if (!name || !email || !date || !serviceType) {
-    return res.status(400).json({ message: "Please fill in all required fields." });
+    return res
+      .status(400)
+      .json({ message: "Please fill in all required fields." });
   }
 
   const mailOptions = {
@@ -147,6 +176,11 @@ app.post("/api/service-booking", async (req, res) => {
     console.error(error);
     res.status(500).json({ message: "Failed to send service booking." });
   }
+});
+
+// ✅ Optional: Basic GET route for testing in browser
+app.get("/", (req, res) => {
+  res.send("Backend is live. Welcome to the API.");
 });
 
 // Start server
