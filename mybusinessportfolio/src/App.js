@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom"; // ✅ No HashRouter here
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
-import LandingPage from "./pages/Home";
+import LandingPage from "./pages/LandingPage";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";

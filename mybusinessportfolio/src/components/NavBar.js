@@ -54,7 +54,7 @@ function NavBar() {
         <ul className="navbar-nav ms-auto">
           <li className="nav-item">
             <Link className="nav-link" to="/">
-              Home
+              LandingPage
             </Link>
           </li>
           <li className="nav-item">

@@ -80,7 +80,7 @@ export default function SinglePageWebsite() {
         <ul className={styles.navList}>
           <li>
             <Link to="/" className={styles.brandLink}>
-              Home
+              LandingPage
             </Link>
           </li>
         </ul>
@@ -95,7 +95,7 @@ export default function SinglePageWebsite() {
           example, and the contact information displayed in the page is for
           illustrative purposes only. Accurate contact details are available
           exclusively by navigating back to the original website at any time by
-          clicking the Home button in the navigation bar, where you can access
+          clicking the LandingPage button in the navigation bar, where you can access
           the official Contact page.
         </p>
         <p className={styles.tagline}>
