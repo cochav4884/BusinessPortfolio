@@ -70,16 +70,21 @@ app.post("/send", async (req, res) => {
       <p><strong>Subject:</strong> ${subject}</p>
       <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
       <p><strong>Do Not Sell Opt-Out:</strong> ${doNotSell ? "Yes" : "No"}</p>
-      <p><strong>Agreed to Terms:</strong> ${acceptedTermsAndPrivacy ? "Yes" : "No"}</p>
+      <p><strong>Agreed to Terms:</strong> ${
+        acceptedTermsAndPrivacy ? "Yes" : "No"
+      }</p>
     `,
   };
 
   try {
     await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully to:", process.env.EMAIL_USER);
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Failed to send email." });
+    console.error("Error sending email:", error);
+    res
+      .status(500)
+      .json({ message: "Failed to send email.", error: error.message });
   }
 });
 
@@ -94,7 +99,9 @@ app.post("/booking", (req, res) => {
 // ✅ 4) /api/service-booking (Only works locally)
 app.post("/api/service-booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
-    return res.status(200).json({ message: "✅ Service booking sent (dev only)" });
+    return res
+      .status(200)
+      .json({ message: "✅ Service booking sent (dev only)" });
   }
   res.status(403).json({ message: "🚫 This route is disabled in production." });
 });
