@@ -37,6 +37,14 @@ app.post("/send-message", (req, res) => {
 
 // ✅ 2) /send — Real Contact Form (your working version)
 app.post("/send", async (req, res) => {
+  // ✅ Log the incoming request body for debugging
+  console.log("📥 Incoming /send request body:", req.body);
+
+  // ✅ Prevent destructuring error if body is undefined
+  if (!req.body) {
+    return res.status(400).json({ message: "Missing JSON body." });
+  }
+
   const {
     name,
     email,
@@ -46,12 +54,14 @@ app.post("/send", async (req, res) => {
     acceptedTermsAndPrivacy = false,
   } = req.body;
 
+  // ✅ Validate required fields
   if (!name || !email || !message) {
     return res
       .status(400)
       .json({ message: "Please fill in all required fields." });
   }
 
+  // ✅ Ensure terms and privacy checkbox was accepted
   if (!acceptedTermsAndPrivacy) {
     return res
       .status(400)
