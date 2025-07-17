@@ -55,7 +55,7 @@ function Contact() {
     }
 
     try {
-      const response = await fetch(`${backendUrl}/send-message`, {
+      const response = await fetch(`${backendUrl}/send`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
