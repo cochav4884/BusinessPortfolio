@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"; // make sure this is at the top
 import LogoModal from "../components/LogoModal";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
-function Home() {
+function LandingPage() {
   const [showModal, setShowModal] = useState(false);
 
   // Direct URLs for public/ images
@@ -57,4 +57,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default LandingPage;

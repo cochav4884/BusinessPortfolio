@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom"; // ✅ No HashRouter here
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
 
-import Home from "./pages/Home";
+import LandingPage from "./pages/Home";
 import About from "./pages/About";
 import Services from "./pages/Services";
 import Contact from "./pages/Contact";
@@ -46,7 +46,7 @@ function App() {
         element={
           <>
             <NavBar />
-            <Home />
+            <LandingPage />
             <Footer />
           </>
         }
