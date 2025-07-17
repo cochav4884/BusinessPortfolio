@@ -4,7 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 app.use(cors());
 app.use(express.json());
@@ -27,39 +27,15 @@ transporter.verify((error, success) => {
   }
 });
 
-// ✅ 1. Simple Contact Route: /send-message
-app.post("/send-message", async (req, res) => {
-  const { name, email, phone, message } = req.body;
-
-  if (!name || !email || !message) {
-    return res
-      .status(400)
-      .json({ message: "Please fill in all required fields." });
+// ✅ 1) /send-message (Only works locally)
+app.post("/send-message", (req, res) => {
+  if (process.env.NODE_ENV === "development") {
+    return res.status(200).json({ message: "✅ Message sent (dev only)" });
   }
-
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
-    subject: `New Message from ${name}`,
-    html: `
-      <h2>New Contact Message</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || "Not provided"}</p>
-      <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
-    `,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Message sent successfully!" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Failed to send message." });
-  }
+  res.status(403).json({ message: "🚫 This route is disabled in production." });
 });
 
-// ✅ 2. Full Contact Form Route: /send
+// ✅ 2) /send — Real Contact Form (your working version)
 app.post("/send", async (req, res) => {
   const {
     name,
@@ -94,9 +70,7 @@ app.post("/send", async (req, res) => {
       <p><strong>Subject:</strong> ${subject}</p>
       <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
       <p><strong>Do Not Sell Opt-Out:</strong> ${doNotSell ? "Yes" : "No"}</p>
-      <p><strong>Agreed to Terms:</strong> ${
-        acceptedTermsAndPrivacy ? "Yes" : "No"
-      }</p>
+      <p><strong>Agreed to Terms:</strong> ${acceptedTermsAndPrivacy ? "Yes" : "No"}</p>
     `,
   };
 
@@ -109,85 +83,23 @@ app.post("/send", async (req, res) => {
   }
 });
 
-// ✅ 3. Booking Route: /booking
-app.post("/booking", async (req, res) => {
-  const {
-    name,
-    email,
-    phone,
-    date,
-    time = "N/A",
-    package: pkg,
-    notes,
-  } = req.body;
-
-  if (!name || !email || !date || !pkg) {
-    return res
-      .status(400)
-      .json({ message: "Please fill in all required fields." });
+// ✅ 3) /booking (Only works locally)
+app.post("/booking", (req, res) => {
+  if (process.env.NODE_ENV === "development") {
+    return res.status(200).json({ message: "✅ Booking sent (dev only)" });
   }
-
-  const mailOptions = {
-    from: email,
-    to: process.env.EMAIL_USER,
-    subject: `Booking Request from ${name}`,
-    html: `
-      <h2>New Booking Request</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Phone:</strong> ${phone || "N/A"}</p>
-      <p><strong>Date:</strong> ${date}</p>
-      <p><strong>Time:</strong> ${time}</p>
-      <p><strong>Package:</strong> ${pkg}</p>
-      <p><strong>Notes:</strong><br/>${
-        notes ? notes.replace(/\n/g, "<br/>") : "None"
-      }</p>
-    `,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Booking request sent successfully!" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Failed to send booking request." });
-  }
+  res.status(403).json({ message: "🚫 This route is disabled in production." });
 });
 
-// ✅ 4. Service Booking Route: /api/service-booking
-app.post("/api/service-booking", async (req, res) => {
-  const { name, email, date, serviceType, paymentPlan } = req.body;
-
-  if (!name || !email || !date || !serviceType) {
-    return res
-      .status(400)
-      .json({ message: "Please fill in all required fields." });
+// ✅ 4) /api/service-booking (Only works locally)
+app.post("/api/service-booking", (req, res) => {
+  if (process.env.NODE_ENV === "development") {
+    return res.status(200).json({ message: "✅ Service booking sent (dev only)" });
   }
-
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    replyTo: email,
-    subject: `New Service Booking from ${name}`,
-    html: `
-      <h2>New Service Booking</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Date:</strong> ${date}</p>
-      <p><strong>Service Type:</strong> ${serviceType}</p>
-      <p><strong>Payment Plan:</strong> ${paymentPlan || "None Selected"}</p>
-    `,
-  };
-
-  try {
-    await transporter.sendMail(mailOptions);
-    res.status(200).json({ message: "Service booking sent successfully!" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Failed to send service booking." });
-  }
+  res.status(403).json({ message: "🚫 This route is disabled in production." });
 });
 
-// ✅ Temporary Test Route: /test-email
+// ✅ Temporary test route for email testing
 app.get("/test-email", async (req, res) => {
   const testMail = {
     from: `"Test Email" <${process.env.EMAIL_USER}>`,
@@ -206,12 +118,12 @@ app.get("/test-email", async (req, res) => {
   }
 });
 
-// ✅ Default Root Route
+// ✅ Default root route
 app.get("/", (req, res) => {
   res.send("Backend is live. Welcome to the API.");
 });
 
-// ✅ Start Server
+// ✅ Start server
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
