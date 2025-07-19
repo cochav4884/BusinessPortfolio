@@ -7,6 +7,9 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 function LandingPage() {
   const [showModal, setShowModal] = useState(false);
 
+  console.log("CloudFront URL:", process.env.REACT_APP_CLOUDFRONT_URL);
+
+
   // Direct URLs for public/ images
   const logoSmall = "/images/logo_small.jpeg";
   const logoMedium = "/images/logo_medium.jpeg";
