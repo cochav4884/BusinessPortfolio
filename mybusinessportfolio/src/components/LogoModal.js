@@ -14,7 +14,12 @@ function LogoModal({ show, handleClose }) {
         <img
           src={logoPath}
           alt="Logo Preview"
-          style={{ width: "100px", height: "100px", marginBottom: "1rem" }}
+          style={{
+            cursor: "pointer",
+            width: "200px",
+            height: "auto",
+            marginBottom: "1rem",
+          }}
         />
         <div className="d-flex justify-content-center gap-3 mb-3">
           <a
