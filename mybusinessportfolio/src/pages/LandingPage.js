@@ -19,7 +19,7 @@ function LandingPage() {
       <h1 className="page-header">Welcome to Mom & Pop Shop Web Design</h1>
       <div className="text-center">
         <img
-          src="/favicon.ico"
+          src={`${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_medium.jpeg`}
           srcSet={`
     ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_small.jpeg 150w,
     ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_medium.jpeg 300w,
