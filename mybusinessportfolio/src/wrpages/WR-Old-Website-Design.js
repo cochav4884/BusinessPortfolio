@@ -4,12 +4,23 @@ import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 import LogoImage from "../components/LogoImage";
 
+// Import images locally
+import homeImg from "../wrlinkimages/screen-shot-Home.jpeg";
+import galleryImg from "../wrlinkimages/screen-shot-Gallery.jpeg";
+import gallery2Img from "../wrlinkimages/screen-shot-Gallery2.jpeg";
+import contactImg from "../wrlinkimages/screen-shot-Contact.jpeg";
+
 function WROldWebsiteDesign() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  const base = process.env.REACT_APP_CLOUDFRONT_URL;
-  const path = "/cloudfrontwrlinkimages";
+  // Map image names to imported images
+  const images = {
+    Home: homeImg,
+    Gallery: galleryImg,
+    Gallery2: gallery2Img,
+    Contact: contactImg,
+  };
 
   return (
     <div className={styles.container}>
@@ -62,22 +73,19 @@ function WROldWebsiteDesign() {
           </p>
 
           <div className={styles.screenshotContainer}>
-            {["Home", "Gallery", "Gallery2", "Contact"].map((name) => {
-              const url = `${base}${path}/screen-shot-${name}.jpeg`;
-              return (
-                <div key={name} className={styles.imageWrapper}>
-                  <a
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`Enlarge screenshot of ${name} Page`}
-                  >
-                    <img src={url} alt={`Screenshot of ${name} Page`} />
-                  </a>
-                  <small>{url}</small> {/* display the URL for debugging */}
-                </div>
-              );
-            })}
+            {Object.entries(images).map(([name, src]) => (
+              <div key={name} className={styles.imageWrapper}>
+                <a
+                  href={src}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`Enlarge screenshot of ${name} Page`}
+                >
+                  <img src={src} alt={`Screenshot of ${name} Page`} />
+                </a>
+                <small>{src}</small> {/* display the resolved local URL */}
+              </div>
+            ))}
           </div>
 
           <Link to="/website-redesign" className={styles.customButton}>
