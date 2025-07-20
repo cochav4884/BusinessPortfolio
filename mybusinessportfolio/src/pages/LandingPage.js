@@ -16,7 +16,7 @@ function LandingPage() {
         <img
           src={faviconPath}
           alt="Mom & Pop Shop Logo"
-          style={{ cursor: "pointer", maxWidth: "300px", marginBottom: "1rem" }}
+          style={{ cursor: "pointer", maxWidth: "500px", marginBottom: "1rem" }}
           onClick={() => setShowModal(true)}
         />
 
