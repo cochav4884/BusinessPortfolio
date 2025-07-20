@@ -9,7 +9,6 @@ function LandingPage() {
 
   console.log("CloudFront URL:", process.env.REACT_APP_CLOUDFRONT_URL);
 
-
   // Direct URLs for public/ images
   const logoSmall = "/images/logo_small.jpeg";
   const logoMedium = "/images/logo_medium.jpeg";
@@ -20,7 +19,7 @@ function LandingPage() {
       <h1 className="page-header">Welcome to Mom & Pop Shop Web Design</h1>
       <div className="text-center">
         <img
-          src={`${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_medium.jpeg`}
+          src="/favicon.ico"
           srcSet={`
     ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_small.jpeg 150w,
     ${process.env.REACT_APP_CLOUDFRONT_URL}/images/logo_medium.jpeg 300w,

@@ -76,52 +76,52 @@ function WROldWebsiteDesign() {
           <div className={styles.screenshotContainer}>
             <div className={styles.imageWrapper}>
               <a
-                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Home.jpeg`}
+                href="/cloudfrontwrlinkimages/screen-shot-Home.jpeg"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Home Page"
               >
                 <img
-                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Home.jpeg`}
+                  src="/cloudfrontwrlinkimages/screen-shot-Home.jpeg"
                   alt="Screen Shot of WR-Old-Website-Design's Home Page"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Gallery.jpeg`}
+                href="/cloudfrontwrlinkimages/screen-shot-Gallery.jpeg"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Gallery Page"
               >
                 <img
-                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Gallery.jpeg`}
+                  src="/cloudfrontwrlinkimages/screen-shot-Gallery.jpeg"
                   alt="Screen Shot of WR-Old-Website-Design's Gallery Page"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Gallery2.jpeg`}
+                href="/cloudfrontwrlinkimages/screen-shot-Gallery2.jpeg"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Gallery Page 2"
               >
                 <img
-                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Gallery2.jpeg`}
+                  src="/cloudfrontwrlinkimages/screen-shot-Gallery2.jpeg"
                   alt="Screen Shot of WR-Old-Website-Design's Gallery Page 2"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Contact.jpeg`}
+                href="/cloudfrontwrlinkimages/screen-shot-Contact.jpeg"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Contact Page"
               >
                 <img
-                  src={`${process.env.REACT_APP_CLOUDFRONT_URL}/cloudfrontwrlinkimages/screen-shot-Contact.jpeg`}
+                  src="/cloudfrontwrlinkimages/screen-shot-Contact.jpeg"
                   alt="Screen Shot of WR-Old-Website-Design's Contact Page"
                 />
               </a>
