@@ -16,7 +16,7 @@ function LogoModal({ show, handleClose }) {
           alt="Logo Preview"
           style={{
             cursor: "pointer",
-            width: "200px",
+            width: "400px",
             height: "auto",
             marginBottom: "1rem",
           }}
