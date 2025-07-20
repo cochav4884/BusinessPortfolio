@@ -1,3 +1,4 @@
+// src/pages/WROldWebsiteDesign.js
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
@@ -11,6 +12,8 @@ function WROldWebsiteDesign() {
   const toggleMenu = () => {
     setMenuOpen((prev) => !prev);
   };
+
+  const cloudfrontBase = "https://d16vovoz1ctjsq.cloudfront.net/cloudfrontwrlinkimages";
 
   return (
     <div className={styles.container}>
@@ -72,56 +75,55 @@ function WROldWebsiteDesign() {
             layout, fixed-width design, and limited mobile support.
           </p>
 
-          {/* New screenshots container */}
           <div className={styles.screenshotContainer}>
             <div className={styles.imageWrapper}>
               <a
-                href="/cloudfrontwrlinkimages/screen-shot-Home.jpeg"
+                href={`${cloudfrontBase}/screen-shot-Home.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Home Page"
               >
                 <img
-                  src="/cloudfrontwrlinkimages/screen-shot-Home.jpeg"
+                  src={`${cloudfrontBase}/screen-shot-Home.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Home Page"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href="/cloudfrontwrlinkimages/screen-shot-Gallery.jpeg"
+                href={`${cloudfrontBase}/screen-shot-Gallery.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Gallery Page"
               >
                 <img
-                  src="/cloudfrontwrlinkimages/screen-shot-Gallery.jpeg"
+                  src={`${cloudfrontBase}/screen-shot-Gallery.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Gallery Page"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href="/cloudfrontwrlinkimages/screen-shot-Gallery2.jpeg"
+                href={`${cloudfrontBase}/screen-shot-Gallery2.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Gallery Page 2"
               >
                 <img
-                  src="/cloudfrontwrlinkimages/screen-shot-Gallery2.jpeg"
+                  src={`${cloudfrontBase}/screen-shot-Gallery2.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Gallery Page 2"
                 />
               </a>
             </div>
             <div className={styles.imageWrapper}>
               <a
-                href="/cloudfrontwrlinkimages/screen-shot-Contact.jpeg"
+                href={`${cloudfrontBase}/screen-shot-Contact.jpeg`}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Enlarge screenshot of Contact Page"
               >
                 <img
-                  src="/cloudfrontwrlinkimages/screen-shot-Contact.jpeg"
+                  src={`${cloudfrontBase}/screen-shot-Contact.jpeg`}
                   alt="Screen Shot of WR-Old-Website-Design's Contact Page"
                 />
               </a>
@@ -137,7 +139,6 @@ function WROldWebsiteDesign() {
       {/* Footer */}
       <footer className={styles.footer}>
         <p>
-          {/* Use reusable LogoImage component here */}
           <LogoImage />
         </p>
         <div>
