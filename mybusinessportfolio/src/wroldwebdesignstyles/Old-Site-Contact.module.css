@@ -1,16 +1,4 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html, body {
-  overflow-x: hidden;  /* Prevent horizontal scrolling */
-  max-width: 100vw;    /* Prevent body wider than viewport */
-}
-
-body {
+.container {
   background-color: #f0f0e6;
   font-family: "Times New Roman", Times, serif;
   color: #000;
@@ -26,23 +14,24 @@ body {
     #ddd 10px,
     #ddd 20px
   );
+  overflow-x: hidden;
 }
 
-header {
+.header {
   text-align: center;
   margin-bottom: 30px;
   color: #003366;
   text-shadow: 1px 1px 0 #ccc;
 }
 
-nav {
+.nav {
   background-color: #003366;
   padding: 10px 0;
   margin-bottom: 30px;
   text-align: center;
 }
 
-nav a {
+.nav a {
   color: white;
   margin: 0 15px;
   font-weight: bold;
@@ -50,35 +39,44 @@ nav a {
   font-family: Arial, sans-serif;
 }
 
-nav a:hover {
+.nav a:hover {
   text-decoration: underline;
 }
 
-main {
+.main {
   line-height: 1.6;
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-main h2 {
+h2 {
   font-size: 1.8rem;
   margin-bottom: 15px;
   border-bottom: 2px solid #003366;
   padding-bottom: 5px;
-}
-
-main p {
-  margin-bottom: 20px;
   text-align: center;
-  font-weight: bold;
 }
 
-img {
-  max-width: 100%;
-  border: 3px solid #003366;
-  display: block;
-  margin: 20px auto;
+p {
+  margin-bottom: 15px;
 }
 
-footer {
+.hoursList {
+  margin-left: 20px;
+  margin-bottom: 15px;
+}
+
+a {
+  color: #003366;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.footer {
   text-align: center;
   font-size: 0.9rem;
   margin-top: 40px;
@@ -90,18 +88,18 @@ footer {
 
 /* === Responsive tweaks === */
 @media (max-width: 480px) {
-  body {
+  .container {
     border: none;
     padding: 15px;
     width: 95%;
   }
 
-  nav a {
+  .nav a {
     display: block;
     margin: 8px 0;
   }
 
-  main {
+  .main {
     max-width: 100%;
     font-size: 1rem;
   }
@@ -110,7 +108,18 @@ footer {
     font-size: 1.5rem;
   }
 
-  ul {
+  .hoursList {
     margin-left: 10px;
   }
+}
+
+/* Slogan Styling */
+.slogan {
+  font-weight: bold;
+  font-style: italic;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.2rem;
+  color: #003366;
+  text-shadow: 1px 1px 1px #ccc;
 }

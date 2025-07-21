@@ -21,6 +21,9 @@ import MPWGalleryPage from "./mpwpages/MPW-Gallery-Page";
 import MPWBookingPage from "./mpwpages/MPW-Booking-Page";
 import MPWContactPage from "./mpwpages/MPW-Contact-Page";
 import WebsiteRedesign from "./linkpages/Website-Redesign";
+import OldSiteGallery from "./wrpages/Old-Site-Gallery";
+import OldSiteAbout from "./wrpages/Old-Site-About";
+import OldSiteContact from "./wrpages/Old-Site-Contact";
 import WROldWebsiteDesign from "./wrpages/WR-Old-Website-Design";
 import WRNewAbout from "./wrpages/WR-New-About";
 import WRNewGallery from "./wrpages/WR-New-Gallery";
@@ -139,6 +142,9 @@ function App() {
       <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
       <Route path="/mpw-contact-page" element={<MPWContactPage />} />
       <Route path="/website-redesign" element={<WebsiteRedesign />} />
+      <Route path="/old-site-gallery" element={<OldSiteGallery />} />
+      <Route path="/old-site-about" element={<OldSiteAbout />} />
+      <Route path="old-site-contact" element={<OldSiteContact />} />
       <Route path="/wr-old-website-design" element={<WROldWebsiteDesign />} />
       <Route path="/wr-new-about" element={<WRNewAbout />} />
       <Route path="/wr-new-gallery" element={<WRNewGallery />} />

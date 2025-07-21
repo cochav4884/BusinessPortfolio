@@ -4,23 +4,11 @@ import { Link } from "react-router-dom";
 import styles from "../linkstyles/Website-Redesign.module.css";
 import LogoImage from "../components/LogoImage";
 
-// Import images locally
-import homeImg from "../wrlinkimages/screen-shot-home.jpeg";
-import galleryImg from "../wrlinkimages/screen-shot-gallery.jpeg";
-import gallery2Img from "../wrlinkimages/screen-shot-gallery2.jpeg";
-import contactImg from "../wrlinkimages/screen-shot-contact.jpeg";
 
 function WROldWebsiteDesign() {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
-  // Map image names to imported images
-  const images = {
-    Home: homeImg,
-    Gallery: galleryImg,
-    Gallery2: gallery2Img,
-    Contact: contactImg,
-  };
 
   return (
     <div className={styles.container}>
@@ -40,18 +28,18 @@ function WROldWebsiteDesign() {
         </button>
         <ul className={`${styles.navLinks} ${menuOpen ? styles.showMenu : ""}`}>
           <li>
-            <Link to="/website-redesign" className={styles.navItem}>
-              Home
+            <Link to="../WR-Old-About" className={styles.navItem}>
+              Old About Page
             </Link>
           </li>
           <li>
-            <Link to="/wr-old-website-design" className={styles.navItem}>
-              Old
+            <Link to="../WR-Old-Gallery" className={styles.navItem}>
+              Old Gallery Page
             </Link>
           </li>
           <li>
-            <Link to="/wr-new-about" className={styles.navItem}>
-              New
+            <Link to="../WR-Old-Contact" className={styles.navItem}>
+              Old Contact Page
             </Link>
           </li>
         </ul>
@@ -71,22 +59,6 @@ function WROldWebsiteDesign() {
             This version was created using only HTML and CSS. It has a basic
             layout...
           </p>
-
-          <div className={styles.screenshotContainer}>
-            {Object.entries(images).map(([name, src]) => (
-              <div key={name} className={styles.imageWrapper}>
-                <a
-                  href={src}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`Enlarge screenshot of ${name} Page`}
-                >
-                  <img src={src} alt={`Screenshot of ${name} Page`} />
-                </a>
-                <small>{src}</small> {/* display the resolved local URL */}
-              </div>
-            ))}
-          </div>
 
           <Link to="/website-redesign" className={styles.customButton}>
             ← Back to Redesign Overview

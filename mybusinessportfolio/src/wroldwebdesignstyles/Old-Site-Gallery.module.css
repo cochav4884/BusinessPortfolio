@@ -1,17 +1,4 @@
-/* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html,
-body {
-  overflow-x: hidden; /* Prevent horizontal scrolling */
-  max-width: 100vw; /* Prevent body wider than viewport */
-}
-
-body {
+.container {
   font-family: "Times New Roman", Times, serif;
   background-color: #f0f0e6;
   color: #000;
@@ -30,21 +17,22 @@ body {
   overflow-x: hidden;
 }
 
-header, .header {
+.header,
+.header h2 {
   text-align: center;
   color: #003366;
   margin-bottom: 30px;
   text-shadow: 1px 1px 1px #ccc;
 }
 
-nav {
+.nav {
   background-color: #003366;
   padding: 10px 0;
   text-align: center;
   margin-bottom: 30px;
 }
 
-nav a {
+.nav a {
   color: white;
   margin: 0 15px;
   font-weight: bold;
@@ -52,13 +40,13 @@ nav a {
   font-family: Arial, sans-serif;
 }
 
-nav a.active,
-nav a:hover {
+.nav a.active,
+.nav a:hover {
   text-decoration: underline;
   text-shadow: 1px 1px 2px #fff;
 }
 
-h2 {
+.main h2 {
   font-size: 1.8rem;
   margin-bottom: 15px;
   border-bottom: 2px solid #003366;
@@ -66,14 +54,14 @@ h2 {
   text-align: center;
 }
 
-main section {
+.main section {
   line-height: 1.0;
   font-size: 1.1rem;
   max-width: 740px;
   margin: 0 auto;
 }
 
-footer {
+.footer {
   text-align: center;
   font-size: 0.9rem;
   margin-top: 40px;
@@ -84,29 +72,28 @@ footer {
 }
 
 /* === Flip Cards Container === */
-.flip-card-container {
+.flipCardContainer {
   display: flex;
-  justify-content: center;       /* Center the whole row */
+  justify-content: center;
   align-items: flex-start;
-  gap: 10px; /* reduce gap */
-  flex-wrap: nowrap;             /* Keep in a single row */
-  max-width: 760px;              /* Same as your body max-width */
-  margin: 0 auto 40px auto;      /* Center horizontally */
-  overflow: hidden;              /* Prevent scrollbars */
-  overflow-x: auto; /* allow slight scroll if needed on tiny screens */
+  gap: 10px;
+  flex-wrap: nowrap;
+  max-width: 760px;
+  margin: 0 auto 40px auto;
+  overflow-x: auto;
 }
 
-/* === Flip Card Styles === */
-.flip-card {
+.flipCard {
   background-color: transparent;
   width: 220px;
   height: 280px;
-  flex: 0 0 auto; /* don not shrink or grow */
-  perspective: 1000px; /* Needed for 3D flip */
+  flex: 0 0 auto;
+  perspective: 1000px;
   cursor: pointer;
+  outline: none;
 }
 
-.flip-card-inner {
+.flipCardInner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -114,13 +101,13 @@ footer {
   transform-style: preserve-3d;
 }
 
-.flip-card:hover .flip-card-inner,
-.flip-card:focus-within .flip-card-inner {
+.flipCard:hover .flipCardInner,
+.flipCard:focus-within .flipCardInner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
+.flipCardFront,
+.flipCardBack {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -136,7 +123,7 @@ footer {
   justify-content: center;
 }
 
-.flip-card-front img {
+.flipCardFront img {
   width: 100%;
   height: 140px;
   object-fit: cover;
@@ -144,17 +131,17 @@ footer {
   margin-bottom: 10px;
 }
 
-.flip-card-front h3 {
+.flipCardFront h3 {
   margin-bottom: 5px;
   color: #003366;
 }
 
-.flip-card-front p {
+.flipCardFront p {
   font-weight: 600;
   color: #666;
 }
 
-.flip-card-back {
+.flipCardBack {
   transform: rotateY(180deg);
   color: #003366;
   font-size: 1rem;
@@ -163,48 +150,27 @@ footer {
   line-height: 1.4;
 }
 
-.flip-card:focus-within {
+.flipCard:focus-within {
   outline: 2px dashed #003366;
 }
 
-@media (max-width: 720px) {
-  .flip-card-container {
-    transform: scale(0.9);
-    transform-origin: center top;
-  }
-}
-
-
 /* === Work Gallery Section === */
-.work-gallery h2 {
+.workGallery h2 {
   text-align: center;
   margin-bottom: 20px;
   color: #003366;
 }
 
-/* Work images container */
-.work-images {
+.workImages {
   display: flex;
-  justify-content: center; /* center images */
-  flex-wrap: nowrap; /* no wrapping */
+  justify-content: center;
+  flex-wrap: nowrap;
   gap: 10px;
-  overflow-x: auto; /* allow slight scroll if needed */
+  overflow-x: auto;
   padding-bottom: 10px;
 }
 
-.work-item img {
-  width: 160px; /* smaller images */
-  height: 110px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
-.work-images img:hover {
-  transform: scale(1.05);
-}
-
-.work-item {
+.workItem {
   position: relative;
   width: 200px;
   height: 140px;
@@ -212,7 +178,7 @@ footer {
   border-radius: 8px;
 }
 
-.work-item img {
+.workItem img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -220,7 +186,7 @@ footer {
   transition: transform 0.3s ease;
 }
 
-.work-item:hover img {
+.workItem:hover img {
   transform: scale(1.05);
 }
 
@@ -237,22 +203,22 @@ footer {
   transition: opacity 0.3s ease;
 }
 
-.work-item:hover .caption {
+.workItem:hover .caption {
   opacity: 1;
 }
 
 /* Responsive */
 @media (max-width: 600px) {
-  .flip-card-container {
+  .flipCardContainer {
     flex-direction: column;
     align-items: center;
   }
 
-  .work-images {
+  .workImages {
     justify-content: center;
   }
 
-  .work-images img {
+  .workImages img {
     width: 90%;
     max-width: 300px;
     height: auto;
@@ -265,28 +231,24 @@ footer {
 
 /* === Responsive tweaks === */
 @media (max-width: 480px) {
-  body {
+  .container {
     border: none;
     padding: 15px;
     width: 95%;
   }
 
-  nav a {
+  .nav a {
     display: block;
     margin: 8px 0;
   }
 
-  main {
+  .main {
     max-width: 100%;
     font-size: 1rem;
   }
 
   h2 {
     font-size: 1.5rem;
-  }
-
-  ul {
-    margin-left: 10px;
   }
 }
 
