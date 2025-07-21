@@ -85,8 +85,8 @@ function WebsiteRedesign() {
         description="This version was created using only HTML and CSS. It has a basic layout, fixed-width design, and limited mobile support."
         image={oldauto}
         altText="Screenshot of Tony's original 1978 auto repair website design"
-        linkTo="/wr-old-website-design"
-        buttonText="View HTML Website Design"
+        linkTo="/old-site-about"
+        buttonText="View HTML Old Site Design"
       />
 
       <p className={styles.slogan}>

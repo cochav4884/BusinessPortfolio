@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../wroldwebdesignstyles/Old-Site-Gallery.module.css";
 
 function OldSiteGallery() {
@@ -9,15 +10,26 @@ function OldSiteGallery() {
       </header>
 
       <nav className={styles.nav}>
-        <a href="/WR-Old-Website-Design">Home Page</a>
-        <a href="/WR-Gallery-Page">Gallery Page</a>
-        <a href="/WR-Contact-Page">Contact Page</a>
+        <Link to="/Website-Redesign" className={styles.navLink}>
+          WR Old Website Design
+        </Link>
+        <Link to="/Old-Site-About" className={styles.navLink}>
+          Old About Page
+        </Link>
+        <Link to="/Old-Site-Gallery" className={styles.navLink}>
+          Old Gallery Page
+        </Link>
+        <Link to="/Old-Site-Contact" className={styles.navLink}>
+          Old Contact Page
+        </Link>
       </nav>
 
       <main className={styles.main}>
         <section className={styles.employees}>
           <h2 className={styles.header}>Meet Our Team</h2>
-          <p className={styles.slogan}>“Serving Trust, One Car at a Time — Since '78!”</p>
+          <p className={styles.slogan}>
+            “Serving Trust, One Car at a Time — Since '78!”
+          </p>
 
           <div className={styles.flipCardContainer}>
             <div className={styles.flipCard} tabIndex="0">

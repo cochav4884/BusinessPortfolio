@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "../wroldwebdesignstyles/Old-Site-About.module.css";
 
 function OldSiteAbout() {
@@ -9,21 +10,22 @@ function OldSiteAbout() {
       </header>
 
       <nav className={styles.nav}>
-        <a href="/WR-Old-Website-Design">Home Page</a>
-        <a href="/WR-Gallery-Page">Gallery Page</a>
-        <a href="/WR-Contact-Page">Contact Page</a>
+        <Link to="/Website-Redesign">WR Old Website Design</Link>
+        <Link to="/Old-Site-About">Old About Page</Link>
+        <Link to="/Old-Site-Gallery">Old Gallery Page</Link>
+        <Link to="/Old-Site-Contact">Old Contact Page</Link>
       </nav>
 
       <main className={styles.main}>
         <h2>Established | 1978</h2>
         <p>Welcome to Tony's Auto Repair Shop — where quality meets honesty!</p>
         <p>
-          Many of our customers keep coming back because they know good work means
-          a safe ride.
+          Many of our customers keep coming back because they know good work
+          means a safe ride.
         </p>
         <p>
-          Come on down and meet our friendly staff — experience service that goes
-          the extra mile, at prices that won’t break the bank!
+          Come on down and meet our friendly staff — experience service that
+          goes the extra mile, at prices that won’t break the bank!
         </p>
 
         <div className={styles.imageRow}>
