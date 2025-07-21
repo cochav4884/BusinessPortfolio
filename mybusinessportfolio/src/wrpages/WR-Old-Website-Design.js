@@ -5,10 +5,10 @@ import styles from "../linkstyles/Website-Redesign.module.css";
 import LogoImage from "../components/LogoImage";
 
 // Import images locally
-import homeImg from "../wrlinkimages/screen-shot-Home.jpeg";
-import galleryImg from "../wrlinkimages/screen-shot-Gallery.jpeg";
-import gallery2Img from "../wrlinkimages/screen-shot-Gallery2.jpeg";
-import contactImg from "../wrlinkimages/screen-shot-Contact.jpeg";
+import homeImg from "../wrlinkimages/screen-shot-home.jpeg";
+import galleryImg from "../wrlinkimages/screen-shot-gallery.jpeg";
+import gallery2Img from "../wrlinkimages/screen-shot-gallery2.jpeg";
+import contactImg from "../wrlinkimages/screen-shot-contact.jpeg";
 
 function WROldWebsiteDesign() {
   const [menuOpen, setMenuOpen] = useState(false);
