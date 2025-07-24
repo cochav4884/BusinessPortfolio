@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 function Contact() {
@@ -11,10 +11,19 @@ function Contact() {
     consentChoice: "",
     acceptedTermsAndPrivacy: false,
   });
+  
 
   const [status, setStatus] = useState("");
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
+  console.log("Backend URL is:", process.env.REACT_APP_BACKEND_URL);
+// Place the useEffect here — runs once when component mounts
+  useEffect(() => {
+    console.log("Backend URL is:", backendUrl);
+  }, [backendUrl]);
+
+  // ... rest of your code (handleChange, handleSubmit, return JSX)
+
 
   const handleChange = (e) => {
     setStatus(""); // Clear any existing status message on new input
