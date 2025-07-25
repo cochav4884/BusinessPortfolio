@@ -1,80 +1,44 @@
 // src/components/NavBar.js
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import Collapse from "bootstrap/js/dist/collapse";
+import React from "react";
+import { LinkContainer } from "react-router-bootstrap"; // helps integrate react-router with React-Bootstrap Nav.Link
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
+import Container from "react-bootstrap/Container";
 
 // Import the reusable LogoImage component
 import LogoImage from "../components/LogoImage";
 
 function NavBar() {
-  useEffect(() => {
-    const navLinks = document.querySelectorAll(".nav-link");
-    const navCollapse = document.getElementById("navbarNav");
-
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        if (navCollapse.classList.contains("show")) {
-          const bsCollapse = new Collapse(navCollapse, {
-            toggle: false,
-          });
-          bsCollapse.hide();
-        }
-      });
-    });
-
-    return () => {
-      navLinks.forEach((link) => {
-        link.removeEventListener("click", () => {});
-      });
-    };
-  }, []);
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark bg-dark px-3">
-      <Link className="navbar-brand d-flex align-items-center" to="/">
-        <LogoImage style={{ height: "50px", marginRight: "10px" }} />
-        Mom & Pop Shop Web Design
-      </Link>
+    <Navbar bg="dark" variant="dark" expand="lg" className="px-3" collapseOnSelect>
+      <Container>
+        <LinkContainer to="/">
+          <Navbar.Brand className="d-flex align-items-center">
+            <LogoImage style={{ height: "50px", marginRight: "10px" }} />
+            Mom & Pop Shop Web Design
+          </Navbar.Brand>
+        </LinkContainer>
 
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-        aria-controls="navbarNav"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon"></span>
-      </button>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-      <div className="collapse navbar-collapse" id="navbarNav">
-        <ul className="navbar-nav ms-auto">
-          <li className="nav-item">
-            <Link className="nav-link" to="/">
-              LandingPage
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/about">
-              About
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/services">
-              Services
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/contact">
-              Contact
-            </Link>
-          </li>
-        </ul>
-      </div>
-    </nav>
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <LinkContainer to="/">
+              <Nav.Link>LandingPage</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/about">
+              <Nav.Link>About</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/services">
+              <Nav.Link>Services</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/contact">
+              <Nav.Link>Contact</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
   );
 }
 
