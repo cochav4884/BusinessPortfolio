@@ -11,19 +11,17 @@ function Contact() {
     consentChoice: "",
     acceptedTermsAndPrivacy: false,
   });
-  
 
   const [status, setStatus] = useState("");
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
   console.log("Backend URL is:", process.env.REACT_APP_BACKEND_URL);
-// Place the useEffect here — runs once when component mounts
+  // Place the useEffect here — runs once when component mounts
   useEffect(() => {
     console.log("Backend URL is:", backendUrl);
   }, [backendUrl]);
 
   // ... rest of your code (handleChange, handleSubmit, return JSX)
-
 
   const handleChange = (e) => {
     setStatus(""); // Clear any existing status message on new input
@@ -63,14 +61,24 @@ function Contact() {
       return;
     }
 
+    // Prepare payload without consentChoice since backend doesn't expect it
+    const payload = {
+      name: formData.name,
+      email: formData.email,
+      subject: formData.subject,
+      message: formData.message,
+      doNotSell: formData.doNotSell,
+      acceptedTermsAndPrivacy: formData.acceptedTermsAndPrivacy,
+    };
+
     try {
       const response = await fetch(`${backendUrl}/send`, {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
+
+      const data = await response.json();
 
       if (response.ok) {
         setStatus("Message sent successfully!");
@@ -84,10 +92,7 @@ function Contact() {
           acceptedTermsAndPrivacy: false,
         });
       } else {
-        const errorData = await response.json();
-        setStatus(
-          errorData.message || "Failed to send message. Please try again."
-        );
+        setStatus(data.message || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
