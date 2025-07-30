@@ -137,6 +137,16 @@ app.get("/test-email", async (req, res) => {
   }
 });
 
+// ✅ Temporary environment variable checker
+app.get("/env-check", (req, res) => {
+  res.json({
+    EMAIL_USER: process.env.EMAIL_USER,
+    EMAIL_PASS: process.env.EMAIL_PASS ? "✅ set" : "❌ not set",
+    EMAIL_HOST: process.env.EMAIL_HOST,
+    NODE_ENV: process.env.NODE_ENV,
+  });
+});
+
 // ✅ Default root route
 app.get("/", (req, res) => {
   res.send("Backend is live. Welcome to the API.");
