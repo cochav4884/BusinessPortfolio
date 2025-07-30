@@ -21,8 +21,6 @@ function Contact() {
     console.log("Backend URL is:", backendUrl);
   }, [backendUrl]);
 
-  // ... rest of your code (handleChange, handleSubmit, return JSX)
-
   const handleChange = (e) => {
     setStatus(""); // Clear any existing status message on new input
 
