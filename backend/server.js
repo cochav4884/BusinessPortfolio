@@ -15,9 +15,9 @@ app.use(express.json());
 
 // Email transporter setup
 const transporter = nodemailer.createTransport({
-  host: "smtp.mail.yahoo.com",
-  port: 465,
-  secure: true,
+  host: process.env.EMAIL_HOST,
+  port: Number(process.env.EMAIL_PORT), // Convert string to number
+  secure: process.env.EMAIL_SECURE === "true", // Convert string to boolean
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
