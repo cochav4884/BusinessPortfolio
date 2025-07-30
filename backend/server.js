@@ -145,8 +145,12 @@ app.get("/env-check", (req, res) => {
   });
 });
 
-app.get('/favicon.ico', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+app.get("/favicon.ico", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "favicon.ico"));
+});
+
+app.get("/health", (req, res) => {
+  res.status(200).send("Healthy");
 });
 
 // ✅ Default root route
