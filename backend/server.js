@@ -145,6 +145,10 @@ app.get("/env-check", (req, res) => {
   });
 });
 
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'favicon.ico'));
+});
+
 // ✅ Default root route
 app.get("/", (req, res) => {
   res.send("Backend is live. Welcome to the API.");
