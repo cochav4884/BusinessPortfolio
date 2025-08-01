@@ -75,13 +75,13 @@ app.post("/send", async (req, res) => {
     to: process.env.EMAIL_USER,
     subject: `Contact Form: ${subject} (from ${name})`,
     text: `
-    Name: ${name}
-    Email: ${email}
-    Subject: ${subject}
-    Message: ${message}
-    Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
-    Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
-  `,
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+Message: ${message}
+Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
+Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
+    `,
   };
 
   try {
@@ -101,8 +101,7 @@ Thank you for reaching out! I’ve received your message and will get back to yo
 If this was sent in error or you have follow-up details, feel free to reply to this email.
 
 Best regards,  
-Mom & Pop Shop Web Design
-`,
+Mom & Pop Shop Web Design`,
     };
 
     await transporter.sendMail(autoReplyOptions);
@@ -111,9 +110,10 @@ Mom & Pop Shop Web Design
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
     console.error("❌ Error sending email:", error);
-    res
-      .status(500)
-      .json({ message: "Failed to send email.", error: error.message });
+    res.status(500).json({
+      message: "Failed to send email.",
+      error: error?.message || error?.toString(),
+    });
   }
 });
 
