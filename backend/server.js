@@ -1,7 +1,7 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
-const path = require("path"); // <-- added here
+const path = require("path");
 require("dotenv").config();
 
 const app = express();
@@ -16,8 +16,8 @@ app.use(express.json());
 // Email transporter setup
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
-  port: Number(process.env.EMAIL_PORT), // Convert string to number
-  secure: process.env.EMAIL_SECURE === "true", // Convert string to boolean
+  port: Number(process.env.EMAIL_PORT),
+  secure: process.env.EMAIL_SECURE === "true",
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -47,6 +47,7 @@ app.post("/send", async (req, res) => {
   if (!req.body) {
     return res.status(400).json({ message: "Missing JSON body." });
   }
+
   const {
     name,
     email,
@@ -69,25 +70,29 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
+    from: `"${name}" <${process.env.EMAIL_USER}>`,
+    replyTo: email,
     to: process.env.EMAIL_USER,
     subject: `Contact Form: ${subject} (from ${name})`,
-    text: `
-  Name: ${name}
-  Email: ${email}
-  Subject: ${subject}
-  Message: ${message}
-  Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
-  Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
-  `,
+    html: `
+      <h2>New Contact Form Submission</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Subject:</strong> ${subject}</p>
+      <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
+      <p><strong>Do Not Sell Opt-Out:</strong> ${doNotSell ? "Yes" : "No"}</p>
+      <p><strong>Agreed to Terms:</strong> ${
+        acceptedTermsAndPrivacy ? "Yes" : "No"
+      }</p>
+    `,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully to:", process.env.EMAIL_USER);
+    console.log("✅ Email sent successfully to:", process.env.EMAIL_USER);
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error("Error sending email:", error);
+    console.error("❌ Error sending email:", error);
     res
       .status(500)
       .json({ message: "Failed to send email.", error: error.message });
