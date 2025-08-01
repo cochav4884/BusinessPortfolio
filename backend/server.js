@@ -17,16 +17,16 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
   port: Number(process.env.EMAIL_PORT),
-  secure: process.env.EMAIL_SECURE === "true",
+  secure: process.env.EMAIL_SECURE === "true", // true for 465, false for other ports
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
-  logger: true,   // Enable logging to console
-  debug: true,    // Include SMTP debug output
+  logger: true, // Enable logger to console
+  debug: true, // Show SMTP traffic in console
 });
 
-// Verify transporter on startup
+// Verify transporter connection configuration on server startup
 transporter.verify((error, success) => {
   if (error) {
     console.error("Email transporter verification failed:", error);
@@ -35,7 +35,7 @@ transporter.verify((error, success) => {
   }
 });
 
-// Local-only route for dev testing
+// Development-only test message route
 app.post("/send-message", (req, res) => {
   if (process.env.NODE_ENV === "development") {
     return res.status(200).json({ message: "✅ Message sent (dev only)" });
@@ -43,7 +43,7 @@ app.post("/send-message", (req, res) => {
   res.status(403).json({ message: "🚫 This route is disabled in production." });
 });
 
-// ✅ MAIN CONTACT FORM ROUTE
+// Main contact form email route
 app.post("/send", async (req, res) => {
   console.log("📥 Incoming /send request body:", req.body);
 
@@ -60,7 +60,7 @@ app.post("/send", async (req, res) => {
     acceptedTermsAndPrivacy = false,
   } = req.body;
 
-  // ✅ Add email format validation here:
+  // Basic email format validation
   const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   if (!isValidEmail) {
     return res.status(400).json({ message: "Invalid email address." });
@@ -78,9 +78,17 @@ app.post("/send", async (req, res) => {
       .json({ message: "You must accept the terms and privacy policy." });
   }
 
+  // Ensure from email is a valid email format (helps prevent SMTP 550 errors)
+  const fromEmail = process.env.EMAIL_USER;
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fromEmail)) {
+    return res
+      .status(500)
+      .json({ message: "Invalid sender email configured on server." });
+  }
+
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    from: `"Mom & Pop Shop" <${fromEmail}>`, // MUST be an authorized sender by SMTP provider
+    to: fromEmail, // Send the contact form details to your inbox
     subject: `Contact Form: ${subject} (from ${name})`,
     text: `
 Name: ${name}
@@ -90,13 +98,13 @@ Message: ${message}
 
 Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
 Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
-  `.trim(),
+    `.trim(),
   };
 
   try {
-    // Send message to your inbox
+    // Send email with contact info to yourself
     await transporter.sendMail(mailOptions);
-    console.log("✅ Contact form email sent to:", process.env.EMAIL_USER);
+    console.log("✅ Contact form email sent to:", fromEmail);
   } catch (err) {
     console.error("❌ Error sending main contact email:", err.stack || err);
     return res.status(500).json({
@@ -105,9 +113,9 @@ Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
     });
   }
 
-  // ✅ Auto-reply to the user
+  // Auto-reply to the user
   const autoReplyOptions = {
-    from: process.env.EMAIL_USER,
+    from: `"Mom & Pop Shop" <${fromEmail}>`, // Same authorized sender
     to: email,
     subject: "Thank you for contacting Mom & Pop Shop Web Design",
     text: `Hi ${name},
@@ -124,12 +132,12 @@ Mom & Pop Shop Web Design`,
     await transporter.sendMail(autoReplyOptions);
     console.log("✅ Auto-reply sent to:", email);
   } catch (err) {
-    console.error("❌ Error sending main contact email:", err);
+    console.error("❌ Error sending auto-reply email:", err);
     if (err.response) {
       console.error("SMTP Response:", err.response);
     }
     return res.status(500).json({
-      message: "Server error while sending contact email.",
+      message: "Server error while sending auto-reply email.",
       error: err.message || err.toString(),
     });
   }
@@ -137,7 +145,7 @@ Mom & Pop Shop Web Design`,
   res.status(200).json({ message: "Email sent successfully!" });
 });
 
-// Local-only booking route
+// Development-only booking routes (disabled in production)
 app.post("/booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
     return res.status(200).json({ message: "✅ Booking sent (dev only)" });
@@ -145,7 +153,6 @@ app.post("/booking", (req, res) => {
   res.status(403).json({ message: "🚫 This route is disabled in production." });
 });
 
-// Local-only service booking route
 app.post("/api/service-booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
     return res
@@ -174,7 +181,7 @@ app.get("/test-email", async (req, res) => {
   }
 });
 
-// View env variable status
+// View env variable status (for debugging only, be careful with sensitive info)
 app.get("/env-check", (req, res) => {
   res.json({
     EMAIL_USER: process.env.EMAIL_USER,
@@ -189,7 +196,7 @@ app.get("/favicon.ico", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "favicon.ico"));
 });
 
-// Health check
+// Health check endpoint
 app.get("/health", (req, res) => {
   res.status(200).send("Healthy");
 });
