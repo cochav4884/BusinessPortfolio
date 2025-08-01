@@ -87,7 +87,7 @@ app.post("/send", async (req, res) => {
     text: `
     Name: ${name}
     Email: ${email}
-    Subject: ${subject}
+    Subject: ${formSubject}
     Message: ${message}
     Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
     Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
