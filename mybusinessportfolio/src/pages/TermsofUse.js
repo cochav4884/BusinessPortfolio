@@ -150,7 +150,7 @@ const TermsOfUse = () => {
           </li>
           <li>
             <a className="btn-link" href="#S27">
-              Contact Us
+              Contact Me
             </a>
           </li>
         </ul>
@@ -166,7 +166,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 By accessing or using this website (
-                <em>www.mompopwebdesign.com</em>), operated by Corinne
+                <em>https://www.mompopwebdesign.com</em>), operated by Corinne
                 Padilla, you agree to comply with and be legally bound by these
                 Terms of Use and all applicable laws, including federal and
                 California state laws. If you do not agree to any part of these
