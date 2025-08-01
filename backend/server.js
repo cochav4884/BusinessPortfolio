@@ -80,9 +80,9 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: "corinnepadilla@yahoo.com", // ✅ sending to yourself
-    replyTo: email, // ✅ optional
+    from: `"Mom Pop Shop Contact" <${process.env.EMAIL_USER}>`, // ✅ FIXED
+    to: "corinnepadilla@yahoo.com", // ✅ where you receive
+    replyTo: email,
     subject: `Contact Form: ${formSubject} (from ${name})`,
     text: `
     Name: ${name}
