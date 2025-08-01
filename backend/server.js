@@ -87,8 +87,8 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: `"Mom & Pop Shop" <${fromEmail}>`, // MUST be an authorized sender by SMTP provider
-    to: fromEmail, // Send the contact form details to your inbox
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
     subject: `Contact Form: ${subject} (from ${name})`,
     text: `
 Name: ${name}
