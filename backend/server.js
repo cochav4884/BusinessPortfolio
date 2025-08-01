@@ -54,7 +54,7 @@ app.post("/send", async (req, res) => {
   const {
     name,
     email,
-    subject = "General Inquiry",
+    subject: contactSubject = "General Inquiry",
     message,
     doNotSell = false,
     acceptedTermsAndPrivacy = false,
@@ -89,18 +89,17 @@ app.post("/send", async (req, res) => {
   const mailOptions = {
     from: process.env.EMAIL_USER,
     to: process.env.EMAIL_USER,
-    subject: `Contact Form: ${subject} (from ${name})`,
+    subject: `Contact Form: ${contactSubject} (from ${name})`,
     text: `
 Name: ${name}
 Email: ${email}
-Subject: ${subject}
+Subject: ${contactSubject}
 Message: ${message}
 
 Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
 Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
     `.trim(),
   };
-
   try {
     // Send email with contact info to yourself
     await transporter.sendMail(mailOptions);
