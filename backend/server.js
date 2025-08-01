@@ -50,7 +50,7 @@ app.post("/send", async (req, res) => {
   const {
     name,
     email,
-    subject: formSubject = "General Inquiry",
+    formSubject = "General Inquiry",
     message,
     doNotSell = false,
     acceptedTermsAndPrivacy = false,
