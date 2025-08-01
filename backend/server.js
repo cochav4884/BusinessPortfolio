@@ -80,18 +80,19 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // your Yahoo email exactly
-    to: "corinnepadilla@yahoo.com", // sending to yourself
-    subject: `Contact Form: ${subject} (from ${name})`,
-    text: `
+  from: "corinnepadilla@yahoo.com",      // ✅ hardcoded
+  to: "corinnepadilla@yahoo.com",        // ✅ sending to yourself
+  replyTo: email,                         // ✅ optional
+  subject: `Contact Form: ${subject} (from ${name})`,
+  text: `
     Name: ${name}
     Email: ${email}
     Subject: ${subject}
     Message: ${message}
     Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
     Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
-  `,
-  };
+  `
+};
 
   try {
     await transporter.sendMail(mailOptions);
