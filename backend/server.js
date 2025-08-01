@@ -69,21 +69,17 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,           // ← SIMPLIFIED
-    replyTo: email,
-    to: process.env.EMAIL_USER,
+    from: process.env.EMAIL_USER, // your Yahoo email
+    to: process.env.EMAIL_USER, // send to yourself
     subject: `Contact Form: ${subject} (from ${name})`,
-    html: `
-      <h2>New Contact Form Submission</h2>
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${subject}</p>
-      <p><strong>Message:</strong><br/>${message.replace(/\n/g, "<br/>")}</p>
-      <p><strong>Do Not Sell Opt-Out:</strong> ${doNotSell ? "Yes" : "No"}</p>
-      <p><strong>Agreed to Terms:</strong> ${
-        acceptedTermsAndPrivacy ? "Yes" : "No"
-      }</p>
-    `,
+    text: `
+    Name: ${name}
+    Email: ${email}
+    Subject: ${subject}
+    Message: ${message}
+    Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
+    Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
+  `,
   };
 
   try {
