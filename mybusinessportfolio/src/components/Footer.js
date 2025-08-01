@@ -6,7 +6,7 @@ import LogoImage from "../components/LogoImage";
 
 function Footer() {
   return (
-    <footer>
+    <footer className="bg-secondary">
       <div className="container text-center">
         <p>
           {/* Use reusable LogoImage component here */}

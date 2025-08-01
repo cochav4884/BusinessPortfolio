@@ -10,7 +10,7 @@ import LogoImage from "../components/LogoImage";
 
 function NavBar() {
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" className="px-3" collapseOnSelect>
+    <Navbar bg="secondary" variant="dark" expand="lg" className="px-3 custom-navbar" collapseOnSelect>
       <Container>
         <LinkContainer to="/">
           <Navbar.Brand className="d-flex align-items-center">
