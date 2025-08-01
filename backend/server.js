@@ -114,11 +114,11 @@ Mom & Pop Shop Web Design`,
     console.log("✅ Auto-reply sent to:", email);
 
     res.status(200).json({ message: "Email sent successfully!" });
-  } catch (error) {
-    console.error("❌ Error sending email:", error.stack || error);
+  } catch (err) {
+    console.error("❌ Error in /send route:", err.stack || err);
     res.status(500).json({
-      message: "Failed to send email.",
-      error: error?.message || error?.toString(),
+      message: "Server error while sending email.",
+      error: err.message || err.toString(),
     });
   }
 });
