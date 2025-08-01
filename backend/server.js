@@ -77,20 +77,18 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: `"${name}" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_USER, // Your business email
-    replyTo: email, // lets you reply directly to the user
-    subject: `New Contact Form Submission: ${subject}`,
+    from: process.env.EMAIL_USER,
+    to: process.env.EMAIL_USER,
+    subject: `Contact Form: ${subject} (from ${name})`,
     text: `
-You have a new contact form submission:
-
 Name: ${name}
 Email: ${email}
 Subject: ${subject}
 Message: ${message}
+
 Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
 Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
-    `,
+  `.trim(),
   };
 
   try {
