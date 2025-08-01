@@ -83,7 +83,7 @@ app.post("/send", async (req, res) => {
     from: process.env.EMAIL_USER,
     to: "corinnepadilla@yahoo.com", // ✅ sending to yourself
     replyTo: email, // ✅ optional
-    subject: `Contact Form: ${subject} (from ${name})`,
+    subject: `Contact Form: ${formSubject} (from ${name})`,
     text: `
     Name: ${name}
     Email: ${email}
