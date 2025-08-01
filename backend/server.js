@@ -113,35 +113,6 @@ Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
     });
   }
 
-  // Auto-reply to the user
-  const autoReplyOptions = {
-    from: `"Mom & Pop Shop" <${fromEmail}>`, // Same authorized sender
-    to: email,
-    subject: "Thank you for contacting Mom & Pop Shop Web Design",
-    text: `Hi ${name},
-
-Thank you for reaching out! I’ve received your message and will get back to you at my earliest convenience.
-
-If this was sent in error or you have follow-up details, feel free to reply to this email.
-
-Best regards,  
-Mom & Pop Shop Web Design`,
-  };
-
-  try {
-    await transporter.sendMail(autoReplyOptions);
-    console.log("✅ Auto-reply sent to:", email);
-  } catch (err) {
-    console.error("❌ Error sending auto-reply email:", err);
-    if (err.response) {
-      console.error("SMTP Response:", err.response);
-    }
-    return res.status(500).json({
-      message: "Server error while sending auto-reply email.",
-      error: err.message || err.toString(),
-    });
-  }
-
   res.status(200).json({ message: "Email sent successfully!" });
 });
 
