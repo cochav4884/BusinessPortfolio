@@ -56,13 +56,24 @@ app.post("/send", async (req, res) => {
     acceptedTermsAndPrivacy = false,
   } = req.body;
 
+  console.log("Parsed form data:", {
+    name,
+    email,
+    formSubject,
+    message,
+    doNotSell,
+    acceptedTermsAndPrivacy,
+  });
+
   if (!name || !email || !message) {
+    console.log("❌ Missing required fields");
     return res
       .status(400)
       .json({ message: "Please fill in all required fields." });
   }
 
   if (!acceptedTermsAndPrivacy) {
+    console.log("❌ Terms not accepted");
     return res
       .status(400)
       .json({ message: "You must accept the terms and privacy policy." });
@@ -70,7 +81,7 @@ app.post("/send", async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER, // your Yahoo email exactly
-    to: process.env.EMAIL_USER, // sending to yourself
+    to: "corinnepadilla@yahoo.com", // sending to yourself
     subject: `Contact Form: ${subject} (from ${name})`,
     text: `
     Name: ${name}
@@ -84,13 +95,14 @@ app.post("/send", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("Email sent successfully to:", process.env.EMAIL_USER);
+    console.log("✅ Email sent to corinnepadilla@yahoo.com");
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error("Error sending email:", error);
-    res
-      .status(500)
-      .json({ message: "Failed to send email.", error: error.message });
+    console.error("❌ Error sending email:", error);
+    res.status(500).json({
+      message: "Failed to send email.",
+      error: error.message,
+    });
   }
 });
 
