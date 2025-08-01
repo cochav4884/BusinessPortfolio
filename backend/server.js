@@ -69,16 +69,17 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // your Yahoo email
-    to: process.env.EMAIL_USER, // send to yourself
-    subject: `Contact Form: ${subject} (from ${name})`,
-    text: `
-    Name: ${name}
-    Email: ${email}
-    Subject: ${subject}
-    Message: ${message}
-    Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
-    Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
+    from: '"Contact Form" <your-email@example.com>',
+    to: "corinnepadilla@yahoo.com",
+    subject: `New message from ${name}`,
+    text: `You have a new message from your contact form:
+  
+  Name: ${name}
+  Email: ${email}
+  Subject: ${subject}
+  Message: ${message}
+  Do Not Sell Opt-Out: ${doNotSell ? "Yes" : "No"}
+  Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
   `,
   };
 
