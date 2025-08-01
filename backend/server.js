@@ -79,12 +79,12 @@ app.post("/send", async (req, res) => {
       .json({ message: "You must accept the terms and privacy policy." });
   }
 
-  const mailOptions = {
-    from: `"Mom Pop Shop Contact" <${process.env.EMAIL_USER}>`, // ✅ FIXED
-    to: "corinnepadilla@yahoo.com", // ✅ where you receive
-    replyTo: email,
-    subject: `Contact Form: ${formSubject} (from ${name})`,
-    text: `
+ const mailOptions = {
+  from: process.env.EMAIL_USER, // must be the same email you're authenticating with SMTP
+  to: process.env.EMAIL_TO,     // your receiving email
+  replyTo: email,               // form visitor's email, for replies
+  subject: `Contact Form: ${formSubject} (from ${name})`,
+  text: `
     Name: ${name}
     Email: ${email}
     Subject: ${formSubject}
