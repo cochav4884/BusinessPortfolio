@@ -5,6 +5,13 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+const scrollToId = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+  }
+};
+
 const PrivacyPolicy = () => {
   return (
     <div className="main_container">
@@ -17,70 +24,70 @@ const PrivacyPolicy = () => {
           <div id="top" aria-label="Top of Page" tabIndex="-1"></div>
           <h2 className="section text-dark">* Table of Contents *</h2>
           <li>
-            <a className="btn-link" href="#S01">
+            <button className="btn-link" onClick={() => scrollToId("S01")}>
               Privacy Policy
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S02">
+            <button className="btn-link" onClick={() => scrollToId("S02")}>
               Coverage
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S03">
+            <button className="btn-link" onClick={() => scrollToId("S03")}>
               Definitions of Types of Information
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S04">
+            <button className="btn-link" onClick={() => scrollToId("S04")}>
               Collection and Use of Personally Identifiable Information
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S05">
+            <button className="btn-link" onClick={() => scrollToId("S05")}>
               Website Accessibility Policy
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S06">
+            <button className="btn-link" onClick={() => scrollToId("S06")}>
               Do Not Sell My Personal Information
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S07">
+            <button className="btn-link" onClick={() => scrollToId("S07")}>
               Updates to this Policy
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S08">
+            <button className="btn-link" onClick={() => scrollToId("S08")}>
               Intellectual Property and Content Ownership
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S09">
+            <button className="btn-link" onClick={() => scrollToId("S09")}>
               Contact Me
-            </a>
+            </button>
           </li>
         </ul>
-        <h3>* Last updated July 7, 2025 *</h3>
+        <h3>* Last updated August 1, 2025 *</h3>
         <div className="container">
           {/* Change domain url when you have it */}
           <p>
             Welcome to our website at{" "}
             <a
-              href="https://mompopwebdesign.com/"
+              href="https://www.mompopshopwebdesign.com"
               target="_blank"
               rel="noopener noreferrer"
             >
-              https://mompopwebdesign.com/
+              https://www.mompopshopwebdesign.com
             </a>
             . I am committed to protecting the personal privacy of visitors and
             guests using my Site.
           </p>
           <ol>
-            {/* 1. Privacy Poclicy Section */}
+            {/* 1. Privacy Policy Section */}
             <li>
-              <h2 className="section-title" id="S01">
+              <h2 className="section-title" id="S01" tabIndex="-1">
                 Privacy Policy
               </h2>
               <p className="text">
@@ -94,9 +101,8 @@ const PrivacyPolicy = () => {
               </button>
             </li>
             {/* 2. Coverage Section */}{" "}
-            {/* Change domain url when you have it */}
             <li>
-              <h2 className="section-title" id="S02">
+              <h2 className="section-title" id="S02" tabIndex="-1">
                 Coverage
               </h2>
               <p className="text">
@@ -105,11 +111,11 @@ const PrivacyPolicy = () => {
                 access it. (This privacy policy applies to all pages and content
                 on{" "}
                 <a
-                  href="https://mompopwebdesign.com/"
+                  href="https://mompopshopwebdesign.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  https://mompopwebdesign.com/
+                  https://mompopshopwebdesign.com
                 </a>
                 .)
               </p>
@@ -119,7 +125,7 @@ const PrivacyPolicy = () => {
             </li>
             {/* 3. Definitions of Types of Information Section */}
             <li>
-              <h2 className="section-title" id="S03">
+              <h2 className="section-title" id="S03" tabIndex="-1">
                 Definitions of Types of Information
               </h2>
               <p className="text">
@@ -145,7 +151,7 @@ const PrivacyPolicy = () => {
             </li>
             {/* 4. Use of Information Section */}
             <li>
-              <h2 className="section-title" id="S04">
+              <h2 className="section-title" id="S04" tabIndex="-1">
                 Collection and Use of Personally Identifiable Information
               </h2>
               <h4>* Registration *</h4>
@@ -165,7 +171,7 @@ const PrivacyPolicy = () => {
                 providers to help operate the Site and improve your experience.
                 I will not sell your personal information without your explicit
                 consent, consistent with CCPA requirements. You may opt out of
-                such sharing by contacting us through the contact page.
+                such sharing by contacting me through the contact me page.
               </p>
 
               <h4>* Legal Disclosures *</h4>
@@ -213,7 +219,7 @@ const PrivacyPolicy = () => {
                 parties. I am not responsible for their privacy policies and
                 recommend reviewing those separately. If you have concerns
                 regarding any third-party use of your information, please
-                contact us.
+                contact me.
               </p>
 
               <h4>* Security *</h4>
@@ -228,7 +234,7 @@ const PrivacyPolicy = () => {
             </li>
             {/* 5. Website Accessibility Policy Section */}
             <li>
-              <h2 className="section-title" id="S05">
+              <h2 className="section-title" id="S05" tabIndex="-1">
                 Website Accessibility Policy
               </h2>
               <p className="text">
@@ -240,8 +246,8 @@ const PrivacyPolicy = () => {
               <p className="text">
                 I welcome feedback to improve accessibility; please contact me
                 through my{" "}
-                <Link className="privacy-inline-link" to="/Contact">
-                  contact me
+                <Link className="btn-link2" to="/Contact">
+                  Contact Me
                 </Link>{" "}
                 page.
               </p>
@@ -251,7 +257,7 @@ const PrivacyPolicy = () => {
             </li>
             {/* 6. Do Not Sell My Personal Information Section */}
             <li>
-              <h2 className="section-title" id="S06">
+              <h2 className="section-title" id="S06" tabIndex="-1">
                 Do Not Sell My Personal Information
               </h2>
 
@@ -273,14 +279,15 @@ const PrivacyPolicy = () => {
                 correction, deletion, objection to processing, or data
                 portability — please{" "}
                 <Link className="btn-link2" to="/Contact">
-                  contact me
+                  Contact Me
                 </Link>{" "}
                 with your request and specify your jurisdiction. When submitting
                 a request, please select the “Do Not Sell” option in the “Select
-                a Subject” dropdown on the contact form if you wish to opt out
-                of the sale or sharing of your personal information. Otherwise,
-                you may provide your consent to the processing of your personal
-                data by selecting the corresponding consent checkbox.
+                a Subject” dropdown on the contact me form if you wish to opt
+                out of the sale or sharing of your personal information.
+                Otherwise, you may provide your consent to the processing of
+                your personal data by selecting the corresponding consent
+                checkbox.
               </p>
 
               <h4 className="subsection-title">
@@ -300,7 +307,7 @@ const PrivacyPolicy = () => {
                 If you are a California resident and would like to exercise your
                 right to opt out, please{" "}
                 <Link className="btn-link2" to="/Contact">
-                  contact me
+                  Contact Me
                 </Link>{" "}
                 and include "Do Not Sell My Info" in your message subject or
                 body. I will respond to your request promptly and in accordance
@@ -313,9 +320,9 @@ const PrivacyPolicy = () => {
                 those related to accessibility needs, please reach out to me
                 through my{" "}
                 <Link className="btn-link2" to="/Contact">
-                  contact page
-                </Link>
-                .
+                  Contact Me
+                </Link>{" "}
+                page.
               </p>
 
               <button className="btn-link" onClick={scrollToTop}>
@@ -324,7 +331,7 @@ const PrivacyPolicy = () => {
             </li>
             {/* 07. Updates to this Policy Section */}
             <li>
-              <h2 className="section-title" id="S07">
+              <h2 className="section-title" id="S07" tabIndex="-1">
                 Updates to this Policy
               </h2>
               <p className="text">
@@ -337,7 +344,7 @@ const PrivacyPolicy = () => {
             </li>
             {/* 08. Intellectual Property and Content Ownership Section */}
             <li>
-              <h2 className="section-title" id="S08">
+              <h2 className="section-title" id="S08" tabIndex="-1">
                 Intellectual Property and Content Ownership
               </h2>
               <p className="text">
@@ -348,13 +355,13 @@ const PrivacyPolicy = () => {
               <p className="text">
                 Unauthorized use, reproduction, modification, or distribution of
                 any website content or photographs without explicit written
-                permission from Corinne Padilla is strictly
-                prohibited.
+                permission from Corinne Padilla is strictly prohibited.
               </p>
               <p className="text">
                 Visitors and users may view and download content for personal,
                 non-commercial use only. Any other use, including commercial
-                exploitation or publication, requires prior written consent.
+                exploitation or publication, requires prior written consent from
+                Corinne Padilla.
               </p>
               <p className="text">
                 I actively protect my copyrights and may take legal action
@@ -364,9 +371,8 @@ const PrivacyPolicy = () => {
                 For permissions or licensing inquiries, please contact me via
                 the{" "}
                 <Link className="btn-link2" to="/contact">
-                  contactme
-                </Link>
-                <br />
+                  Contact Me
+                </Link>{" "}
                 page.
               </p>
               <button className="btn-link" onClick={scrollToTop}>
@@ -375,13 +381,13 @@ const PrivacyPolicy = () => {
             </li>
             {/* 09. Contact Us Section */}
             <li>
-              <h2 className="section-title" id="S09">
+              <h2 className="section-title" id="S09" tabIndex="-1">
                 Contact Me
               </h2>
               <p className="text">
                 If you have any questions about this privacy policy, please{" "}
                 <Link className="btn-link2" to="/Contact">
-                  contact me
+                  Contact Me
                 </Link>
                 .
               </p>

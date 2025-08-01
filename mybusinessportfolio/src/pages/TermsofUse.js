@@ -5,6 +5,14 @@ const scrollToTop = () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 };
 
+const scrollToId = (id) => {
+  const el = document.getElementById(id);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth" });
+    el.focus(); // For accessibility: focus the section header after scroll
+  }
+};
+
 const TermsOfUse = () => {
   return (
     <div className="main_container" id="top">
@@ -19,149 +27,149 @@ const TermsOfUse = () => {
           <div id="top" aria-label="Top of page" tabIndex="-1"></div>
           <h2 className="section text-dark">* Table of Contents *</h2>
           <li>
-            <a className="btn-link" href="#S01">
+            <button className="btn-link" onClick={() => scrollToId("S01")}>
               Agreements to Terms
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S02">
+            <button className="btn-link" onClick={() => scrollToId("S02")}>
               Intellectual Property Rights
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S03">
+            <button className="btn-link" onClick={() => scrollToId("S03")}>
               User Representations
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S04">
+            <button className="btn-link" onClick={() => scrollToId("S04")}>
               Prohibited Activities
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S05">
+            <button className="btn-link" onClick={() => scrollToId("S05")}>
               User Generated Contributions
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S06">
+            <button className="btn-link" onClick={() => scrollToId("S06")}>
               Contribution License
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S07">
+            <button className="btn-link" onClick={() => scrollToId("S07")}>
               Guidelines For Reviews
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S08">
+            <button className="btn-link" onClick={() => scrollToId("S08")}>
               Mobile Application License
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S09">
+            <button className="btn-link" onClick={() => scrollToId("S09")}>
               Submissions
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S10">
+            <button className="btn-link" onClick={() => scrollToId("S10")}>
               Third-Party Website and Content
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S11">
+            <button className="btn-link" onClick={() => scrollToId("S11")}>
               Advertisers
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S12">
+            <button className="btn-link" onClick={() => scrollToId("S12")}>
               Site Management
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S13">
+            <button className="btn-link" onClick={() => scrollToId("S13")}>
               Privacy Policy
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S14">
+            <button className="btn-link" onClick={() => scrollToId("S14")}>
               Term and Termination
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S15">
+            <button className="btn-link" onClick={() => scrollToId("S15")}>
               Modifications and Interruptions
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S16">
+            <button className="btn-link" onClick={() => scrollToId("S16")}>
               Governing Law
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S17">
+            <button className="btn-link" onClick={() => scrollToId("S17")}>
               Dispute Resolution
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S18">
+            <button className="btn-link" onClick={() => scrollToId("S18")}>
               Corrections
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S19">
+            <button className="btn-link" onClick={() => scrollToId("S19")}>
               Disclaimer
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S20">
+            <button className="btn-link" onClick={() => scrollToId("S20")}>
               Limitations and Liability
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S21">
+            <button className="btn-link" onClick={() => scrollToId("S21")}>
               Indemnification
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S22">
+            <button className="btn-link" onClick={() => scrollToId("S22")}>
               User Data
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S23">
+            <button className="btn-link" onClick={() => scrollToId("S23")}>
               Electronic Communications, Transactions, and Signatures
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S24">
+            <button className="btn-link" onClick={() => scrollToId("S24")}>
               California Users and Residents
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S25">
+            <button className="btn-link" onClick={() => scrollToId("S25")}>
               Miscellaneous
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S26">
+            <button className="btn-link" onClick={() => scrollToId("S26")}>
               Content Ownership and Licensing
-            </a>
+            </button>
           </li>
           <li>
-            <a className="btn-link" href="#S27">
+            <button className="btn-link" onClick={() => scrollToId("S27")}>
               Contact Me
-            </a>
+            </button>
           </li>
         </ul>
 
-        <h3>* Last updated July 7, 2025 *</h3>
+        <h3>* Last updated August 1, 2025 *</h3>
 
         <div className="container">
           <ol>
             {/* 1. Agreements to Terms */}
             <li>
-              <h2 className="section-title" id="S01">
+              <h2 className="section-title" id="S01" tabIndex="-1">
                 Agreements to Terms
               </h2>
               <p className="text">
@@ -179,7 +187,7 @@ const TermsOfUse = () => {
 
             {/* 2. Intellectual Property Rights */}
             <li>
-              <h2 className="section-title" id="S02">
+              <h2 className="section-title" id="S02" tabIndex="-1">
                 Intellectual Property Rights
               </h2>
               <p className="text">
@@ -209,7 +217,7 @@ const TermsOfUse = () => {
 
             {/* 3. User Representations */}
             <li>
-              <h2 className="section-title" id="S03">
+              <h2 className="section-title" id="S03" tabIndex="-1">
                 User Representations
               </h2>
               <p className="text">
@@ -229,7 +237,7 @@ const TermsOfUse = () => {
 
             {/* 4. Prohibited Activities */}
             <li>
-              <h2 className="section-title" id="S04">
+              <h2 className="section-title" id="S04" tabIndex="-1">
                 Prohibited Activities
               </h2>
               <p className="text">
@@ -261,7 +269,7 @@ const TermsOfUse = () => {
 
             {/* 5. User Generated Contributions */}
             <li>
-              <h2 className="section-title" id="S05">
+              <h2 className="section-title" id="S05" tabIndex="-1">
                 User Generated Contributions
               </h2>
               <p className="text">
@@ -283,7 +291,7 @@ const TermsOfUse = () => {
 
             {/* 6. Contribution License */}
             <li>
-              <h2 className="section-title" id="S06">
+              <h2 className="section-title" id="S06" tabIndex="-1">
                 Contribution License
               </h2>
               <p className="text">
@@ -299,7 +307,7 @@ const TermsOfUse = () => {
 
             {/* 7. Guidelines For Reviews */}
             <li>
-              <h2 className="section-title" id="S07">
+              <h2 className="section-title" id="S07" tabIndex="-1">
                 Guidelines For Reviews
               </h2>
               <p className="text">
@@ -315,7 +323,7 @@ const TermsOfUse = () => {
 
             {/* 8. Mobile Application License */}
             <li>
-              <h2 className="section-title" id="S08">
+              <h2 className="section-title" id="S08" tabIndex="-1">
                 Mobile Application License
               </h2>
               <p className="text">
@@ -330,7 +338,7 @@ const TermsOfUse = () => {
 
             {/* 9. Submissions */}
             <li>
-              <h2 className="section-title" id="S09">
+              <h2 className="section-title" id="S09" tabIndex="-1">
                 Submissions
               </h2>
               <p className="text">
@@ -345,7 +353,7 @@ const TermsOfUse = () => {
 
             {/* 10. Third-Party Website and Content */}
             <li>
-              <h2 className="section-title" id="S10">
+              <h2 className="section-title" id="S10" tabIndex="-1">
                 Third-Party Website and Content
               </h2>
               <p className="text">
@@ -361,7 +369,7 @@ const TermsOfUse = () => {
 
             {/* 11. Advertisers */}
             <li>
-              <h2 className="section-title" id="S11">
+              <h2 className="section-title" id="S11" tabIndex="-1">
                 Advertisers
               </h2>
               <p className="text">
@@ -377,7 +385,7 @@ const TermsOfUse = () => {
 
             {/* 12. Site Management */}
             <li>
-              <h2 className="section-title" id="S12">
+              <h2 className="section-title" id="S12" tabIndex="-1">
                 Site Management
               </h2>
               <p className="text">
@@ -392,7 +400,7 @@ const TermsOfUse = () => {
 
             {/* 13. Privacy Policy */}
             <li>
-              <h2 className="section-title" id="S13">
+              <h2 className="section-title" id="S13" tabIndex="-1">
                 Privacy Policy
               </h2>
               <p className="text">
@@ -407,7 +415,7 @@ const TermsOfUse = () => {
 
             {/* 14. Term and Termination */}
             <li>
-              <h2 className="section-title" id="S14">
+              <h2 className="section-title" id="S14" tabIndex="-1">
                 Term and Termination
               </h2>
               <p className="text">
@@ -422,7 +430,7 @@ const TermsOfUse = () => {
 
             {/* 15. Modifications and Interruptions */}
             <li>
-              <h2 className="section-title" id="S15">
+              <h2 className="section-title" id="S15" tabIndex="-1">
                 Modifications and Interruptions
               </h2>
               <p className="text">
@@ -438,7 +446,7 @@ const TermsOfUse = () => {
 
             {/* 16. Governing Law */}
             <li>
-              <h2 className="section-title" id="S16">
+              <h2 className="section-title" id="S16" tabIndex="-1">
                 Governing Law
               </h2>
               <p className="text">
@@ -457,7 +465,7 @@ const TermsOfUse = () => {
 
             {/* 17. Dispute Resolution */}
             <li>
-              <h2 className="section-title" id="S17">
+              <h2 className="section-title" id="S17" tabIndex="-1">
                 Dispute Resolution
               </h2>
               <h3>Informal Negotiations</h3>
@@ -472,13 +480,13 @@ const TermsOfUse = () => {
 
             {/* 18. Corrections */}
             <li>
-              <h2 className="section-title" id="S18">
+              <h2 className="section-title" id="S18" tabIndex="-1">
                 Corrections
               </h2>
               <p className="text">
                 I strive for accuracy but do not guarantee the site will be
-                error-free. I may correct errors or ommisions at any time
-                without liability.
+                error-free. I may correct errors or omisions at any time without
+                liability.
               </p>
               <button className="btn-link" onClick={scrollToTop}>
                 Back to Top
@@ -487,7 +495,7 @@ const TermsOfUse = () => {
 
             {/* 19. Disclaimer */}
             <li>
-              <h2 className="section-title" id="S19">
+              <h2 className="section-title" id="S19" tabIndex="-1">
                 Disclaimer
               </h2>
               <p className="text">
@@ -502,12 +510,12 @@ const TermsOfUse = () => {
 
             {/* 20. Limitations and Liability */}
             <li>
-              <h2 className="section-title" id="S20">
+              <h2 className="section-title" id="S20" tabIndex="-1">
                 Limitations and Liability
               </h2>
               <p className="text">
-                To the fullest extent permitted by law, Corinne Padilla nor
-                her affiliates are not liable for any indirect, incidental,
+                To the fullest extent permitted by law, Corinne Padilla nor her
+                affiliates are not liable for any indirect, incidental,
                 consequental, or punitive damages arising from your use of this
                 Site.
               </p>
@@ -518,7 +526,7 @@ const TermsOfUse = () => {
 
             {/* 21. Indemnification */}
             <li>
-              <h2 className="section-title" id="S21">
+              <h2 className="section-title" id="S21" tabIndex="-1">
                 Indemnification
               </h2>
               <p className="text">
@@ -534,7 +542,7 @@ const TermsOfUse = () => {
 
             {/* 22. User Data */}
             <li>
-              <h2 className="section-title" id="S22">
+              <h2 className="section-title" id="S22" tabIndex="-1">
                 User Data
               </h2>
               <p className="text">
@@ -549,7 +557,7 @@ const TermsOfUse = () => {
 
             {/* 23. Electronic Communications, Transactions, and Signatures */}
             <li>
-              <h2 className="section-title" id="S23">
+              <h2 className="section-title" id="S23" tabIndex="-1">
                 Electronic Communications, Transactions, and Signatures
               </h2>
               <p className="text">
@@ -564,7 +572,7 @@ const TermsOfUse = () => {
 
             {/* 24. California Users and Residents */}
             <li>
-              <h2 className="section-title" id="S24">
+              <h2 className="section-title" id="S24" tabIndex="-1">
                 California Users and Residents
               </h2>
               <p className="text">
@@ -579,7 +587,7 @@ const TermsOfUse = () => {
 
             {/* 25. Miscellaneous */}
             <li>
-              <h2 className="section-title" id="S25">
+              <h2 className="section-title" id="S25" tabIndex="-1">
                 Miscellaneous
               </h2>
               <p className="text">
@@ -595,7 +603,7 @@ const TermsOfUse = () => {
 
             {/* 26. Content Ownership and Licensing */}
             <li>
-              <h2 className="section-title" id="S26">
+              <h2 className="section-title" id="S26" tabIndex="-1">
                 Content Ownership and Licensing
               </h2>
               <p className="text">
@@ -626,7 +634,7 @@ const TermsOfUse = () => {
 
             {/* 27. Contact Me */}
             <li>
-              <h2 className="section-title" id="S27">
+              <h2 className="section-title" id="S27" tabIndex="-1">
                 Contact Me
               </h2>
               <p className="text">
