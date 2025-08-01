@@ -70,7 +70,7 @@ app.post("/send", async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
+    to: "corinnepadilla@yahoo.com",
     subject: `Contact Form: ${subject} (from ${name})`,
     text: `
   Name: ${name}
