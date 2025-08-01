@@ -58,6 +58,12 @@ app.post("/send", async (req, res) => {
     acceptedTermsAndPrivacy = false,
   } = req.body;
 
+  // ✅ Add email format validation here:
+  const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  if (!isValidEmail) {
+    return res.status(400).json({ message: "Invalid email address." });
+  }
+
   if (!name || !email || !message) {
     return res
       .status(400)
@@ -109,7 +115,7 @@ Mom & Pop Shop Web Design`,
 
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error("❌ Error sending email:", error);
+    console.error("❌ Error sending email:", error.stack || error);
     res.status(500).json({
       message: "Failed to send email.",
       error: error?.message || error?.toString(),
