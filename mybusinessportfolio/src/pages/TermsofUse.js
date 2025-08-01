@@ -166,7 +166,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 By accessing or using this website (
-                <em>https://mompopwebdesign.com</em>), operated by Corinne
+                <em>www.mompopwebdesign.com</em>), operated by Corinne
                 Padilla, you agree to comply with and be legally bound by these
                 Terms of Use and all applicable laws, including federal and
                 California state laws. If you do not agree to any part of these
@@ -214,7 +214,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 By using this Site, you affirm you are at least 18 years old or
-                have consent of a parent or guardian, and that your use od this
+                have consent of a parent or guardian, and that your use of this
                 Site will comply with all applicable laws and regulations.
               </p>
               <p className="text">
@@ -265,7 +265,7 @@ const TermsOfUse = () => {
                 User Generated Contributions
               </h2>
               <p className="text">
-                If you submit contect such as comments or other materials o the
+                If you submit content such as comments or other materials to the
                 Site, you grant Corinne Padilla a perpetual, worldwide,
                 royalty-free, sublicensable license to use, reproduce, modify,
                 adapt, publish, translate, distribute, and display such content
@@ -319,8 +319,8 @@ const TermsOfUse = () => {
                 Mobile Application License
               </h2>
               <p className="text">
-                If you download or use of any mobile applications linked to the
-                Site, your usee is governed by additional license agreements and
+                If you download or use any mobile applications linked to the
+                Site, your use is governed by additional license agreements and
                 terms, which you must accept before installation or use.
               </p>
               <button className="btn-link" onClick={scrollToTop}>
@@ -335,7 +335,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 Any submissions such as ideas, feedback, or suggestions sent to
-                me become my exclusive property. You agree not t6o submit
+                me become my exclusive property. You agree not to submit
                 confidential or proprietary information.
               </p>
               <button className="btn-link" onClick={scrollToTop}>
@@ -507,7 +507,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 To the fullest extent permitted by law, Corinne Padilla nor
-                their affiliates are not liable for any indirect, incidental,
+                her affiliates are not liable for any indirect, incidental,
                 consequental, or punitive damages arising from your use of this
                 Site.
               </p>
@@ -523,7 +523,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 You agree to indemnify, defend, and hold harmless Corinne
-                Padilla and their affiliates from any claims, damages,
+                Padilla and her affiliates from any claims, damages,
                 liabilitites, and expenses arising from your violation of these
                 Terms or your misuse of the Site.
               </p>
@@ -538,7 +538,7 @@ const TermsOfUse = () => {
                 User Data
               </h2>
               <p className="text">
-                I collect and mintain user data as described in my Privacy
+                I collect and maintain user data as described in my Privacy
                 Policy. You are responsible for the accuracy of any information
                 you provide.
               </p>
@@ -554,7 +554,7 @@ const TermsOfUse = () => {
               </h2>
               <p className="text">
                 By using the Site, you consent to receive electronic
-                communications and agreee that electronic signatures, contracts,
+                communications and agree that electronic signatures, contracts,
                 and records satisfy any legal requirements.
               </p>
               <button className="btn-link" onClick={scrollToTop}>
@@ -615,7 +615,7 @@ const TermsOfUse = () => {
                 For permission requests or licensing inquires, please contact me
                 via the{" "}
                 <Link className="btn-link2" to="/contact">
-                  Contact Us
+                  Contact Me
                 </Link>{" "}
                 page.
               </p>
@@ -624,15 +624,15 @@ const TermsOfUse = () => {
               </button>
             </li>
 
-            {/* 27. Contact Us */}
+            {/* 27. Contact Me */}
             <li>
               <h2 className="section-title" id="S27">
-                Contact Us
+                Contact Me
               </h2>
               <p className="text">
                 For any questions or concerns regarding these Terms, please{" "}
                 <Link className="btn-link2" to="/contact">
-                  contact us
+                  Contact Me
                 </Link>
                 .
               </p>
