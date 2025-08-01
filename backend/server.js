@@ -77,10 +77,13 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: process.env.EMAIL_USER,
-    subject: `Contact Form: ${subject} (from ${name})`,
+    from: `"${name}" <${process.env.EMAIL_USER}>`,
+    to: process.env.EMAIL_USER, // Your business email
+    replyTo: email, // lets you reply directly to the user
+    subject: `New Contact Form Submission: ${subject}`,
     text: `
+You have a new contact form submission:
+
 Name: ${name}
 Email: ${email}
 Subject: ${subject}
@@ -94,13 +97,20 @@ Agreed to Terms: ${acceptedTermsAndPrivacy ? "Yes" : "No"}
     // Send message to your inbox
     await transporter.sendMail(mailOptions);
     console.log("✅ Contact form email sent to:", process.env.EMAIL_USER);
+  } catch (err) {
+    console.error("❌ Error sending main contact email:", err.stack || err);
+    return res.status(500).json({
+      message: "Server error while sending contact email.",
+      error: err.message || err.toString(),
+    });
+  }
 
-    // ✅ Auto-reply to the user
-    const autoReplyOptions = {
-      from: process.env.EMAIL_USER,
-      to: email,
-      subject: "Thank you for contacting Mom & Pop Shop Web Design",
-      text: `Hi ${name},
+  // ✅ Auto-reply to the user
+  const autoReplyOptions = {
+    from: process.env.EMAIL_USER,
+    to: email,
+    subject: "Thank you for contacting Mom & Pop Shop Web Design",
+    text: `Hi ${name},
 
 Thank you for reaching out! I’ve received your message and will get back to you at my earliest convenience.
 
@@ -108,19 +118,23 @@ If this was sent in error or you have follow-up details, feel free to reply to t
 
 Best regards,  
 Mom & Pop Shop Web Design`,
-    };
+  };
 
+  try {
     await transporter.sendMail(autoReplyOptions);
     console.log("✅ Auto-reply sent to:", email);
-
-    res.status(200).json({ message: "Email sent successfully!" });
   } catch (err) {
-    console.error("❌ Error in /send route:", err.stack || err);
-    res.status(500).json({
-      message: "Server error while sending email.",
+    console.error("❌ Error sending main contact email:", err);
+    if (err.response) {
+      console.error("SMTP Response:", err.response);
+    }
+    return res.status(500).json({
+      message: "Server error while sending contact email.",
       error: err.message || err.toString(),
     });
   }
+
+  res.status(200).json({ message: "Email sent successfully!" });
 });
 
 // Local-only booking route
