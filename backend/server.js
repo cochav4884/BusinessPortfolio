@@ -1,7 +1,7 @@
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
-const path = require("path");
+const path = require("path"); // <-- added here
 require("dotenv").config();
 
 const app = express();
@@ -16,8 +16,8 @@ app.use(express.json());
 // Email transporter setup
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
-  port: Number(process.env.EMAIL_PORT),
-  secure: process.env.EMAIL_SECURE === "true",
+  port: Number(process.env.EMAIL_PORT), // Convert string to number
+  secure: process.env.EMAIL_SECURE === "true", // Convert string to boolean
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
@@ -47,11 +47,10 @@ app.post("/send", async (req, res) => {
   if (!req.body) {
     return res.status(400).json({ message: "Missing JSON body." });
   }
-
   const {
     name,
     email,
-    subject = "General Inquiry",
+    subject: formSubject = "General Inquiry",
     message,
     doNotSell = false,
     acceptedTermsAndPrivacy = false,
@@ -70,8 +69,8 @@ app.post("/send", async (req, res) => {
   }
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // your Yahoo email
-    to: process.env.EMAIL_USER, // send to yourself
+    from: process.env.EMAIL_USER, // your Yahoo email exactly
+    to: process.env.EMAIL_USER, // sending to yourself
     subject: `Contact Form: ${subject} (from ${name})`,
     text: `
     Name: ${name}
@@ -85,10 +84,10 @@ app.post("/send", async (req, res) => {
 
   try {
     await transporter.sendMail(mailOptions);
-    console.log("✅ Email sent successfully to:", process.env.EMAIL_USER);
+    console.log("Email sent successfully to:", process.env.EMAIL_USER);
     res.status(200).json({ message: "Email sent successfully!" });
   } catch (error) {
-    console.error("❌ Error sending email:", error);
+    console.error("Error sending email:", error);
     res
       .status(500)
       .json({ message: "Failed to send email.", error: error.message });
@@ -116,7 +115,7 @@ app.post("/api/service-booking", (req, res) => {
 // ✅ Temporary test route for email testing
 app.get("/test-email", async (req, res) => {
   const testMail = {
-    from: `"Test Email" <${process.env.EMAIL_USER}>`,
+    from: `Test Email <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_USER,
     subject: "Test from your deployed backend",
     text: "This is a test email sent directly from your Node backend.",
