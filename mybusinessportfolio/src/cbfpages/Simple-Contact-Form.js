@@ -144,12 +144,13 @@ export default function ContactAndBookingForms() {
       <h1 className={styles.pageHeader}>Contact and Booking Forms</h1>
       <p>
         {" "}
-        Please be advised: The forms presented herein serve solely as examples,
-        and the contact information displayed in the footers is for illustrative
-        purposes only. Accurate contact details are available exclusively on the
-        Home page. You may also navigate back to the original website at any
-        time by clicking the website title in the navigation bar, where you can
-        access the official Contact page.
+        Please Note: The forms presented on this site are for demonstration
+        purposes only, and the contact information shown in the footer is
+        fictitious and intended solely for illustrative use. For accurate and
+        current contact details, please refer to the original website's Landing
+        Page. You may return to that page at any time by clicking the site title
+        in the navigation bar. Once in the official website, you will find a
+        link to the official Contact Me page at: www.mompopshopwebdesign.com.
       </p>
 
       {/* ✅ Simple Contact Form */}

@@ -91,12 +91,13 @@ export default function SinglePageWebsite() {
         <h1 className={styles.title}>Timeless Treasures Antiques</h1>
         <p>
           {" "}
-          Please be advised: The form presented herein serves solely as an
-          example, and the contact information displayed in the page is for
-          illustrative purposes only. Accurate contact details are available
-          exclusively by navigating back to the original website at any time by
-          clicking the LandingPage button in the navigation bar, where you can access
-          the official Contact page.
+          Please Note: The form displayed on this page is for demonstration
+          purposes only. The contact information provided is fictitious and
+          intended solely for illustrative use. For accurate and up-to-date
+          contact details, please visit the original website. You can return to
+          the Landing Page at any time by clicking the Landing Page link in the
+          navigation bar. Where you will find a link to the official Contact Me
+          page at: www.mompopshopwebdesign.com.
         </p>
         <p className={styles.tagline}>
           Discover unique vintage finds & classic collectibles
