@@ -45,7 +45,6 @@ app.post("/send", async (req, res) => {
   const mailOptions = {
     from: `"Mom & Pop Shop Web Design" <${process.env.EMAIL_USER}>`, // Your verified Yahoo email
     to: process.env.EMAIL_TO, // Your inbox
-    replyTo: email, // Visitor's email here
     subject: formSubject,
     text: `Name: ${name}\nEmail: ${email}\nSubject: ${formSubject}\nMessage: ${message}\nDo Not Sell: ${doNotSell}\nAccepted Terms: ${acceptedTermsAndPrivacy}`,
     html: `
