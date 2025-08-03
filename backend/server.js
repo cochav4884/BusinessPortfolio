@@ -34,23 +34,18 @@ transporter.verify((error, success) => {
 app.post("/send", async (req, res) => {
   console.log("📥 Incoming /send request body:", req.body);
 
-  const {
-    name,
-    email,
-    subject,
-    message,
-    doNotSell,
-    acceptedTermsAndPrivacy,
-  } = req.body;
+  const { name, email, subject, message, doNotSell, acceptedTermsAndPrivacy } =
+    req.body;
 
-  const formSubject = subject === "technical" || subject === "general"
-    ? "General Inquiry"
-    : subject;
+  const formSubject =
+    subject === "technical" || subject === "general"
+      ? "General Inquiry"
+      : subject;
 
   const mailOptions = {
-    from: `"Corinne Padilla" <${process.env.EMAIL_USER}>`, // ✅ Must match EMAIL_USER
+    from: `"Corinne Padilla" <${process.env.EMAIL_USER}>`,
     to: process.env.EMAIL_TO,
-    replyTo: email, // ✅ So replies go to sender, but from matches Yahoo
+    replyTo: email,
     subject: formSubject,
     text: `
 Name: ${name}
@@ -67,12 +62,39 @@ Accepted Terms: ${acceptedTermsAndPrivacy}
       <p><strong>Message:</strong><br>${message}</p>
       <p><strong>Do Not Sell:</strong> ${doNotSell}</p>
       <p><strong>Accepted Terms:</strong> ${acceptedTermsAndPrivacy}</p>
-    `
+    `,
   };
 
   try {
+    // Send email to yourself
     await transporter.sendMail(mailOptions);
     console.log("✅ Email sent successfully");
+
+    // Send confirmation to user
+    const confirmationMailOptions = {
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: "We received your message!",
+      text: `
+Hi ${name},
+
+Thanks for reaching out to Mom Pop Shop Web Design!
+We've received your message and will get back to you shortly.
+
+Here's a copy of what you submitted:
+----------------------------------------
+Subject: ${formSubject}
+Message: ${message}
+
+Talk soon,  
+Corinne Padilla  
+Mom Pop Shop Web Design
+      `,
+    };
+
+    await transporter.sendMail(confirmationMailOptions);
+    console.log("✅ Confirmation email sent to user");
+
     res.status(200).json({ message: "✅ Message sent successfully" });
   } catch (err) {
     console.error("❌ Error sending email:", err);
@@ -85,11 +107,16 @@ Accepted Terms: ${acceptedTermsAndPrivacy}
 //
 app.post("/send-message", (req, res) => {
   if (process.env.NODE_ENV === "development") {
-    console.log("📨 [DEV] /send-message: Simulating local message send", req.body);
+    console.log(
+      "📨 [DEV] /send-message: Simulating local message send",
+      req.body
+    );
     return res.status(200).json({ message: "✅ Message sent (dev only)" });
   }
   console.log("📨 [PROD] /send-message (fake success):", req.body);
-  return res.status(200).json({ message: "✅ Message sent successfully (demo only)" });
+  return res
+    .status(200)
+    .json({ message: "✅ Message sent successfully (demo only)" });
 });
 
 app.post("/booking", (req, res) => {
@@ -98,16 +125,25 @@ app.post("/booking", (req, res) => {
     return res.status(200).json({ message: "✅ Booking sent (dev only)" });
   }
   console.log("📨 [PROD] /booking (fake success):", req.body);
-  return res.status(200).json({ message: "✅ Booking sent successfully (demo only)" });
+  return res
+    .status(200)
+    .json({ message: "✅ Booking sent successfully (demo only)" });
 });
 
 app.post("/api/service-booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
-    console.log("📨 [DEV] /api/service-booking: Simulating service booking", req.body);
-    return res.status(200).json({ message: "✅ Service booking sent (dev only)" });
+    console.log(
+      "📨 [DEV] /api/service-booking: Simulating service booking",
+      req.body
+    );
+    return res
+      .status(200)
+      .json({ message: "✅ Service booking sent (dev only)" });
   }
   console.log("📨 [PROD] /api/service-booking (fake success):", req.body);
-  return res.status(200).json({ message: "✅ Service booking sent successfully (demo only)" });
+  return res
+    .status(200)
+    .json({ message: "✅ Service booking sent successfully (demo only)" });
 });
 
 // 🌍 Start server
