@@ -41,130 +41,132 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
-    <Routes>
-      {/* ✅ Main Pages */}
-      <Route
-        path="/"
-        element={
-          <>
-            <NavBar />
-            <LandingPage />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/about"
-        element={
-          <>
-            <NavBar />
-            <About />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/services"
-        element={
-          <>
-            <NavBar />
-            <Services />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/contact"
-        element={
-          <>
-            <NavBar />
-            <Contact />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/termsofuse"
-        element={
-          <>
-            <NavBar />
-            <TermsOfUse />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/privacypolicy"
-        element={
-          <>
-            <NavBar />
-            <PrivacyPolicy />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/maintenance-and-updates"
-        element={
-          <>
-            <NavBar />
-            <MaintenanceAndUpdates />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/domain-and-hosting-setup"
-        element={
-          <>
-            <NavBar />
-            <DomainAndHostingSetup />
-            <Footer />
-          </>
-        }
-      />
-      <Route
-        path="/author"
-        element={
-          <>
-            <NavBar />
-            <Author />
-            <Footer />
-          </>
-        }
-      />
+    <div style={{ maxWidth: "100%", overflowX: "hidden" }}>
+      <Routes>
+        {/* ✅ Main Pages */}
+        <Route
+          path="/"
+          element={
+            <>
+              <NavBar />
+              <LandingPage />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            <>
+              <NavBar />
+              <About />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/services"
+          element={
+            <>
+              <NavBar />
+              <Services />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <NavBar />
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/termsofuse"
+          element={
+            <>
+              <NavBar />
+              <TermsOfUse />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/privacypolicy"
+          element={
+            <>
+              <NavBar />
+              <PrivacyPolicy />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/maintenance-and-updates"
+          element={
+            <>
+              <NavBar />
+              <MaintenanceAndUpdates />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/domain-and-hosting-setup"
+          element={
+            <>
+              <NavBar />
+              <DomainAndHostingSetup />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/author"
+          element={
+            <>
+              <NavBar />
+              <Author />
+              <Footer />
+            </>
+          }
+        />
 
-      {/* ✅ Demo Pages (no global NavBar/Footer) */}
-      <Route path="/single-page-website" element={<SinglePageWebsite />} />
-      <Route path="/multi-page-website" element={<MultiPageWebsite />} />
-      <Route path="/mpw-gallery-page" element={<MPWGalleryPage />} />
-      <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
-      <Route path="/mpw-contact-page" element={<MPWContactPage />} />
-      <Route path="/website-redesign" element={<WebsiteRedesign />} />
-      <Route path="/old-site-gallery" element={<OldSiteGallery />} />
-      <Route path="/old-site-about" element={<OldSiteAbout />} />
-      <Route path="old-site-contact" element={<OldSiteContact />} />
-      <Route path="/wr-new-about" element={<WRNewAbout />} />
-      <Route path="/wr-new-gallery" element={<WRNewGallery />} />
-      <Route path="/wr-new-service" element={<WRNewService />} />
-      <Route path="/wr-new-contact" element={<WRNewContact />} />
-      <Route
-        path="/contact-and-booking-forms"
-        element={<ContactAndBookingForms />}
-      />
-      <Route path="/simple-contact-form" element={<SimpleContactForm />} />
-      <Route path="/student-inquiry-form" element={<StudentInquiryForm />} />
-      <Route path="/hr-contact-form" element={<HRContactForm />} />
-      <Route path="/simple-booking-form" element={<SimpleBookingForm />} />
-      <Route
-        path="/ski-resort-cabin-booking-form"
-        element={<SkiResortCabinBookingForm />}
-      />
-      <Route
-        path="/dance-lessons-booking-form"
-        element={<DanceLessonsBookingForm />}
-      />
-    </Routes>
+        {/* ✅ Demo Pages (no global NavBar/Footer) */}
+        <Route path="/single-page-website" element={<SinglePageWebsite />} />
+        <Route path="/multi-page-website" element={<MultiPageWebsite />} />
+        <Route path="/mpw-gallery-page" element={<MPWGalleryPage />} />
+        <Route path="/mpw-booking-page" element={<MPWBookingPage />} />
+        <Route path="/mpw-contact-page" element={<MPWContactPage />} />
+        <Route path="/website-redesign" element={<WebsiteRedesign />} />
+        <Route path="/old-site-gallery" element={<OldSiteGallery />} />
+        <Route path="/old-site-about" element={<OldSiteAbout />} />
+        <Route path="old-site-contact" element={<OldSiteContact />} />
+        <Route path="/wr-new-about" element={<WRNewAbout />} />
+        <Route path="/wr-new-gallery" element={<WRNewGallery />} />
+        <Route path="/wr-new-service" element={<WRNewService />} />
+        <Route path="/wr-new-contact" element={<WRNewContact />} />
+        <Route
+          path="/contact-and-booking-forms"
+          element={<ContactAndBookingForms />}
+        />
+        <Route path="/simple-contact-form" element={<SimpleContactForm />} />
+        <Route path="/student-inquiry-form" element={<StudentInquiryForm />} />
+        <Route path="/hr-contact-form" element={<HRContactForm />} />
+        <Route path="/simple-booking-form" element={<SimpleBookingForm />} />
+        <Route
+          path="/ski-resort-cabin-booking-form"
+          element={<SkiResortCabinBookingForm />}
+        />
+        <Route
+          path="/dance-lessons-booking-form"
+          element={<DanceLessonsBookingForm />}
+        />
+      </Routes>
+    </div>
   );
 }
 

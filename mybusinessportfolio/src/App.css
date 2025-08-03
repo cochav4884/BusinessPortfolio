@@ -1,3 +1,19 @@
+/* Make layout mobile-safe by default */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Ensure images scale properly */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 .page-header {
   font-size: clamp(
     1.5rem,
