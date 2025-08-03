@@ -11,13 +11,14 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
+// ✅ Email transporter config (Yahoo SMTP)
 const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT),
-  secure: true,
+  host: process.env.EMAIL_HOST,
+  port: Number(process.env.EMAIL_PORT),
+  secure: process.env.EMAIL_SECURE === "true",
   auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -47,8 +48,9 @@ app.post("/send", async (req, res) => {
     : subject;
 
   const mailOptions = {
-    from: `"${name}" <${email}>`,
-    to: process.env.RECEIVER_EMAIL,
+    from: `"Corinne Padilla" <${process.env.EMAIL_USER}>`, // ✅ Must match EMAIL_USER
+    to: process.env.EMAIL_TO,
+    replyTo: email, // ✅ So replies go to sender, but from matches Yahoo
     subject: formSubject,
     text: `
 Name: ${name}
@@ -58,6 +60,14 @@ Message: ${message}
 Do Not Sell: ${doNotSell}
 Accepted Terms: ${acceptedTermsAndPrivacy}
     `,
+    html: `
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>Email:</strong> ${email}</p>
+      <p><strong>Subject:</strong> ${formSubject}</p>
+      <p><strong>Message:</strong><br>${message}</p>
+      <p><strong>Do Not Sell:</strong> ${doNotSell}</p>
+      <p><strong>Accepted Terms:</strong> ${acceptedTermsAndPrivacy}</p>
+    `
   };
 
   try {
@@ -73,8 +83,6 @@ Accepted Terms: ${acceptedTermsAndPrivacy}
 //
 // 🔧 DEMO-ONLY ROUTES
 //
-
-// ✅ 1) /send-message (Only works locally)
 app.post("/send-message", (req, res) => {
   if (process.env.NODE_ENV === "development") {
     console.log("📨 [DEV] /send-message: Simulating local message send", req.body);
@@ -84,7 +92,6 @@ app.post("/send-message", (req, res) => {
   return res.status(200).json({ message: "✅ Message sent successfully (demo only)" });
 });
 
-// ✅ 2) /booking (Only works locally)
 app.post("/booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
     console.log("📨 [DEV] /booking: Simulating booking message send", req.body);
@@ -94,7 +101,6 @@ app.post("/booking", (req, res) => {
   return res.status(200).json({ message: "✅ Booking sent successfully (demo only)" });
 });
 
-// ✅ 3) /api/service-booking (Only works locally)
 app.post("/api/service-booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
     console.log("📨 [DEV] /api/service-booking: Simulating service booking", req.body);
