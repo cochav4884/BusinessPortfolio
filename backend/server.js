@@ -5,6 +5,12 @@ const nodemailer = require("nodemailer");
 
 dotenv.config();
 
+// Debug: log critical env vars
+console.log("HOST:", process.env.EMAIL_HOST);
+console.log("USER:", process.env.EMAIL_USER);
+console.log("PASS:", process.env.EMAIL_PASS ? "***MASKED***" : "❌ MISSING");
+console.log("TO:", process.env.EMAIL_TO);
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
