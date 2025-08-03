@@ -11,10 +11,10 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// ✅ Email transporter config (Yahoo SMTP)
+// ✅ Email transporter config (Zoho SMTP)
 const transporter = nodemailer.createTransport({
   host: process.env.EMAIL_HOST,
-  port: Number(process.env.EMAIL_PORT),
+  port: parseInt(process.env.EMAIL_PORT),
   secure: process.env.EMAIL_SECURE === "true",
   auth: {
     user: process.env.EMAIL_USER,
