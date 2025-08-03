@@ -178,12 +178,9 @@ export default function Author() {
                   leave of absence both times due to COVID-related challenges
                   and homelessness. I came off of being homeless on January 21,
                   2022. My vehicle shows more interior wear than it should, but
-                  we survived our third period of homelessness since the
-                  pandemic began.
-                </p>
-                <p className="born">
-                  My good friend Richie played a major role during this time. He
-                  helped me through some of the toughest moments.
+                  we had survived our third period of homelessness since the
+                  pandemic began. I am currently renting a room in hopes of
+                  eventually having my own place.
                 </p>
               </section>
 
@@ -211,11 +208,11 @@ export default function Author() {
                 </p>
                 <p className="born">
                   I have recently updated all code and am now waiting for more
-                  information from Richie to add to the final project. I want to
-                  learn more about where Richie lived, and together we hope all
-                  users of the website will learn as much as we did—and maybe
-                  even choose to visit. I plan to publish this project by the
-                  end of 2025.
+                  information from my good friend Richie to add to the final
+                  project. I want to learn more about where Richie lives, and
+                  together we hope all users of the website will learn as much
+                  as we did—and maybe even choose to visit. I plan to publish
+                  this project by the end of 2025.
                 </p>
                 <p className="born">
                   I look forward to continuing to expand my skills and projects
@@ -241,26 +238,8 @@ export default function Author() {
                 </p>
               </section>
 
-              <section className={styles.bioSection}>
-                <h2>My Future</h2>
-                <p className="born">
-                  I’ve built this Business Portfolio Website to showcase my
-                  skills to potential clients and employers. I plan to update
-                  all the code from my past four years of projects and link them
-                  to this site. I’ll also include short videos explaining how to
-                  use each one. My goal is to build a successful career in web
-                  design and development.
-                </p>
-                <p className="born">
-                  Eventually, I hope to purchase land where I can place a
-                  modular home for myself and my grandchild. I know the road
-                  ahead won’t be easy—but I’m ready to take one successful step
-                  at a time toward our beautiful future!
-                </p>
-              </section>
-
               <p className="text-center fs-4 mt-4">
-                *Last Update July 12, 2025*
+                * Last Update August 2, 2025 *
               </p>
             </article>
           </div>
