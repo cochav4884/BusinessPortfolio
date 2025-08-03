@@ -16,13 +16,13 @@ function Contact() {
 
   const backendUrl = process.env.REACT_APP_BACKEND_URL;
   console.log("Backend URL is:", process.env.REACT_APP_BACKEND_URL);
-  // Place the useEffect here — runs once when component mounts
+
   useEffect(() => {
     console.log("Backend URL is:", backendUrl);
   }, [backendUrl]);
 
   const handleChange = (e) => {
-    setStatus(""); // Clear any existing status message on new input
+    setStatus(""); // Clear status on new input
 
     const { name, type, checked, value } = e.target;
     setFormData((prev) => ({
@@ -59,7 +59,6 @@ function Contact() {
       return;
     }
 
-    // Prepare payload without consentChoice since backend doesn't expect it
     const payload = {
       name: formData.name,
       email: formData.email,
@@ -89,12 +88,18 @@ function Contact() {
           consentChoice: "",
           acceptedTermsAndPrivacy: false,
         });
+      } else if (response.status === 500) {
+        setStatus(
+          "Server error occurred. Try clearing your browser cache and refresh the page, then try again."
+        );
       } else {
         setStatus(data.message || "Failed to send message. Please try again.");
       }
     } catch (error) {
       console.error("Error:", error);
-      setStatus("An error occurred. Please try again.");
+      setStatus(
+        "An unexpected error occurred. Try clearing your browser cache and refresh the page, then try again."
+      );
     }
   };
 
@@ -151,7 +156,6 @@ function Contact() {
                 required
               />
 
-              {/* Consent Radio Buttons */}
               <div className="radio-container">
                 <p className="radio-label">
                   Please select your data processing preference:
@@ -195,7 +199,6 @@ function Contact() {
                 </label>
               </div>
 
-              {/* Do Not Sell */}
               <div className="checkbox-container">
                 <label className="checkbox-label" htmlFor="doNotSell">
                   <input
@@ -210,7 +213,6 @@ function Contact() {
                 </label>
               </div>
 
-              {/* Terms and Privacy */}
               <div className="checkbox-container">
                 <label
                   className="checkbox-label"
