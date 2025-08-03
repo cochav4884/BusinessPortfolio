@@ -1,7 +1,7 @@
-const express = require('express');
-const nodemailer = require('nodemailer');
-const dotenv = require('dotenv');
-const cors = require('cors');
+const express = require("express");
+const cors = require("cors");
+const dotenv = require("dotenv");
+const nodemailer = require("nodemailer");
 
 dotenv.config();
 
@@ -11,27 +11,28 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// Yahoo Mail transporter setup
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: parseInt(process.env.EMAIL_PORT, 10),
-  secure: process.env.EMAIL_SECURE === 'true',
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT),
+  secure: true,
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
   },
 });
 
-transporter.verify((err, success) => {
-  if (err) {
-    console.error('❌ Email transporter error:', err);
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("❌ Email transporter failed to initialize:", error);
   } else {
-    console.log('✅ Email transporter is ready to send messages');
+    console.log("✅ Email transporter is ready to send messages");
   }
 });
 
-// Real contact form: /send
-app.post('/send', async (req, res) => {
+// 📤 Main /send route
+app.post("/send", async (req, res) => {
+  console.log("📥 Incoming /send request body:", req.body);
+
   const {
     name,
     email,
@@ -41,89 +42,69 @@ app.post('/send', async (req, res) => {
     acceptedTermsAndPrivacy,
   } = req.body;
 
-  console.log('📥 Received contact form:', req.body);
+  const formSubject = subject === "technical" || subject === "general"
+    ? "General Inquiry"
+    : subject;
 
-  if (
-    !name ||
-    !email ||
-    !subject ||
-    !message ||
-    acceptedTermsAndPrivacy !== true
-  ) {
-    return res.status(400).json({
-      message: 'Missing or invalid required fields.',
-    });
-  }
-
-  const doNotSellNote = doNotSell
-    ? '\n\n⚠️ The user checked "Do Not Sell".'
-    : '';
-
-  const toYouMail = {
+  const mailOptions = {
     from: `"${name}" <${email}>`,
-    to: process.env.EMAIL_TO || process.env.EMAIL_USER,
-    subject: `Website Contact Form: ${subject}`,
-    text: `New message from your website:\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}${doNotSellNote}`,
-  };
-
-  const toUserMail = {
-    from: `"Mom Pop Shop Web Design" <${process.env.EMAIL_USER}>`,
-    to: email,
-    subject: `We received your message: ${subject}`,
-    text: `Hi ${name},\n\nThanks for contacting Mom Pop Shop Web Design! Here's a copy of your message:\n\n"${message}"\n\nWe'll get back to you as soon as possible.\n\n- Mom Pop Shop Web Design`,
+    to: process.env.RECEIVER_EMAIL,
+    subject: formSubject,
+    text: `
+Name: ${name}
+Email: ${email}
+Subject: ${formSubject}
+Message: ${message}
+Do Not Sell: ${doNotSell}
+Accepted Terms: ${acceptedTermsAndPrivacy}
+    `,
   };
 
   try {
-    await transporter.sendMail(toYouMail);
-    await transporter.sendMail(toUserMail);
-
-    return res.status(200).json({
-      message: 'Message sent successfully.',
-    });
-  } catch (error) {
-    console.error('❌ Email sending failed:', error);
-    return res.status(500).json({
-      message: 'Something went wrong while sending your message.',
-    });
+    await transporter.sendMail(mailOptions);
+    console.log("✅ Email sent successfully");
+    res.status(200).json({ message: "✅ Message sent successfully" });
+  } catch (err) {
+    console.error("❌ Error sending email:", err);
+    res.status(500).json({ message: "❌ Failed to send message" });
   }
 });
 
-// Demo route: /send-message
+//
+// 🔧 DEMO-ONLY ROUTES
+//
+
+// ✅ 1) /send-message (Only works locally)
 app.post("/send-message", (req, res) => {
   if (process.env.NODE_ENV === "development") {
-    console.log('🛠️ [DEV] /send-message called with:', req.body);
+    console.log("📨 [DEV] /send-message: Simulating local message send", req.body);
     return res.status(200).json({ message: "✅ Message sent (dev only)" });
   }
-  console.log('🛠️ [PROD DEMO] /send-message called - no real email sent');
-  return res
-    .status(200)
-    .json({ message: "✅ Message sent successfully (demo mode)" });
+  console.log("📨 [PROD] /send-message (fake success):", req.body);
+  return res.status(200).json({ message: "✅ Message sent successfully (demo only)" });
 });
 
-// Demo route: /booking
+// ✅ 2) /booking (Only works locally)
 app.post("/booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
-    console.log('🛠️ [DEV] /booking called with:', req.body);
+    console.log("📨 [DEV] /booking: Simulating booking message send", req.body);
     return res.status(200).json({ message: "✅ Booking sent (dev only)" });
   }
-  console.log('🛠️ [PROD DEMO] /booking called - no real email sent');
-  return res
-    .status(200)
-    .json({ message: "✅ Booking sent successfully (demo mode)" });
+  console.log("📨 [PROD] /booking (fake success):", req.body);
+  return res.status(200).json({ message: "✅ Booking sent successfully (demo only)" });
 });
 
-// Demo route: /api/service-booking
+// ✅ 3) /api/service-booking (Only works locally)
 app.post("/api/service-booking", (req, res) => {
   if (process.env.NODE_ENV === "development") {
-    console.log('🛠️ [DEV] /api/service-booking called with:', req.body);
+    console.log("📨 [DEV] /api/service-booking: Simulating service booking", req.body);
     return res.status(200).json({ message: "✅ Service booking sent (dev only)" });
   }
-  console.log('🛠️ [PROD DEMO] /api/service-booking called - no real email sent');
-  return res
-    .status(200)
-    .json({ message: "✅ Service booking sent successfully (demo mode)" });
+  console.log("📨 [PROD] /api/service-booking (fake success):", req.body);
+  return res.status(200).json({ message: "✅ Service booking sent successfully (demo only)" });
 });
 
+// 🌍 Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
 });
