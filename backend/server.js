@@ -43,26 +43,19 @@ app.post("/send", async (req, res) => {
       : subject;
 
   const mailOptions = {
-    from: `"Mom Pop Shop Web Design" <${process.env.EMAIL_USER}>`,
-    to: process.env.EMAIL_TO,
-    replyTo: `${name} <${email}>`,
+    from: `"Mom & Pop Shop Web Design" <${process.env.EMAIL_USER}>`, // Your verified Yahoo email
+    to: process.env.EMAIL_TO, // Your inbox
+    replyTo: email, // Visitor's email here
     subject: formSubject,
-    text: `
-Name: ${name}
-Email: ${email}
-Subject: ${formSubject}
-Message: ${message}
-Do Not Sell: ${doNotSell}
-Accepted Terms: ${acceptedTermsAndPrivacy}
-    `,
+    text: `Name: ${name}\nEmail: ${email}\nSubject: ${formSubject}\nMessage: ${message}\nDo Not Sell: ${doNotSell}\nAccepted Terms: ${acceptedTermsAndPrivacy}`,
     html: `
-      <p><strong>Name:</strong> ${name}</p>
-      <p><strong>Email:</strong> ${email}</p>
-      <p><strong>Subject:</strong> ${formSubject}</p>
-      <p><strong>Message:</strong><br>${message}</p>
-      <p><strong>Do Not Sell:</strong> ${doNotSell}</p>
-      <p><strong>Accepted Terms:</strong> ${acceptedTermsAndPrivacy}</p>
-    `,
+    <p><strong>Name:</strong> ${name}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Subject:</strong> ${formSubject}</p>
+    <p><strong>Message:</strong><br>${message}</p>
+    <p><strong>Do Not Sell:</strong> ${doNotSell}</p>
+    <p><strong>Accepted Terms:</strong> ${acceptedTermsAndPrivacy}</p>
+  `,
   };
 
   try {
