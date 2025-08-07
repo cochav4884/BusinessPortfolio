@@ -17,16 +17,15 @@ const PORT = process.env.PORT || 8080;
 app.use(cors());
 app.use(express.json());
 
-// ✅ Email transporter config (Zoho SMTP)
+// ✅ Email transporter config (Gmail SMTP)
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST,
-  port: parseInt(process.env.EMAIL_PORT),
-  secure: process.env.EMAIL_SECURE === "true",
+  service: "gmail", // <--- NEW: Tells Nodemailer to use Gmail settings
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
+
 
 transporter.verify((error, success) => {
   if (error) {
