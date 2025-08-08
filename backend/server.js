@@ -145,6 +145,10 @@ app.post("/api/service-booking", (req, res) => {
     .json({ message: "✅ Service booking sent successfully (demo only)" });
 });
 
+app.get("/health", (req, res) => {
+  res.status(200).send("OK");
+});
+
 // 🌍 Start server
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
