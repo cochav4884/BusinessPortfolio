@@ -18,21 +18,24 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Email transporter config (Gmail SMTP)
+const nodemailer = require("nodemailer");
+
 const transporter = nodemailer.createTransport({
-  host: process.env.EMAIL_HOST, // smtp.gmail.com
-  port: parseInt(process.env.EMAIL_PORT), // 465
-  secure: process.env.EMAIL_SECURE === "true", // true
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true, // Use SSL
   auth: {
     user: process.env.EMAIL_USER,
     pass: process.env.EMAIL_PASS,
   },
 });
 
-transporter.verify((error, success) => {
+// Verify SMTP connection configuration
+transporter.verify(function (error, success) {
   if (error) {
-    console.error("❌ Email transporter failed to initialize:", error);
+    console.error("SMTP verification failed:", error);
   } else {
-    console.log("✅ Email transporter is ready to send messages");
+    console.log("SMTP server is ready to take our messages");
   }
 });
 
