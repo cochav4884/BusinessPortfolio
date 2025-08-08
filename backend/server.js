@@ -18,8 +18,6 @@ app.use(cors());
 app.use(express.json());
 
 // ✅ Email transporter config (Gmail SMTP)
-const nodemailer = require("nodemailer");
-
 const transporter = nodemailer.createTransport({
   host: "smtp.gmail.com",
   port: 465,
